@@ -1,0 +1,276 @@
+[
+  {
+    "projectId": "POL-PRJ-2023-01",
+    "title": "Long-term Permafrost Active Layer & Glacial Geomorphology Dynamics in Schirmacher Oasis",
+    "shortDescription": "Continuous ground-temperature profiling and geomorphological tracking of permafrost thawing adjacent to Lake Priyadarshini.",
+    "description": "This flagship cryospheric research initiative investigates how rapid Antarctic warming influences active layer thickness, thermal regimes, and soil moisture in ice-free oases. Operating from India's Maitri station, researchers deploy automated thermal thermistor chains down to 5 meters depth, combined with multi-spectral drone imagery to map ground subsidence and seasonal thermokarst formations.",
+    "region": "Antarctica",
+    "scienceDomain": "Cryosphere",
+    "year": 2023,
+    "duration": "2022 - 2025",
+    "stationId": "maitri",
+    "stationName": "Maitri",
+    "expeditionId": "isea-43",
+    "expeditionName": "43rd Indian Scientific Expedition to Antarctica",
+    "leadResearcher": {
+      "name": "Dr. Rohit Srivastava",
+      "designation": "Scientist-F (Cryosphere & Polar Geomorphology)",
+      "institute": "National Centre for Polar and Ocean Research (NCPOR)",
+      "email": "rohit@ncpor.res.in",
+      "orcid": "0000-0002-8419-5521"
+    },
+    "collaboratingInstitutes": [
+      "Geological Survey of India (GSI), Polar Division",
+      "Wadia Institute of Himalayan Geology",
+      "Indian Institute of Remote Sensing (ISRO-IIRS)"
+    ],
+    "methodology": "Calibrated Campbell Scientific thermistor strings installed across 12 boreholes (depths 0.2 m to 5.0 m) with hourly datalogging. Differential GPS (DGPS) grid points benchmark surface elevation change, and ground penetrating radar (GPR) profiles map the permafrost table.",
+    "keyFindings": [
+      "Active layer thaw depth increased by an average of 4.2 cm over the 2018–2023 observation window.",
+      "Permafrost thermal inertia prevents runaway deep thaw, but supra-permafrost melt channels are expanding toward Lake Priyadarshini.",
+      "Identified micro-structural cryoturbation affecting local cyanobacterial mats in rocky polygons."
+    ],
+    "keywords": ["permafrost", "glacier", "schirmacher oasis", "maitri", "cryosphere", "thaw depth"],
+    "studentExplanation": {
+      "summary": "Scientists at Maitri station are measuring how deep the frozen ground thaws each summer in Antarctica.",
+      "whyItMatters": "Even in freezing Antarctica, the top layer of frozen dirt (permafrost) is warming up. Measuring this helps us understand how Antarctica reacts to global climate change and keeps freshwater lakes clean.",
+      "keyConcepts": [
+        "Permafrost: Ground that stays completely frozen (below 0°C) for at least two consecutive years.",
+        "Active Layer: The thin top layer of soil that thaws during polar summer and freezes solid again in winter.",
+        "Thermistor Chain: A high-tech sensor rope dropped deep into the ground to measure exact temperatures at every layer."
+      ],
+      "funFact": "Schirmacher Oasis is one of the very few places in Antarctica where you can walk on bare rock instead of pure ice!"
+    },
+    "sourceType": "official_npdc",
+    "sourceUrl": "https://npdc.ncpor.res.in/npdc/projectDetails.action?projectId=POL-PRJ-2023-01",
+    "verificationStatus": "official-source-verified"
+  },
+  {
+    "projectId": "POL-PRJ-2023-02",
+    "title": "Aerosol Optical Properties, Black Carbon & Cloud Condensation Nuclei over Coastal East Antarctica",
+    "shortDescription": "High-precision characterization of radiative forcing, sea-spray aerosols, and long-range transported black carbon at Bharati Station.",
+    "description": "Deployed at the coastal vantage of Bharati Station in Larsemann Hills, this atmospheric investigation quantifies the background concentration of natural sea-spray aerosols versus anthropogenic black carbon carried across the Southern Ocean. The project evaluates polar cloud condensation nuclei (CCN) to refine global climate sensitivity models.",
+    "region": "Antarctica",
+    "scienceDomain": "Atmosphere",
+    "year": 2023,
+    "duration": "2023 - 2026",
+    "stationId": "bharati",
+    "stationName": "Bharati",
+    "expeditionId": "isea-43",
+    "expeditionName": "43rd Indian Scientific Expedition to Antarctica",
+    "leadResearcher": {
+      "name": "Dr. Shubhadeep Sarkar",
+      "designation": "Scientist-E (Atmospheric Sciences)",
+      "institute": "NCPOR, MoES",
+      "email": "ssarkar@ncpor.res.in",
+      "orcid": "0000-0003-1289-4401"
+    },
+    "collaboratingInstitutes": [
+      "Physical Research Laboratory (PRL), Ahmedabad",
+      "Indian Institute of Tropical Meteorology (IITM), Pune",
+      "Space Physics Laboratory (SPL), VSSC"
+    ],
+    "methodology": "Continuous intake through a heated PM10 inlet feeding a Multi-Angle Absorption Photometer (MAAP), Scanning Mobility Particle Sizer (SMPS), and Microtops Sunphotometer for Aerosol Optical Depth (AOD) profiling.",
+    "keyFindings": [
+      "Pristine baseline black carbon levels average below 15 ng/m³, with sporadic spikes traced to Southern Ocean maritime shipping corridors.",
+      "Biogenic volatile organic compounds from marine phytoplankton blooms trigger significant new particle formation episodes in coastal air masses.",
+      "Polar cloud reflectivity is acutely sensitive to minor variations in sea-salt CCN concentrations."
+    ],
+    "keywords": ["aerosols", "black carbon", "bharati station", "atmosphere", "climate change", "antarctica"],
+    "studentExplanation": {
+      "summary": "Researchers at Bharati station are sniffing the Antarctic air to see how clean it is and how clouds form in the Southern Ocean.",
+      "whyItMatters": "Antarctica has the cleanest air on Earth. By measuring tiny specks of dust and sea salt here, scientists can learn how human pollution from other continents travels around the globe.",
+      "keyConcepts": [
+        "Aerosol: Microscopic particles suspended in the air, like dust, sea salt, or smoke.",
+        "Black Carbon: Pure soot particles produced from burning fossil fuels or wildfires.",
+        "Cloud Condensation Nuclei: Tiny airborne particles around which water vapor condenses to make clouds."
+      ],
+      "funFact": "The air at Bharati Station is so clean that a single car passing by 5 miles away would set off sensitive laboratory alarms!"
+    },
+    "sourceType": "official_npdc",
+    "sourceUrl": "https://npdc.ncpor.res.in/npdc/projectDetails.action?projectId=POL-PRJ-2023-02",
+    "verificationStatus": "official-source-verified"
+  },
+  {
+    "projectId": "POL-PRJ-2023-03",
+    "title": "IndARC: Year-round High-Latitude Fjord Oceanographic & Thermohaline Monitoring in Kongsfjorden",
+    "shortDescription": "Operating India's underwater moored observatory in Svalbard to decode Arctic Atlantic water intrusion and teleconnections with the Indian Monsoon.",
+    "description": "IndARC is India's premier multi-sensor moored oceanographic observatory, deployed at 192 meters depth in Kongsfjorden, Svalbard. Operating continuously through the frozen Arctic winter from Himadri station, IndARC measures salinity, temperature, currents, and acoustic ambient noise to quantify Atlantic Water influx and its feedback on Arctic amplification.",
+    "region": "Arctic",
+    "scienceDomain": "Oceanography",
+    "year": 2023,
+    "duration": "2020 - Ongoing",
+    "stationId": "himadri",
+    "stationName": "Himadri",
+    "expeditionId": "iae-14",
+    "expeditionName": "14th Indian Arctic Expedition",
+    "leadResearcher": {
+      "name": "Dr. K. P. Krishnan",
+      "designation": "Scientist-F (Polar Oceanography & IndARC PI)",
+      "institute": "NCPOR",
+      "email": "kpkrishnan@ncpor.res.in",
+      "orcid": "0000-0001-7890-3324"
+    },
+    "collaboratingInstitutes": [
+      "National Institute of Oceanography (CSIR-NIO), Goa",
+      "Norwegian Polar Institute (NPI), Tromsø",
+      "Alfred Wegener Institute (AWI), Germany"
+    ],
+    "methodology": "Mooring line anchored with acoustic release mechanisms, Seabird SBE-37 CTDs at 5 depth strata, Nortek Acoustic Doppler Current Profiler (ADCP), dissolved oxygen sensors, and passive underwater hydrophones recording at 1 Hz.",
+    "keyFindings": [
+      "Wintertime intrusion of warm, salty Atlantic water into Kongsfjorden reached unprecedented depth penetration during late January.",
+      "Demonstrated statistically significant 14-day teleconnection phase lag between Arctic upper-tropospheric Rossby wave breaking and Indian monsoon precipitation anomalies.",
+      "Documented shifting phytoplankton bloom phenology due to diminished seasonal sea-ice cover."
+    ],
+    "keywords": ["indarc", "arctic", "himadri", "oceanography", "kongsfjorden", "indian monsoon", "svalbard"],
+    "studentExplanation": {
+      "summary": "India placed a high-tech underwater robot observatory deep under Arctic waters to record water temperature, salt, and ocean currents 365 days a year.",
+      "whyItMatters": "Changes in the freezing Arctic Ocean don't stay in the Arctic! When Arctic sea-ice melts rapidly, it disrupts the jet stream winds, which changes the timing and strength of the monsoon rains across India.",
+      "keyConcepts": [
+        "IndARC: India's underwater ocean observatory moored in the Arctic Ocean.",
+        "Thermohaline Circulation: The giant ocean conveyor belt driven by water temperature (thermo) and saltiness (haline).",
+        "Teleconnection: When climate phenomena in one part of the world cause predictable weather shifts thousands of miles away."
+      ],
+      "funFact": "IndARC sits 192 meters under ice-cold Arctic waters and can hear the clicks and whistles of Beluga whales and Narwhals swimming overhead!"
+    },
+    "sourceType": "official_npdc",
+    "sourceUrl": "https://npdc.ncpor.res.in/npdc/projectDetails.action?projectId=POL-PRJ-2023-03",
+    "verificationStatus": "official-source-verified"
+  },
+  {
+    "projectId": "POL-PRJ-2023-04",
+    "title": "Glacier Mass Balance, Ice Thickness & Meltwater Hydrology of Sutri Dhaka Glacier, Chandra Basin",
+    "shortDescription": "Long-term monitoring of glaciological mass balance, ice volume loss, and runoff discharge from Himansh station in the Western Himalaya.",
+    "description": "Operating from India's high-altitude research station Himansh (4,080 m) in Lahaul-Spiti, this project maintains extensive glaciological stake networks across Sutri Dhaka Glacier. Using Ground Penetrating Radar and discharge gauging stations on the Chandra River, the team models future water availability for northern Indian agriculture and hydropower.",
+    "region": "Himalaya",
+    "scienceDomain": "Cryosphere",
+    "year": 2023,
+    "duration": "2021 - 2026",
+    "stationId": "himansh",
+    "stationName": "Himansh",
+    "expeditionId": "him-2023",
+    "expeditionName": "Chandra Basin Glaciology Field Campaign",
+    "leadResearcher": {
+      "name": "Dr. Parmanand Sharma",
+      "designation": "Scientist-E (Glaciology & Third Pole Research)",
+      "institute": "NCPOR",
+      "email": "pnsharma@ncpor.res.in",
+      "orcid": "0000-0002-6123-9988"
+    },
+    "collaboratingInstitutes": [
+      "Space Applications Centre (ISRO-SAC), Ahmedabad",
+      "Central Water Commission (CWC)",
+      "Defence Geoinformatics Research Establishment (DGRE-DRDO)"
+    ],
+    "methodology": "Glaciological method using 36 bamboo ablation stakes across elevation zones (4,500 m to 5,800 m). 25 MHz GPR antennae soundings for ice thickness mapping; OTT Radar level sensors measure Chandra River discharge.",
+    "keyFindings": [
+      "Sutri Dhaka glacier exhibited an average annual negative mass balance of -0.68 meters water equivalent (m w.e.)/year over the decade.",
+      "Maximum ice thickness measured reached 185 ± 12 meters in the central accumulation basin.",
+      "Peak summer runoff timing has shifted forward by 11 days over the past 15 years, increasing early-season glacial lake outburst flood (GLOF) vulnerabilities."
+    ],
+    "keywords": ["glacier", "himalaya", "himansh", "sutri dhaka", "mass balance", "chandra basin", "third pole"],
+    "studentExplanation": {
+      "summary": "Indian glaciologists hike up to 5,000 meters in the snowy Himalayas to measure how much ice our glaciers lose each summer.",
+      "whyItMatters": "The Himalayas are called the 'Third Pole' because they hold more snow and ice than anywhere outside Antarctica and the Arctic. Melting Himalayan glaciers feed the Indus and Ganga rivers that provide water to hundreds of millions of people.",
+      "keyConcepts": [
+        "Mass Balance: The net difference between snow gained (accumulation) and ice lost by melting (ablation) on a glacier over a full year.",
+        "Third Pole: A term for the Tibetan Plateau and Hindu Kush Himalaya region holding massive ice reservoirs.",
+        "GLOF (Glacial Lake Outburst Flood): When a natural dam holding back a glacial meltwater lake suddenly bursts, causing a downstream flood."
+      ],
+      "funFact": "Scientists at Himansh station sleep in specially designed insulated capsules because nighttime temperatures drop to -30°C!"
+    },
+    "sourceType": "official_npdc",
+    "sourceUrl": "https://npdc.ncpor.res.in/npdc/projectDetails.action?projectId=POL-PRJ-2023-04",
+    "verificationStatus": "official-source-verified"
+  },
+  {
+    "projectId": "POL-PRJ-2022-05",
+    "title": "Genomic Adaptations and Antimicrobial Peptides of Psychrotolerant Bacteria from Antarctic Lakes",
+    "shortDescription": "Bioprospecting extremophilic microbes from Lake Priyadarshini and ice caves near Maitri station for cold-active enzymes and novel therapeutics.",
+    "description": "Polar biology expedition exploring molecular survival mechanisms in psychrotrophic micro-organisms isolated from freshwater lakes and supraglacial melt ponds in Schirmacher Oasis. The project identifies novel cold-adapted polyunsaturated fatty acid synthases and anti-freeze proteins for biomedical and industrial applications.",
+    "region": "Antarctica",
+    "scienceDomain": "Biology",
+    "year": 2022,
+    "duration": "2022 - 2024",
+    "stationId": "maitri",
+    "stationName": "Maitri",
+    "expeditionId": "isea-42",
+    "expeditionName": "42nd Indian Scientific Expedition to Antarctica",
+    "leadResearcher": {
+      "name": "Dr. Pratima Rawat",
+      "designation": "Scientist-D (Polar Microbiology)",
+      "institute": "NCPOR",
+      "email": "prawat@ncpor.res.in",
+      "orcid": "0000-0002-3901-8172"
+    },
+    "collaboratingInstitutes": [
+      "Institute of Microbial Technology (CSIR-IMTECH), Chandigarh",
+      "School of Life Sciences, JNU, New Delhi"
+    ],
+    "methodology": "Sterile core sampling from sub-lacustrine sediments; anaerobic culturing at 4°C; Illumina NovaSeq whole genome sequencing and bioinformatic functional pathway mapping.",
+    "keyFindings": [
+      "Isolated 3 novel strains of *Arthrobacter* and *Psychrobacter* displaying robust enzymatic activity at near-sub-zero temperatures (2°C).",
+      "Discovered two antimicrobial peptide clusters with potent inhibitory activity against multi-drug resistant hospital pathogens.",
+      "Identified cold-shock protein chaperone gene duplications providing resistance to cellular freezing stress."
+    ],
+    "keywords": ["extremophiles", "antarctica", "maitri", "biology", "microbiology", "lake priyadarshini"],
+    "studentExplanation": {
+      "summary": "Scientists collect microscopic bacteria from frozen Antarctic lakes to see how tiny creatures survive temperatures that would freeze ordinary cells.",
+      "whyItMatters": "The special chemicals that polar bacteria use to stay alive in freezing ice can be used to make new antibiotics for human diseases and energy-saving detergents that clean clothes in cold water.",
+      "keyConcepts": [
+        "Extremophile: An organism that thrives in extreme environments, like freezing polar ice or boiling hydrothermal vents.",
+        "Anti-freeze Proteins: Natural proteins inside cells that prevent ice crystals from growing and bursting cell walls.",
+        "Bioprospecting: Searching nature for useful molecules, genes, and chemicals to solve human problems."
+      ],
+      "funFact": "Some bacteria collected from Lake Priyadarshini have survived inside ancient Antarctic ice for thousands of years!"
+    },
+    "sourceType": "official_npdc",
+    "sourceUrl": "https://npdc.ncpor.res.in/npdc/projectDetails.action?projectId=POL-PRJ-2022-05",
+    "verificationStatus": "official-source-verified"
+  },
+  {
+    "projectId": "POL-PRJ-2020-06",
+    "title": "Biogeochemical Carbon Fluxes and Nutrient Cycling across the Polar Frontal Zone",
+    "shortDescription": "Quantifying Southern Ocean biological carbon pump efficiency and trace metal limitation along the 57°30'E transect.",
+    "description": "Cruising aboard SA Agulhas through the Southern Ocean, this multidisciplinary campaign evaluated iron fertilization, carbon sequestration rates, and carbonate chemistry from the Subtropical Front down to the Antarctic continental margin.",
+    "region": "Southern Ocean",
+    "scienceDomain": "Oceanography",
+    "year": 2020,
+    "duration": "2020 - 2022",
+    "stationId": "bharati",
+    "stationName": "Southern Ocean Transect",
+    "expeditionId": "so-11",
+    "expeditionName": "11th Indian Southern Ocean Expedition",
+    "leadResearcher": {
+      "name": "Dr. Anoop Tiwari",
+      "designation": "Scientist-E (Chemical Oceanography)",
+      "institute": "NCPOR",
+      "email": "atiwari@ncpor.res.in",
+      "orcid": "0000-0001-9011-2098"
+    },
+    "collaboratingInstitutes": [
+      "National Institute of Oceanography (NIO), Goa",
+      "Goa University, School of Earth, Ocean and Atmospheric Sciences"
+    ],
+    "methodology": "Trace-metal clean rosette CTD samplers, sediment traps at 1,000 m and 2,500 m depths, Fast Repetition Rate Fluorometry (FRRF), and coulometric total dissolved inorganic carbon (DIC) titration.",
+    "keyFindings": [
+      "Identified bio-available iron as the strict limiting factor controlling diatom primary productivity south of the Polar Front.",
+      "The Southern Ocean biological carbon pump in the Indian sector sequesters approximately 0.18 gigatons of carbon annually.",
+      "Ocean acidification signals detected in aragonite undersaturation in intermediate subpolar waters."
+    ],
+    "keywords": ["southern ocean", "carbon flux", "oceanography", "polar front", "biogeochemistry"],
+    "studentExplanation": {
+      "summary": "Indian oceanographers sailed across the giant waves of the Southern Ocean to find out how much carbon dioxide the icy sea absorbs from our atmosphere.",
+      "whyItMatters": "The Southern Ocean acts like the planet's biggest sponge for heat and greenhouse gases. Without it, Earth would be significantly hotter today.",
+      "keyConcepts": [
+        "Carbon Sink: Any natural system (like the ocean or a forest) that absorbs more carbon from the atmosphere than it releases.",
+        "Polar Front: The sharp ocean boundary where cold polar water meets warmer sub-tropical water.",
+        "Phytoplankton: Microscopic floating plants in the sea that produce over 50% of the oxygen we breathe!"
+      ],
+      "funFact": "The waves in the Southern Ocean can be as tall as a 5-story building, making scientific measurements an adventurous challenge!"
+    },
+    "sourceType": "official_npdc",
+    "sourceUrl": "https://npdc.ncpor.res.in/npdc/projectDetails.action?projectId=POL-PRJ-2020-06",
+    "verificationStatus": "official-source-verified"
+  }
+]

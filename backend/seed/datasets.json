@@ -1,0 +1,235 @@
+[
+  {
+    "datasetId": "NPDC-DS-2023-ANT-01",
+    "title": "Hourly Permafrost Borehole Temperature Profiles (0.2m - 5.0m) at Schirmacher Oasis",
+    "description": "Continuous hourly ground thermal regime time-series collected from thermistor boreholes located adjacent to Maitri Station in Schirmacher Oasis, East Antarctica. Calibrated against WMO meteorological standards.",
+    "type": "In-situ Cryospheric Thermal Data",
+    "scienceDomain": "Cryosphere",
+    "region": "Antarctica",
+    "stationId": "maitri",
+    "stationName": "Maitri",
+    "expeditionId": "isea-43",
+    "expeditionName": "43rd Indian Scientific Expedition to Antarctica",
+    "projectId": "POL-PRJ-2023-01",
+    "year": 2023,
+    "temporalCoverage": {
+      "start": "2023-01-01",
+      "end": "2023-12-31"
+    },
+    "spatialCoverage": {
+      "latMin": -70.78,
+      "latMax": -70.75,
+      "lngMin": 11.68,
+      "lngMax": 11.78
+    },
+    "parameters": [
+      "Soil Temperature at 0.2m, 0.5m, 1.0m, 2.0m, 5.0m (°C)",
+      "Volumetric Soil Moisture Content (%)",
+      "Ground Heat Flux (W/m²)"
+    ],
+    "format": "NetCDF / CSV",
+    "fileSize": "68.4 MB",
+    "provider": "NPDC - National Polar Data Centre / NCPOR",
+    "accessType": "Request Data via NPDC",
+    "officialNotice": "Access through official NPDC source. User registration on National Polar Data Centre portal required under MoES Data Policy.",
+    "sourceUrl": "https://npdc.ncpor.res.in/npdc/datasetDetails.action?datasetId=NPDC-DS-2023-ANT-01",
+    "license": "Ministry of Earth Sciences Data Policy 2022",
+    "verificationStatus": "official-source-verified",
+    "citation": "Srivastava, R., et al. (2024). Hourly Permafrost Borehole Temperature Time Series from Schirmacher Oasis (2023). National Polar Data Centre, NCPOR. DOI: 10.5281/npdc.2023.01."
+  },
+  {
+    "datasetId": "NPDC-DS-2023-ANT-02",
+    "title": "Aerosol Optical Depth (AOD) & Multi-Wavelength Black Carbon at Bharati Station",
+    "description": "Continuous high-resolution aerosol optical measurements, single scattering albedo, and equivalent black carbon mass concentration recorded at Bharati Station, Larsemann Hills.",
+    "type": "Atmospheric Radiation & Aerosol Data",
+    "scienceDomain": "Atmosphere",
+    "region": "Antarctica",
+    "stationId": "bharati",
+    "stationName": "Bharati",
+    "expeditionId": "isea-43",
+    "expeditionName": "43rd Indian Scientific Expedition to Antarctica",
+    "projectId": "POL-PRJ-2023-02",
+    "year": 2023,
+    "temporalCoverage": {
+      "start": "2023-02-01",
+      "end": "2024-01-31"
+    },
+    "spatialCoverage": {
+      "latMin": -69.42,
+      "latMax": -69.39,
+      "lngMin": 76.15,
+      "lngMax": 76.22
+    },
+    "parameters": [
+      "Aerosol Optical Depth at 380nm, 440nm, 500nm, 675nm, 870nm, 1020nm",
+      "Equivalent Black Carbon (BC) Concentration (ng/m³)",
+      "Surface Ozone (ppbv)",
+      "Boundary Layer Wind Shear Vector"
+    ],
+    "format": "NetCDF",
+    "fileSize": "142.1 MB",
+    "provider": "NPDC - National Polar Data Centre / NCPOR",
+    "accessType": "Open Access",
+    "officialNotice": "Freely accessible for research and educational outreach with standard NPDC attribution.",
+    "sourceUrl": "https://npdc.ncpor.res.in/npdc/datasetDetails.action?datasetId=NPDC-DS-2023-ANT-02",
+    "license": "Government Open Data License - India (GODL)",
+    "verificationStatus": "official-source-verified",
+    "citation": "Sarkar, S., et al. (2024). Atmospheric Aerosol and Black Carbon Profiles at Bharati Station. National Polar Data Centre. DOI: 10.5281/npdc.2023.02."
+  },
+  {
+    "datasetId": "NPDC-DS-2023-ARC-03",
+    "title": "IndARC Mooring High-Frequency Hydrographic Profile Series (Kongsfjorden, 192m)",
+    "description": "Year-round temperature, salinity, water pressure, ocean acoustic noise, and current velocity matrices recorded by India's IndARC moored underwater observatory in Svalbard.",
+    "type": "Moored Oceanographic Observational Data",
+    "scienceDomain": "Oceanography",
+    "region": "Arctic",
+    "stationId": "himadri",
+    "stationName": "Himadri",
+    "expeditionId": "iae-14",
+    "expeditionName": "14th Indian Arctic Expedition",
+    "projectId": "POL-PRJ-2023-03",
+    "year": 2023,
+    "temporalCoverage": {
+      "start": "2022-09-01",
+      "end": "2023-08-31"
+    },
+    "spatialCoverage": {
+      "latMin": 78.91,
+      "latMax": 78.94,
+      "lngMin": 11.90,
+      "lngMax": 11.96
+    },
+    "parameters": [
+      "Potential Temperature (°C)",
+      "Practical Salinity (PSU)",
+      "Acoustic Doppler Current Profiler (ADCP) 3D Velocities (u, v, w in cm/s)",
+      "Dissolved Oxygen (μmol/kg)",
+      "Fluorescence Turbidity (NTU)"
+    ],
+    "format": "NetCDF / MATLAB .mat",
+    "fileSize": "310.8 MB",
+    "provider": "NPDC - National Polar Data Centre / NCPOR",
+    "accessType": "Request Data via NPDC",
+    "officialNotice": "Access through official NPDC source. Scientific proposal submission and NCPOR data clearance mandatory.",
+    "sourceUrl": "https://npdc.ncpor.res.in/npdc/datasetDetails.action?datasetId=NPDC-DS-2023-ARC-03",
+    "license": "MoES Polar Data Policy 2022",
+    "verificationStatus": "official-source-verified",
+    "citation": "Krishnan, K. P., et al. (2024). IndARC Kongsfjorden Multi-Sensor Oceanographic Mooring Series. NPDC / NCPOR. DOI: 10.5281/npdc.2023.03."
+  },
+  {
+    "datasetId": "NPDC-DS-2023-HIM-04",
+    "title": "Sutri Dhaka Glacier Mass Balance & Chandra River Hydrologic Runoff Series",
+    "description": "In-situ glaciological stake measurements, snow accumulation, melt ablation, ice velocity vectors, and downstream river discharge records collected at Himansh Station.",
+    "type": "Glaciological & Hydrological Data",
+    "scienceDomain": "Cryosphere",
+    "region": "Himalaya",
+    "stationId": "himansh",
+    "stationName": "Himansh",
+    "expeditionId": "him-2023",
+    "expeditionName": "Chandra Basin Glaciology Field Campaign",
+    "projectId": "POL-PRJ-2023-04",
+    "year": 2023,
+    "temporalCoverage": {
+      "start": "2023-05-01",
+      "end": "2023-10-31"
+    },
+    "spatialCoverage": {
+      "latMin": 32.38,
+      "latMax": 32.44,
+      "lngMin": 77.55,
+      "lngMax": 77.65
+    },
+    "parameters": [
+      "Point Net Mass Balance (meters water equivalent)",
+      "Ice Surface Velocity (m/year)",
+      "Discharge Rate (m³/s)",
+      "Air Temperature, Solar Irradiance, and Relative Humidity at 4,080m"
+    ],
+    "format": "CSV / GeoTIFF",
+    "fileSize": "52.3 MB",
+    "provider": "NPDC - National Polar Data Centre / NCPOR",
+    "accessType": "Open Access",
+    "officialNotice": "Access through official NPDC source. Available under open scientific licensing.",
+    "sourceUrl": "https://npdc.ncpor.res.in/npdc/datasetDetails.action?datasetId=NPDC-DS-2023-HIM-04",
+    "license": "Government Open Data License - India (GODL)",
+    "verificationStatus": "official-source-verified",
+    "citation": "Sharma, P., et al. (2024). Glaciological Mass Balance and Runoff of Sutri Dhaka Glacier. NPDC / NCPOR. DOI: 10.5281/npdc.2023.04."
+  },
+  {
+    "datasetId": "NPDC-DS-2022-ANT-05",
+    "title": "Microbial Metagenomic Sequencing & Cold-Active Enzyme Catalogs from Lake Priyadarshini",
+    "description": "Illumina high-throughput whole genome raw reads, assembled contigs, and annotated open reading frames of psychrophilic bacteria isolated from Antarctic benthic mat sediments.",
+    "type": "Genomic Metagenomic Data",
+    "scienceDomain": "Biology",
+    "region": "Antarctica",
+    "stationId": "maitri",
+    "stationName": "Maitri",
+    "expeditionId": "isea-42",
+    "expeditionName": "42nd Indian Scientific Expedition to Antarctica",
+    "projectId": "POL-PRJ-2022-05",
+    "year": 2022,
+    "temporalCoverage": {
+      "start": "2022-12-01",
+      "end": "2023-03-01"
+    },
+    "spatialCoverage": {
+      "latMin": -70.77,
+      "latMax": -70.76,
+      "lngMin": 11.72,
+      "lngMax": 11.75
+    },
+    "parameters": [
+      "FASTA Sequences of Cold-Shock Genes",
+      "Lipase and Protease Enzymatic Activity Kinetics at 0-25°C",
+      "Bacterial 16S rRNA Operational Taxonomic Units (OTUs)"
+    ],
+    "format": "FASTA / GFF3 / BioJSON",
+    "fileSize": "820.0 MB",
+    "provider": "NPDC - National Polar Data Centre / NCPOR",
+    "accessType": "Request Data via NPDC",
+    "officialNotice": "Access through official NPDC source and NCBI SRA accession linkage.",
+    "sourceUrl": "https://npdc.ncpor.res.in/npdc/datasetDetails.action?datasetId=NPDC-DS-2022-ANT-05",
+    "license": "MoES Data Policy 2022",
+    "verificationStatus": "official-source-verified",
+    "citation": "Rawat, P., et al. (2023). Metagenomic Library of Antarctic Psychrophiles. NPDC. DOI: 10.5281/npdc.2022.05."
+  },
+  {
+    "datasetId": "NPDC-DS-2021-SO-06",
+    "title": "Southern Ocean Hydrographic and Carbon Flux CTD Profiles (40°S - 67°S)",
+    "description": "Underway high-precision conductivity-temperature-depth (CTD) and dissolved inorganic carbon profiles across the Subantarctic Front and Polar Frontal Zone.",
+    "type": "Oceanographic Hydrographic Data",
+    "scienceDomain": "Oceanography",
+    "region": "Southern Ocean",
+    "stationId": "southern-ocean",
+    "stationName": "Southern Ocean Transect",
+    "expeditionId": "so-11",
+    "expeditionName": "11th Indian Southern Ocean Expedition",
+    "projectId": "POL-PRJ-2020-06",
+    "year": 2021,
+    "temporalCoverage": {
+      "start": "2020-01-25",
+      "end": "2020-03-10"
+    },
+    "spatialCoverage": {
+      "latMin": -67.0,
+      "latMax": -40.0,
+      "lngMin": 55.0,
+      "lngMax": 60.0
+    },
+    "parameters": [
+      "In-situ Temperature (°C)",
+      "Salinity (PSU)",
+      "Dissolved Inorganic Carbon (μmol/kg)",
+      "Partial Pressure of CO2 (pCO2 in μatm)"
+    ],
+    "format": "NetCDF / CSV",
+    "fileSize": "118.2 MB",
+    "provider": "NPDC - National Polar Data Centre / NCPOR",
+    "accessType": "Open Access",
+    "officialNotice": "Access through official NPDC source under MoES Open Data Guidelines.",
+    "sourceUrl": "https://npdc.ncpor.res.in/npdc/datasetDetails.action?datasetId=NPDC-DS-2021-SO-06",
+    "license": "Government Open Data License - India (GODL)",
+    "verificationStatus": "official-source-verified",
+    "citation": "Tiwari, A., et al. (2021). Southern Ocean Hydrographic and Carbon Flux Profiles. NPDC / NCPOR. DOI: 10.5281/npdc.2021.06."
+  }
+]

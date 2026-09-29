@@ -1,0 +1,22 @@
+{
+  "name": "polaris-sih26063",
+  "version": "1.0.0",
+  "description": "POLARIS: Polar Knowledge & Outreach Intelligence System - SIH 2026 (Ministry of Earth Sciences)",
+  "scripts": {
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "seed": "cd backend && npm run seed",
+    "build": "cd frontend && npm run build"
+  },
+  "keywords": [
+    "polaris",
+    "polar-science",
+    "moes",
+    "ncpor",
+    "npdc",
+    "sih2026",
+    "smart-education"
+  ],
+  "author": "POLARIS Team",
+  "license": "ISC"
+}

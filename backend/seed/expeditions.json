@@ -1,0 +1,259 @@
+[
+  {
+    "expeditionId": "isea-43",
+    "name": "43rd Indian Scientific Expedition to Antarctica",
+    "shortName": "43rd ISEA",
+    "year": "2023-2024",
+    "startDate": "2023-11-20",
+    "endDate": "2024-03-31",
+    "region": "Antarctica",
+    "leader": {
+      "name": "Dr. Rohit Srivastava",
+      "designation": "Scientist-F & Expedition Leader",
+      "institute": "National Centre for Polar and Ocean Research (NCPOR)"
+    },
+    "organization": "National Centre for Polar and Ocean Research (NCPOR)",
+    "vessel": "MV Vasiliy Golovnin",
+    "stations": ["Maitri", "Bharati"],
+    "objectives": [
+      "Replacement and resupply of wintering teams at Maitri and Bharati stations.",
+      "Deployment of deep ice-core drilling equipment near Amery Ice Shelf.",
+      "Continuous atmospheric aerosol and boundary layer turbulence measurements.",
+      "Geodetic and geomagnetic baseline calibration for space weather modeling.",
+      "Environmental baseline sampling across Schirmacher Oasis and Larsemann Hills."
+    ],
+    "summary": "The 43rd Indian Scientific Expedition to Antarctica comprised over 48 scientists, logistics specialists, and medical teams dispatched to sustain India's year-round scientific mandate across Maitri and Bharati stations, achieving crucial ice-core extractions and satellite telemetry calibrations.",
+    "participantsCount": 52,
+    "timeline": [
+      {
+        "date": "2023-11-20",
+        "title": "Expedition Flag-Off from Cape Town",
+        "description": "Vessel MV Vasiliy Golovnin departed Cape Town carrying scientific teams, cargo, and polar fuel.",
+        "milestone": true
+      },
+      {
+        "date": "2023-12-04",
+        "title": "Arrival at Bharati Station, Larsemann Hills",
+        "description": "Ice conditions permitted safe cargo offloading; winter handover commenced for the 43rd team.",
+        "milestone": false
+      },
+      {
+        "date": "2024-01-12",
+        "title": "Transit to Maitri Station & Schirmacher Oasis",
+        "description": "Helicopter sorting flights transferred equipment to the inland Schirmacher Oasis.",
+        "milestone": false
+      },
+      {
+        "date": "2024-02-18",
+        "title": "Completion of Deep Radar Sounding Campaign",
+        "description": "Surveyed sub-glacial bedrock topography over 120 km of continental ice sheet traverse.",
+        "milestone": true
+      },
+      {
+        "date": "2024-03-28",
+        "title": "Return of Summer Contingent",
+        "description": "Wintering-over team locked in for the polar night; summer party returned safely to Goa.",
+        "milestone": true
+      }
+    ],
+    "sourceType": "official_npdc",
+    "sourceUrl": "https://npdc.ncpor.res.in/npdc/antarctica.action",
+    "verificationStatus": "official-source-verified"
+  },
+  {
+    "expeditionId": "isea-42",
+    "name": "42nd Indian Scientific Expedition to Antarctica",
+    "shortName": "42nd ISEA",
+    "year": "2022-2023",
+    "startDate": "2022-11-15",
+    "endDate": "2023-04-05",
+    "region": "Antarctica",
+    "leader": {
+      "name": "Dr. Shailendra Saini",
+      "designation": "Group Director (Polar Logistics)",
+      "institute": "NCPOR, Goa"
+    },
+    "organization": "National Centre for Polar and Ocean Research (NCPOR)",
+    "vessel": "MV Vasiliy Golovnin",
+    "stations": ["Maitri", "Bharati"],
+    "objectives": [
+      "Installation of clean solar arrays at Bharati Station.",
+      "Comprehensive permafrost active layer monitoring in Schirmacher Oasis.",
+      "Marine ecosystem sampling along Prydz Bay."
+    ],
+    "summary": "The 42nd ISEA completed critical environmental impact assessments and established automated real-time seismic monitoring nodes linked to national disaster management agencies.",
+    "participantsCount": 46,
+    "timeline": [
+      {
+        "date": "2022-11-15",
+        "title": "Departure from Port Louis",
+        "description": "Voyage commenced through the Roaring Forties and Furious Fifties.",
+        "milestone": true
+      },
+      {
+        "date": "2023-01-10",
+        "title": "Prydz Bay Oceanographic Casts",
+        "description": "Recovered CTD casts to evaluate Antarctic Bottom Water formation.",
+        "milestone": true
+      },
+      {
+        "date": "2023-03-30",
+        "title": "Mission Conclusion",
+        "description": "Summer science payloads archived and transported to NCPOR laboratories.",
+        "milestone": true
+      }
+    ],
+    "sourceType": "official_npdc",
+    "sourceUrl": "https://npdc.ncpor.res.in/npdc/antarctica.action",
+    "verificationStatus": "official-source-verified"
+  },
+  {
+    "expeditionId": "iae-14",
+    "name": "14th Indian Arctic Expedition",
+    "shortName": "14th IAE",
+    "year": "2023-2024",
+    "startDate": "2023-06-10",
+    "endDate": "2024-03-15",
+    "region": "Arctic",
+    "leader": {
+      "name": "Dr. K. P. Krishnan",
+      "designation": "Senior Scientist (Polar Biology)",
+      "institute": "NCPOR"
+    },
+    "organization": "National Centre for Polar and Ocean Research (NCPOR)",
+    "vessel": "RV Lance / Teisten (Fjord Charters)",
+    "stations": ["Himadri"],
+    "objectives": [
+      "Sustained deployment and servicing of the IndARC underwater mooring system.",
+      "Monitoring glacier retreat at Midtre Lovénbreen and Austre Brøggerbreen.",
+      "Atmospheric aerosol optical depth profiling in Kongsfjorden.",
+      "First winter Arctic research pilot phase."
+    ],
+    "summary": "India's 14th Arctic Expedition marked a historic expansion with round-the-year winter presence at Himadri station in Ny-Ålesund, Svalbard, focusing on the climate teleconnections between Arctic warming and the Indian summer monsoon.",
+    "participantsCount": 28,
+    "timeline": [
+      {
+        "date": "2023-06-10",
+        "title": "Summer Scientific Cohort Deployment",
+        "description": "First batch of scientists reached Ny-Ålesund via Longyearbyen.",
+        "milestone": true
+      },
+      {
+        "date": "2023-08-22",
+        "title": "IndARC Mooring Servicing",
+        "description": "Recovered year-long deep CTD and acoustic sensor series from 192 m depth in Kongsfjorden.",
+        "milestone": true
+      },
+      {
+        "date": "2023-12-18",
+        "title": "Inaugural Winter Research Phase",
+        "description": "MoES officially inaugurated year-round winter scientific operations at Himadri Station.",
+        "milestone": true
+      },
+      {
+        "date": "2024-03-15",
+        "title": "Spring Transition Phase Completed",
+        "description": "Winter atmospheric and sea-ice measurements successfully transferred to NPDC servers.",
+        "milestone": false
+      }
+    ],
+    "sourceType": "official_npdc",
+    "sourceUrl": "https://npdc.ncpor.res.in/npdc/arctic.action",
+    "verificationStatus": "official-source-verified"
+  },
+  {
+    "expeditionId": "so-11",
+    "name": "11th Indian Southern Ocean Expedition",
+    "shortName": "11th ISOE",
+    "year": "2020-2021",
+    "startDate": "2020-01-25",
+    "endDate": "2020-03-10",
+    "region": "Southern Ocean",
+    "leader": {
+      "name": "Dr. Anoop Tiwari",
+      "designation": "Scientist-E",
+      "institute": "NCPOR"
+    },
+    "organization": "National Centre for Polar and Ocean Research (NCPOR)",
+    "vessel": "SA Agulhas",
+    "stations": [],
+    "objectives": [
+      "Biogeochemical mapping across the Subtropical, Subantarctic, and Polar Fronts.",
+      "Carbon sequestration and trace metal dynamics in the Southern Ocean sink.",
+      "Deep-sea sediment coring to reconstruct paleoclimate shifts."
+    ],
+    "summary": "Conducted multi-disciplinary oceanographic transects between 40°S and 67°S along the 57°30'E meridian to quantify Southern Ocean carbon cycling and primary productivity.",
+    "participantsCount": 34,
+    "timeline": [
+      {
+        "date": "2020-01-25",
+        "title": "Cruise Departure from Mauritius",
+        "description": "Vessel SA Agulhas steered southward crossing the Antarctic Convergence.",
+        "milestone": true
+      },
+      {
+        "date": "2020-02-14",
+        "title": "Ice-Edge Biogeochemical Stations",
+        "description": "Conducted 24-hour continuous CTD profiling at the marginal ice zone.",
+        "milestone": true
+      },
+      {
+        "date": "2020-03-10",
+        "title": "Return to Port",
+        "description": "Cruise terminated with over 3,200 water and sediment samples preserved.",
+        "milestone": true
+      }
+    ],
+    "sourceType": "official_npdc",
+    "sourceUrl": "https://npdc.ncpor.res.in/npdc/southernocean.action",
+    "verificationStatus": "official-source-verified"
+  },
+  {
+    "expeditionId": "him-2023",
+    "name": "Chandra Basin Glaciology Field Campaign",
+    "shortName": "Himansh-2023",
+    "year": "2023-2024",
+    "startDate": "2023-07-01",
+    "endDate": "2023-10-15",
+    "region": "Himalaya",
+    "leader": {
+      "name": "Dr. Parmanand Sharma",
+      "designation": "Scientist-E (Glaciology)",
+      "institute": "NCPOR"
+    },
+    "organization": "NCPOR / Ministry of Earth Sciences",
+    "vessel": "High Altitude Logistics Vehicles",
+    "stations": ["Himansh"],
+    "objectives": [
+      "Annual glacier mass balance stakes measurement at Sutri Dhaka Glacier.",
+      "Ground Penetrating Radar profiling of ice thickness and subglacial bed.",
+      "Continuous hydrological runoff discharge monitoring at Chandra River gauge.",
+      "Aerosol optical depth and black carbon albedo measurements."
+    ],
+    "summary": "Intensive high-altitude glaciological campaign based out of Himansh station in Lahaul-Spiti, measuring benchmark glacier retreat rates and meltwater contribution to the Indus River Basin.",
+    "participantsCount": 18,
+    "timeline": [
+      {
+        "date": "2023-07-01",
+        "title": "Basecamp Re-opening at Himansh",
+        "description": "Scientific team opened the high-altitude station at 4,080 m altitude.",
+        "milestone": true
+      },
+      {
+        "date": "2023-08-15",
+        "title": "Glacier Traverse & Stake Network Audit",
+        "description": "Measured net annual ablation across 32 accumulation and ablation stakes.",
+        "milestone": true
+      },
+      {
+        "date": "2023-10-15",
+        "title": "Winterization and Data Uplink",
+        "description": "Automated meteorological and hydrometric stations armed for automated winter recording.",
+        "milestone": true
+      }
+    ],
+    "sourceType": "official_npdc",
+    "sourceUrl": "https://npdc.ncpor.res.in/npdc/himalaya.action",
+    "verificationStatus": "official-source-verified"
+  }
+]

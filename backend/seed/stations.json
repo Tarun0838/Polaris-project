@@ -1,0 +1,148 @@
+[
+  {
+    "stationId": "maitri",
+    "name": "Maitri",
+    "region": "Antarctica",
+    "location": "Schirmacher Oasis, Queen Maud Land, East Antarctica",
+    "coordinates": {
+      "lat": -70.767,
+      "lng": 11.733
+    },
+    "establishedYear": 1989,
+    "operationalStatus": "Year-round Active",
+    "description": "Maitri is India's second permanent research station in Antarctica, commissioned in 1989 in the ice-free rocky terrain of the Schirmacher Oasis. It serves as a vital inland polar hub for geological, atmospheric, geomagnetism, glaciological and biological studies with an adjoining freshwater lake, Lake Priyadarshini.",
+    "scienceFocus": [
+      "Atmospheric Science & Meteorology",
+      "Geomagnetism & Space Weather",
+      "Permafrost & Glacial Geomorphology",
+      "Polar Biology & Extremophile Microbiology",
+      "Human Physiology & Telemedicine"
+    ],
+    "facilities": [
+      "Maitri Main Complex (insulated living & laboratory modules)",
+      "Atmospheric Boundary Layer Lab",
+      "Geomagnetic Observatory",
+      "Automatic Weather Station (AWS)",
+      "Clean Room Microbiology Facility",
+      "Satellite Communication Uplink (INMARSAT / Ku-Band)"
+    ],
+    "altitude": "117 m above sea level",
+    "capacity": {
+      "winter": 25,
+      "summer": 65
+    },
+    "heroImage": "https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=1200&q=80",
+    "sourceType": "official_npdc",
+    "sourceUrl": "https://npdc.ncpor.res.in/npdc/antarctica.action",
+    "verificationStatus": "official-source-verified"
+  },
+  {
+    "stationId": "bharati",
+    "name": "Bharati",
+    "region": "Antarctica",
+    "location": "Larsemann Hills, East Antarctica",
+    "coordinates": {
+      "lat": -69.407,
+      "lng": 76.187
+    },
+    "establishedYear": 2012,
+    "operationalStatus": "Year-round Active",
+    "description": "Bharati is India's state-of-the-art third Antarctic research station, commissioned in March 2012 between Thala Fjord and Quilty Bay in the Larsemann Hills. Constructed from 134 prefabricated shipping containers and elevated on stilts, it represents cutting-edge green polar architecture and fast satellite telemetry.",
+    "scienceFocus": [
+      "Oceanography & Coastal Marine Ecosystems",
+      "Continental Breakup & Gondwana Geochronology",
+      "Remote Sensing & High-Latitude Satellite Data Acquisition",
+      "Greenhouse Gas Profiling",
+      "Aerosol-Cloud Interactions"
+    ],
+    "facilities": [
+      "Multi-storied Elevated Container Habitat",
+      "ISRO Polar Satellite Telemetry Station (S/X-band receive station)",
+      "High-Precision Analytical Chemistry Lab",
+      "Wastewater Bio-filtration Treatment Plant",
+      "Dedicated Helipad and Logistics Staging Dock",
+      "Seismic & Gravimetry Observatory"
+    ],
+    "altitude": "35 m above sea level",
+    "capacity": {
+      "winter": 25,
+      "summer": 47
+    },
+    "heroImage": "https://images.unsplash.com/photo-1483181957632-8bda974cbc91?auto=format&fit=crop&w=1200&q=80",
+    "sourceType": "official_npdc",
+    "sourceUrl": "https://npdc.ncpor.res.in/npdc/antarctica.action",
+    "verificationStatus": "official-source-verified"
+  },
+  {
+    "stationId": "himadri",
+    "name": "Himadri",
+    "region": "Arctic",
+    "location": "Ny-Ålesund, Spitsbergen, Svalbard, Norway",
+    "coordinates": {
+      "lat": 78.923,
+      "lng": 11.928
+    },
+    "establishedYear": 2008,
+    "operationalStatus": "Year-round Active",
+    "description": "Himadri is India's premier Arctic research station situated at the world's northernmost scientific research community at Ny-Ålesund, Svalbard. Inaugurated in July 2008, Himadri provides Indian scientists with round-the-year access to explore Arctic atmospheric phenomena, fjord oceanography, and microbial diversity.",
+    "scienceFocus": [
+      "Fjord Oceanography & Kongsfjorden Mooring (IndARC)",
+      "Arctic Atmospheric Boundary Layer Studies",
+      "Cryosphere & Glacier Mass Balance Monitoring",
+      "Arctic Marine Biogeochemistry",
+      "Teleconnection between Arctic Sea-Ice and Indian Monsoon"
+    ],
+    "facilities": [
+      "Integrated Chemistry & Biology Workstations",
+      "Optical Spectrometers & Nephelometers",
+      "Kongsfjorden Underwater Moored Observatory (IndARC)",
+      "Atmospheric Aerosol Sampling Inlets",
+      "Sub-zero Sample Archive"
+    ],
+    "altitude": "10 m above sea level",
+    "capacity": {
+      "winter": 8,
+      "summer": 12
+    },
+    "heroImage": "https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=1200&q=80",
+    "sourceType": "official_npdc",
+    "sourceUrl": "https://npdc.ncpor.res.in/npdc/arctic.action",
+    "verificationStatus": "official-source-verified"
+  },
+  {
+    "stationId": "himansh",
+    "name": "Himansh",
+    "region": "Himalaya",
+    "location": "Chandra Basin, Lahaul-Spiti, Himachal Pradesh, India",
+    "coordinates": {
+      "lat": 32.404,
+      "lng": 77.608
+    },
+    "establishedYear": 2016,
+    "operationalStatus": "Seasonal Active",
+    "description": "Himansh (meaning 'a slice of ice') is India's high-altitude research station established by NCPOR in the Western Himalaya at an elevation of 4,080 meters (13,385 ft). It spearheads long-term glaciological monitoring across Sutri Dhaka, Batal, Samudra Tapu, and Gepang Gath glaciers.",
+    "scienceFocus": [
+      "Himalayan Glacier Mass Balance & Dynamics",
+      "Hydrological Runoff & Discharge Forecasting",
+      "Black Carbon & Aerosol Deposition on Snow",
+      "Ground Penetrating Radar (GPR) Ice Thickness Mapping",
+      "High-Altitude Climate Change Teleconnections"
+    ],
+    "facilities": [
+      "High-altitude Thermal Insulated Shelter",
+      "Solar-Wind Hybrid Clean Power Generation",
+      "Automated Weather Station (AWS) Network",
+      "Hydrometric Gauge Stations along Chandra River",
+      "Ground Penetrating Radar (GPR) Units"
+    ],
+    "altitude": "4,080 m above sea level",
+    "capacity": {
+      "winter": 6,
+      "summer": 15
+    },
+    "heroImage": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
+    "sourceType": "official_npdc",
+    "sourceUrl": "https://npdc.ncpor.res.in/npdc/himalaya.action",
+    "verificationStatus": "official-source-verified"
+  }
+]
