@@ -53,6 +53,18 @@ const generatedContentSchema = new mongoose.Schema({
     url: { type: String, required: true },
     identifier: { type: String }
   }],
+  imageUrl: {
+    type: String,
+    default: ''
+  },
+  imageCaption: {
+    type: String,
+    default: ''
+  },
+  imageCredit: {
+    type: String,
+    default: ''
+  },
   generatedBy: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'

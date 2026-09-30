@@ -18,6 +18,7 @@ const Media = require('../models/Media');
 const EducationalContent = require('../models/EducationalContent');
 const GeneratedContent = require('../models/GeneratedContent');
 const Activity = require('../models/Activity');
+const PolarAsset = require('../models/PolarAsset');
 
 const seedData = async (shouldExit = true) => {
   try {
@@ -32,6 +33,7 @@ const seedData = async (shouldExit = true) => {
     const publications = JSON.parse(fs.readFileSync(path.join(__dirname, 'publications.json'), 'utf-8'));
     const media = JSON.parse(fs.readFileSync(path.join(__dirname, 'media.json'), 'utf-8'));
     const educationalContent = JSON.parse(fs.readFileSync(path.join(__dirname, 'educationalContent.json'), 'utf-8'));
+    const polarAssets = JSON.parse(fs.readFileSync(path.join(__dirname, 'polarAssets.json'), 'utf-8'));
 
     // Clear existing collections
     console.log('[POLARIS-SEED] Purging previous records...');
@@ -46,7 +48,8 @@ const seedData = async (shouldExit = true) => {
       Media.deleteMany({}),
       EducationalContent.deleteMany({}),
       GeneratedContent.deleteMany({}),
-      Activity.deleteMany({})
+      Activity.deleteMany({}),
+      PolarAsset.deleteMany({})
     ]);
 
     // 1. Seed Users (Admin, Researcher, Student)
@@ -85,6 +88,7 @@ const seedData = async (shouldExit = true) => {
     await Publication.insertMany(publications);
     await Media.insertMany(media);
     await EducationalContent.insertMany(educationalContent);
+    await PolarAsset.insertMany(polarAssets);
 
     // 3. Seed AI Content Engine samples across the workflow
     console.log('[POLARIS-SEED] Seeding AI Outreach drafts & human curation records...');
@@ -112,7 +116,7 @@ const seedData = async (shouldExit = true) => {
           {
             title: 'Hourly Permafrost Borehole Temperature Profiles',
             type: 'NPDC In-Situ Dataset',
-            url: 'https://npdc.ncpor.res.in/npdc/datasetDetails.action?datasetId=NPDC-DS-2023-ANT-01',
+            url: 'https://data.ncpor.res.in/graph',
             identifier: 'NPDC-DS-2023-ANT-01'
           }
         ],
@@ -148,10 +152,11 @@ const seedData = async (shouldExit = true) => {
           {
             title: 'IndARC Mooring High-Frequency Hydrographic Profile Series',
             type: 'NPDC In-Situ Dataset',
-            url: 'https://npdc.ncpor.res.in/npdc/datasetDetails.action?datasetId=NPDC-DS-2023-ARC-03',
+            url: 'https://ncpor.res.in/pages/display/398-indarc',
             identifier: 'NPDC-DS-2023-ARC-03'
           }
         ],
+
         generatedBy: researcherUser._id,
         authorName: researcherUser.name,
         status: 'in_review',

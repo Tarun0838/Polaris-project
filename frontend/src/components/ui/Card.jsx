@@ -1,13 +1,26 @@
 import React from 'react';
 
-export const Card = ({ children, className = '', hover = true, onClick }) => {
+export const Card = ({
+  children,
+  className = '',
+  hover = true,
+  onClick,
+  accentColor = null,
+  accentHeight = 'h-2'
+}) => {
   return (
     <div
       onClick={onClick}
-      className={`bg-white border border-slate-200/90 rounded-xl shadow-xs overflow-hidden transition-all duration-200 ${
-        hover ? 'hover:shadow-md hover:border-slate-300' : ''
+      className={`bg-white border border-slate-200/90 rounded-lg shadow-xs overflow-hidden transition-all duration-200 flex flex-col ${
+        hover ? 'hover:shadow-md hover:border-slate-300 hover:-translate-y-0.5' : ''
       } ${onClick ? 'cursor-pointer' : ''} ${className}`}
     >
+      {accentColor && (
+        <div
+          className={`w-full ${accentHeight} shrink-0 ${accentColor.startsWith('bg-') ? accentColor : ''}`}
+          style={!accentColor.startsWith('bg-') ? { backgroundColor: accentColor } : undefined}
+        />
+      )}
       {children}
     </div>
   );

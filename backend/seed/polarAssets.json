@@ -1,0 +1,391 @@
+[
+  {
+    "title": "42nd ISEA Annual Meteorological Report: Maitri Base",
+    "region": "Antarctica",
+    "category": "report",
+    "station": "Maitri",
+    "coordinates": {
+      "lat": -70.766,
+      "long": 11.735
+    },
+    "year": 2023,
+    "sourceUrl": "https://data.ncpor.res.in/graph",
+    "imageUrl": "/stations/maitri.jpg",
+    "tags": [
+      "Meteorology",
+      "Katabatic Winds",
+      "Schirmacher Oasis",
+      "AWS Surface Data"
+    ],
+    "summary": "Surface meteorological record documenting annual temperature profiles, wind direction, and blizzard velocity peaks exceeding 85 knots at Maitri.",
+    "scientificMetrics": {
+      "meanAnnualTemp": "-9.8°C",
+      "peakWindSpeed": "85 knots (157 km/h)",
+      "stationElevation": "117 m amsl"
+    }
+  },
+  {
+    "title": "Bharati Station Geological Core & Tectonic Sampling",
+    "region": "Antarctica",
+    "category": "dataset",
+    "station": "Bharati",
+    "coordinates": {
+      "lat": -69.407,
+      "long": 76.187
+    },
+    "year": 2024,
+    "sourceUrl": "https://data.ncpor.res.in/newhtml/6",
+    "imageUrl": "/stations/bharati.jpg",
+    "tags": [
+      "Larsemann Hills",
+      "Bedrock Geology",
+      "Gondwana Reconstruction",
+      "Tectonics"
+    ],
+    "summary": "In-situ granulite facies rock sample coordinates and geochemical compositions across the Larsemann Hills coastal promontory.",
+    "scientificMetrics": {
+      "crustalThickness": "36 km",
+      "metamorphicGrade": "Ultra-High Temperature (UHT)"
+    }
+  },
+  {
+    "title": "Priyadarshini Freshwater Lake Subglacial Sediment Profile",
+    "region": "Antarctica",
+    "category": "report",
+    "station": "Maitri",
+    "coordinates": {
+      "lat": -70.762,
+      "long": 11.739
+    },
+    "year": 2024,
+    "sourceUrl": "https://ncpor.res.in/news/view/425",
+    "imageUrl": "https://images.unsplash.com/photo-1516431883659-655d41c09bf9?auto=format&fit=crop&w=1200&q=80",
+    "tags": [
+      "Limnology",
+      "Lake Priyadarshini",
+      "Psychrophiles",
+      "Microbiology"
+    ],
+    "summary": "Microbiological isolation of psychrotolerant bacteria and paleolimnological sedimentation rates in Schirmacher Oasis freshwater bodies.",
+    "scientificMetrics": {
+      "maximumDepth": "6.5 m",
+      "dominantBacterialPhyla": "Actinobacteria, Bacteroidetes"
+    }
+  },
+  {
+    "title": "Coastal Blue-Ice Sheet Deep Drilling Core IND-70/06",
+    "region": "Antarctica",
+    "category": "dataset",
+    "station": "Inland Ice Sheet",
+    "coordinates": {
+      "lat": -71.167,
+      "long": 11.833
+    },
+    "year": 2023,
+    "sourceUrl": "https://data.ncpor.res.in/newhtml/6",
+    "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
+    "tags": [
+      "Ice Core",
+      "Paleoclimate",
+      "Isotope Ratios",
+      "Tambora Horizon"
+    ],
+    "summary": "Continuous 62.2-meter ice-core depth record tracking delta-O-18 isotope stages and volcanic sulfate markers over the past millennium.",
+    "scientificMetrics": {
+      "coreDepth": "62.2 m",
+      "drillingTechnique": "Electromechanical Ice Drill"
+    }
+  },
+  {
+    "title": "Chandra Basin Glacial Meltwater Discharge & Streamflow Data",
+    "region": "Himalaya",
+    "category": "dataset",
+    "station": "Himansh",
+    "coordinates": {
+      "lat": 32.402,
+      "long": 77.525
+    },
+    "year": 2024,
+    "sourceUrl": "https://data.ncpor.res.in/newhtml/5",
+    "imageUrl": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+    "tags": [
+      "Hydrology",
+      "Chandra River",
+      "Himansh",
+      "Meltwater Flux",
+      "Runoff"
+    ],
+    "summary": "Continuous discharge gauging records monitoring seasonal melt pulses and sediment concentrations draining from Lahaul-Spiti benchmark glaciers.",
+    "scientificMetrics": {
+      "stationElevation": "4,080 m amsl",
+      "peakDischarge": "42 to 78 m³/s (July–August)"
+    }
+  },
+  {
+    "title": "Samudra Tapu Moraine Dammed Lake Expansion & GLOF Risk",
+    "region": "Himalaya",
+    "category": "report",
+    "station": "Himansh Field Site",
+    "coordinates": {
+      "lat": 32.5,
+      "long": 77.467
+    },
+    "year": 2023,
+    "sourceUrl": "https://ncpor.res.in/pages/display/268-himalaya",
+    "imageUrl": "https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?auto=format&fit=crop&w=1200&q=80",
+    "tags": [
+      "GLOF",
+      "Samudra Tapu",
+      "Moraine Stability",
+      "Cryosphere Hazards"
+    ],
+    "summary": "High-resolution multi-spectral satellite and field bathymetry mapping the perimeter expansion and moraine dam stability of the Samudra Tapu lake.",
+    "scientificMetrics": {
+      "surfaceArea": "1.24 km²",
+      "breachRiskLevel": "High-Priority Alert"
+    }
+  },
+  {
+    "title": "Sutri Dhaka Glacier Long-Term Mass Balance Time-Series",
+    "region": "Himalaya",
+    "category": "dataset",
+    "station": "Himansh",
+    "coordinates": {
+      "lat": 32.416,
+      "long": 77.55
+    },
+    "year": 2024,
+    "sourceUrl": "https://data.ncpor.res.in/newhtml/5",
+    "imageUrl": "https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&w=1200&q=80",
+    "tags": [
+      "Glaciology",
+      "Sutri Dhaka",
+      "Mass Balance",
+      "Ablation Stakes"
+    ],
+    "summary": "In-situ glaciological stake network ablation and accumulation measurements recorded at 5,000m altitude along the Sutri Dhaka benchmark glacier.",
+    "scientificMetrics": {
+      "annualSpecificMassBalance": "-0.52 to -0.68 m w.e. a⁻¹",
+      "equilibriumLineAltitude": "5,120 m"
+    }
+  },
+  {
+    "title": "Bara Shigri Debris Cover & Surface Velocity Dynamics",
+    "region": "Himalaya",
+    "category": "report",
+    "station": "Himansh Field Site",
+    "coordinates": {
+      "lat": 32.25,
+      "long": 77.583
+    },
+    "year": 2023,
+    "sourceUrl": "https://ncpor.res.in/pages/display/268-himalaya",
+    "imageUrl": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1200&q=80",
+    "tags": [
+      "Bara Shigri",
+      "Debris Cover",
+      "Surface Velocity",
+      "Sub-Debris Melt"
+    ],
+    "summary": "Differential GPS and UAV photogrammetry evaluating how supraglacial debris thickness dampens ice melt along the main tongue of Bara Shigri.",
+    "scientificMetrics": {
+      "averageVelocity": "22 m/year",
+      "glacierLength": "27.7 km"
+    }
+  },
+  {
+    "title": "IndARC Moored CTD Oceanographic Profiling: Kongsfjorden",
+    "region": "Arctic",
+    "category": "dataset",
+    "station": "IndARC / Kongsfjorden",
+    "coordinates": {
+      "lat": 78.983,
+      "long": 11.817
+    },
+    "year": 2024,
+    "sourceUrl": "https://data.ncpor.res.in/",
+    "imageUrl": "https://images.unsplash.com/photo-1488441770602-aed21fc49bd5?auto=format&fit=crop&w=1200&q=80",
+    "tags": [
+      "IndARC",
+      "CTD",
+      "Kongsfjorden",
+      "Atlantic Inflow",
+      "Ocean Stratification"
+    ],
+    "summary": "Sub-surface acoustic and conductivity-temperature-depth data monitoring warm Atlantic Water pulses entering Kongsfjorden through seasonal cycles.",
+    "scientificMetrics": {
+      "mooringDepth": "192 m",
+      "atlanticWaterTempThreshold": "> 3.0°C",
+      "salinityBenchmark": "> 34.9 PSU"
+    }
+  },
+  {
+    "title": "Himadri Atmospheric Black Carbon & Aerosol Optical Depth",
+    "region": "Arctic",
+    "category": "report",
+    "station": "Himadri",
+    "coordinates": {
+      "lat": 78.923,
+      "long": 11.935
+    },
+    "year": 2023,
+    "sourceUrl": "https://ncpor.res.in/arctics/display/398-indarc",
+    "imageUrl": "/stations/himadri.jpg",
+    "tags": [
+      "Himadri",
+      "Aerosol Optical Depth",
+      "Black Carbon",
+      "Arctic Haze"
+    ],
+    "summary": "Aethalometer and sun photometer atmospheric measurements quantifying long-range transport of anthropogenic aerosols into the High Arctic.",
+    "scientificMetrics": {
+      "springtimePeakBC": "85 ng/m³",
+      "baselineSummerBC": "12 ng/m³"
+    }
+  },
+  {
+    "title": "Kongsfjorden Microplastic Contamination & Zooplankton Trophic Shift",
+    "region": "Arctic",
+    "category": "report",
+    "station": "Himadri",
+    "coordinates": {
+      "lat": 78.93,
+      "long": 11.91
+    },
+    "year": 2024,
+    "sourceUrl": "https://ncpor.res.in/arctics/display/398-indarc",
+    "imageUrl": "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&w=1200&q=80",
+    "tags": [
+      "Marine Biology",
+      "Microplastics",
+      "Calanus finmarchicus",
+      "Food Web"
+    ],
+    "summary": "Fjord surface-trawl water filtration assessing synthetic micro-fiber density and tracking boreal copepod displacement of Arctic endemic fauna.",
+    "scientificMetrics": {
+      "microplasticAbundance": "0.34 particles/m³",
+      "targetSpecies": "Calanus finmarchicus, Calanus glacialis"
+    }
+  },
+  {
+    "title": "Mid-Fjord Current Shear & Internal Wave Structure (ADCP)",
+    "region": "Arctic",
+    "category": "dataset",
+    "station": "IndARC Mooring",
+    "coordinates": {
+      "lat": 78.95,
+      "long": 11.85
+    },
+    "year": 2024,
+    "sourceUrl": "https://data.ncpor.res.in/",
+    "imageUrl": "https://images.unsplash.com/photo-1491557345352-5929e343eb89?auto=format&fit=crop&w=1200&q=80",
+    "tags": [
+      "ADCP",
+      "Current Velocities",
+      "Fjord Oceanography",
+      "IndARC"
+    ],
+    "summary": "Acoustic Doppler Current Profiler acoustic beam reflections recording vertical water column shear currents and tidal oscillations in Kongsfjorden.",
+    "scientificMetrics": {
+      "samplingFrequency": "300 kHz",
+      "binResolution": "2.0 m"
+    }
+  },
+  {
+    "title": "12th ISESO Hydrographic Transect: 57.5°E Meridional Section",
+    "region": "Southern Ocean",
+    "category": "dataset",
+    "station": "ORV Sagar Nidhi",
+    "coordinates": {
+      "lat": -53.25,
+      "long": 57.5
+    },
+    "year": 2024,
+    "sourceUrl": "https://ncpor.res.in/news/view/160",
+    "imageUrl": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+    "tags": [
+      "ISESO",
+      "Polar Front",
+      "ORV Sagar Nidhi",
+      "CTD Rosette",
+      "Salinity Profile"
+    ],
+    "summary": "Full-depth 4,000-meter hydrographic casts mapping temperature, density, and oxygen boundaries across the Sub-Antarctic and Polar Frontal zones.",
+    "scientificMetrics": {
+      "polarFrontLocation": "52.5°S to 54.0°S",
+      "subsurfaceCoreTemp": "< 2.0°C"
+    }
+  },
+  {
+    "title": "Antarctic Krill Biomass Acoustics & Carbon Flux Report",
+    "region": "Southern Ocean",
+    "category": "report",
+    "station": "SA Agulhas Transect",
+    "coordinates": {
+      "lat": -58.1,
+      "long": 57.3
+    },
+    "year": 2023,
+    "sourceUrl": "https://data.ncpor.res.in/",
+    "imageUrl": "https://images.unsplash.com/photo-1579033461380-adb47c3eb938?auto=format&fit=crop&w=1200&q=80",
+    "tags": [
+      "Euphausia superba",
+      "Krill Biomass",
+      "Carbon Pump",
+      "Acoustic Backscatter"
+    ],
+    "summary": "Multi-frequency EK60 acoustic backscatter surveys and Bongo net tows estimating krill swarm swarming density and biological pump carbon export.",
+    "scientificMetrics": {
+      "targetStrengthFrequency": "120 kHz",
+      "averageKrillLength": "44.2 mm"
+    }
+  },
+  {
+    "title": "Southern Ocean Air-Sea CO2 Flux & Iron Limitation Profile",
+    "region": "Southern Ocean",
+    "category": "dataset",
+    "station": "ORV Sagar Nidhi",
+    "coordinates": {
+      "lat": -48.5,
+      "long": 57.5
+    },
+    "year": 2024,
+    "sourceUrl": "https://ncpor.res.in/news/view/160",
+    "imageUrl": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=80",
+    "tags": [
+      "Carbon Sink",
+      "pCO2",
+      "Iron Limitation",
+      "HNLC Region"
+    ],
+    "summary": "Underway surface pCO2 fugacity and dissolved trace metal profiles demonstrating carbon drawdown mechanics in the High-Nutrient Low-Chlorophyll Southern Ocean.",
+    "scientificMetrics": {
+      "deltaPCO2": "-38.4 µatm (Net Sink)",
+      "dissolvedIron": "< 0.18 nM"
+    }
+  },
+  {
+    "title": "Sub-Antarctic Zone Microzooplankton & Pteropod Shell Dissolution",
+    "region": "Southern Ocean",
+    "category": "report",
+    "station": "SA Agulhas Transect",
+    "coordinates": {
+      "lat": -46.2,
+      "long": 57.5
+    },
+    "year": 2023,
+    "sourceUrl": "https://ncpor.res.in/news/view/160",
+    "imageUrl": "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80",
+    "tags": [
+      "Pteropods",
+      "Ocean Acidification",
+      "Aragonite Saturation",
+      "SA Agulhas"
+    ],
+    "summary": "Micro-CT scanning of pelagic pteropod aragonite shells collected during ISESO cruises to detect ocean acidification-induced shell dissolution.",
+    "scientificMetrics": {
+      "aragoniteSaturationDepth": "1,100 m",
+      "shellThinningRate": "6.8% per decade"
+    }
+  }
+]

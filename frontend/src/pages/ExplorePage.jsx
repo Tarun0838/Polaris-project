@@ -30,6 +30,7 @@ export const ExplorePage = () => {
   const [selectedRegion, setSelectedRegion] = useState(searchParams.get('region') || 'All');
   const [selectedDomain, setSelectedDomain] = useState(searchParams.get('domain') || 'All');
   const [selectedYear, setSelectedYear] = useState(searchParams.get('year') || 'All');
+  const [activeMediaModal, setActiveMediaModal] = useState(null);
 
   const [categorized, setCategorized] = useState({
     stations: [],
@@ -65,7 +66,7 @@ export const ExplorePage = () => {
   ];
 
   const regions = ['All', 'Antarctica', 'Arctic', 'Himalaya', 'Southern Ocean'];
-  const domains = ['All', 'Cryosphere', 'Atmosphere', 'Oceanography', 'Biology', 'Geophysics'];
+  const domains = ['All', 'Cryosphere', 'Atmosphere', 'Oceanography', 'Biology', 'Geophysics', 'Climate Science'];
   const years = ['All', '2024', '2023', '2022', '2021', '2020'];
 
   // Sync state with URL params if user arrives via external link (e.g. region shortcut)
@@ -137,6 +138,25 @@ export const ExplorePage = () => {
     setSelectedYear('All');
   };
 
+  const getItemAccentColor = (item) => {
+    const t = (item.type || '').toLowerCase();
+    const r = (item.region || '').toLowerCase();
+    const d = (item.scienceDomain || '').toLowerCase();
+    if (d.includes('atmosphere') || d.includes('climate') || d.includes('meteorolog')) return 'bg-amber-500';
+    if (d.includes('cryosphere') || d.includes('glacier') || d.includes('ice')) return 'bg-sky-400';
+    if (d.includes('ocean') || d.includes('marine')) return 'bg-teal-600';
+    if (d.includes('bio') || d.includes('ecolog') || d.includes('flora')) return 'bg-emerald-500';
+    if (d.includes('geo') || d.includes('seismic')) return 'bg-indigo-500';
+    if (r.includes('antarctica')) return 'bg-sky-400';
+    if (r.includes('southern ocean')) return 'bg-teal-600';
+    if (r.includes('himalaya')) return 'bg-indigo-500';
+    if (t === 'station') return 'bg-teal-700';
+    if (t === 'report') return 'bg-amber-600';
+    if (t === 'publication') return 'bg-indigo-600';
+    if (t === 'dataset') return 'bg-sky-600';
+    return 'bg-slate-400';
+  };
+
   // Helper to render type badge
   const renderTypeBadge = (type) => {
     switch (type) {
@@ -162,69 +182,105 @@ export const ExplorePage = () => {
     <Card
       key={`${item.type}-${item.id || item._id}`}
       hover
-      className="p-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-slate-200"
+      accentColor={getItemAccentColor(item)}
+      className="border-slate-200/90 group"
     >
-      <div className="space-y-1.5 flex-1">
-        <div className="flex items-center gap-2 flex-wrap text-xs">
-          {renderTypeBadge(item.type)}
-          {item.region && <Badge variant={item.region.toLowerCase()}>{item.region}</Badge>}
-          {item.scienceDomain && <span className="text-slate-400 font-mono">• {item.scienceDomain}</span>}
-          {item.year && <span className="text-slate-400 font-mono">• {item.year}</span>}
-          {item.verificationStatus && (
-            <Badge variant="verified">Prototype Repository Record</Badge>
-          )}
+      <div className="p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 w-full">
+        <div className="space-y-1.5 flex-1 min-w-0">
+          <div className="flex items-center justify-between text-xs flex-wrap gap-2">
+            <div className="flex items-center gap-2">
+              <span className="font-bold uppercase tracking-wider text-slate-700 text-[11px]">{item.type}</span>
+              {item.scienceDomain && <span className="text-slate-400 text-[11px]">• {item.scienceDomain}</span>}
+            </div>
+            <div className="flex items-center gap-2 text-slate-500 text-[11px]">
+              {item.region && <span className="font-semibold text-slate-700">{item.region}</span>}
+              {item.year && <span>• {item.year}</span>}
+            </div>
+          </div>
+
+          <Link to={item.link} className="block">
+            <h3 className="text-base font-bold text-slate-900 group-hover:text-teal-700 transition-colors leading-snug">
+              {item.title}
+            </h3>
+          </Link>
+
+          <p className="text-xs sm:text-sm text-slate-600 line-clamp-2 leading-relaxed">
+            {item.description}
+          </p>
+
+          <div className="flex items-center gap-4 text-xs text-slate-500 pt-1 flex-wrap">
+            {item.station && <span>📍 Station: <strong className="text-slate-700">{item.station}</strong></span>}
+            {item.authors && <span>Authors: {item.authors.slice(0, 2).join(', ')}{item.authors.length > 2 ? ' et al.' : ''}</span>}
+            {item.lead && <span>Lead: <strong className="text-slate-700">{item.lead}</strong></span>}
+            {item.source && <span className="text-slate-400 font-mono">Source: {item.source}</span>}
+            {item.doi && <span className="text-teal-700 font-mono">DOI: {item.doi}</span>}
+            {item.accessType && (
+              <span className="text-[11px] font-medium text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+                {item.accessType}
+              </span>
+            )}
+          </div>
         </div>
 
-        <Link to={item.link}>
-          <h3 className="text-base font-bold text-slate-900 hover:text-blue-600 transition-colors leading-snug">
-            {item.title}
-          </h3>
-        </Link>
-
-        <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
-          {item.description}
-        </p>
-
-        <div className="flex items-center gap-4 text-xs text-slate-500 pt-0.5 flex-wrap">
-          {item.station && <span>📍 Station: <strong>{item.station}</strong></span>}
-          {item.authors && <span>Authors: {item.authors.slice(0, 2).join(', ')}{item.authors.length > 2 ? ' et al.' : ''}</span>}
-          {item.lead && <span>Lead: <strong>{item.lead}</strong></span>}
-          {item.source && <span className="text-slate-400 font-mono">Source: {item.source}</span>}
-          {item.doi && <span className="text-blue-600 font-mono">DOI: {item.doi}</span>}
-          {item.accessType && (
-            <Badge variant={item.accessType === 'Open Access' ? 'open-access' : 'request-data'}>
-              {item.accessType}
-            </Badge>
-          )}
+        <div className="shrink-0 pt-2 md:pt-0">
+          <Link to={item.link}>
+            <Button variant="secondary" size="sm" className="whitespace-nowrap flex items-center gap-1 text-xs text-teal-700 font-semibold border-slate-200">
+              <span>View Record</span>
+              <ChevronRight className="w-3.5 h-3.5" />
+            </Button>
+          </Link>
         </div>
-      </div>
-
-      <div className="shrink-0 pt-2 md:pt-0">
-        <Link to={item.link}>
-          <Button variant="secondary" size="sm" className="whitespace-nowrap flex items-center gap-1 text-xs">
-            <span>View Record</span>
-            <ChevronRight className="w-3.5 h-3.5" />
-          </Button>
-        </Link>
       </div>
     </Card>
   );
 
   // Render media card
   const renderMediaCard = (m) => (
-    <Card key={m.id || m._id} hover className="overflow-hidden flex flex-col justify-between border-slate-200">
+    <Card
+      key={m.id || m._id}
+      hover
+      onClick={() => setActiveMediaModal(m)}
+      className="overflow-hidden flex flex-col justify-between border-slate-200 hover:border-teal-700 cursor-pointer group transition-all"
+    >
       <div className="relative h-40 bg-slate-100 overflow-hidden">
-        <img src={m.url} alt={m.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
-        <div className="absolute top-2 left-2">
+        <img
+          src={m.url}
+          alt={m.title}
+          referrerPolicy="no-referrer"
+          loading="lazy"
+          onError={(e) => {
+            if (!e.target.dataset.fallbackApplied) {
+              e.target.dataset.fallbackApplied = 'true';
+              const regionFallbacks = {
+                antarctica: '/stations/bharati.jpg',
+                arctic: '/stations/himadri.jpg',
+                himalaya: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80',
+                'southern ocean': 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80'
+              };
+              e.target.src = regionFallbacks[(m.region || '').toLowerCase()] || '/stations/bharati.jpg';
+            }
+          }}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        />
+        <div className="absolute top-2 left-2 flex items-center gap-1.5 flex-wrap">
           <Badge variant={m.region?.toLowerCase()}>{m.region}</Badge>
+          {m.scienceDomain && (
+            <span className="bg-slate-900/80 backdrop-blur-xs text-white text-[10px] px-2 py-0.5 rounded font-medium">
+              {m.scienceDomain}
+            </span>
+          )}
         </div>
-        <div className="absolute bottom-2 right-2 bg-slate-900/80 text-white text-[10px] px-2 py-0.5 rounded font-mono">
+        <div className="absolute bottom-2 right-2 bg-slate-900/80 backdrop-blur-xs text-white text-[10px] px-2 py-0.5 rounded font-mono">
           {m.mediaType || 'image'}
         </div>
       </div>
       <div className="p-3 space-y-1">
-        <h4 className="font-bold text-xs text-slate-900 line-clamp-1">{m.title}</h4>
-        <p className="text-[11px] text-slate-500 line-clamp-2">{m.description}</p>
+        <h4 className="font-bold text-xs text-slate-900 line-clamp-1 group-hover:text-teal-800 transition-colors">
+          {m.title}
+        </h4>
+        <p className="text-[11px] text-slate-500 line-clamp-2 leading-relaxed">
+          {m.description}
+        </p>
         <div className="pt-2 text-[10px] text-slate-400 font-mono flex items-center justify-between border-t border-slate-100">
           <span>{m.station || m.region}</span>
           <span className="truncate max-w-[120px]">{m.source}</span>
@@ -247,19 +303,19 @@ export const ExplorePage = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
       {/* 1. PAGE HEADER */}
       <div>
-        <div className="text-xs font-bold text-blue-700 uppercase tracking-widest mb-1">
+        <div className="text-xs font-bold text-teal-800 uppercase tracking-widest mb-1">
           Ministry of Earth Sciences (MoES) • NCPOR
         </div>
         <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
           Unified Polar Knowledge Repository
         </h1>
-        <p className="text-slate-500 text-xs sm:text-sm mt-1">
+        <p className="text-slate-600 text-xs sm:text-sm mt-1">
           Search across polar stations, expeditions, technical reports, publications, datasets, and outreach media.
         </p>
       </div>
 
       {/* 2. HERO SEARCH BAR */}
-      <div className="bg-white border border-slate-300 rounded-xl shadow-xs p-2">
+      <div className="bg-white border-2 border-slate-200 focus-within:border-teal-700 rounded-xl shadow-xs p-2 transition-all">
         <div className="flex items-center gap-2">
           <Search className="w-5 h-5 text-slate-400 ml-2 shrink-0" />
           <input
@@ -267,12 +323,12 @@ export const ExplorePage = () => {
             placeholder="Search polar research, stations, datasets, expeditions, permafrost, temperature..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="w-full bg-transparent px-2 py-2 text-sm text-slate-900 placeholder-slate-400 focus:outline-hidden font-medium"
+            className="w-full bg-transparent px-2 py-2 text-sm text-slate-900 placeholder-slate-400 focus:outline-none font-medium"
           />
           {query && (
             <button
               onClick={() => setQuery('')}
-              className="text-slate-400 hover:text-slate-600 p-1"
+              className="text-slate-400 hover:text-slate-600 p-1 cursor-pointer"
               title="Clear search"
             >
               <X className="w-4 h-4" />
@@ -289,15 +345,15 @@ export const ExplorePage = () => {
             <button
               key={tab.id}
               onClick={() => setSelectedType(tab.id)}
-              className={`px-3 py-2 font-medium whitespace-nowrap rounded-t-lg transition-colors border-b-2 flex items-center gap-1.5 ${
+              className={`px-3 py-2 font-medium whitespace-nowrap rounded-t-lg transition-colors border-b-2 flex items-center gap-1.5 cursor-pointer ${
                 selectedType === tab.id
-                  ? 'border-blue-600 text-blue-700 bg-blue-50/50 font-semibold'
+                  ? 'border-teal-700 text-teal-800 bg-teal-50/50 font-semibold'
                   : 'border-transparent text-slate-600 hover:text-slate-900 hover:bg-slate-50'
               }`}
             >
               <span>{tab.label}</span>
               <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${
-                selectedType === tab.id ? 'bg-blue-200 text-blue-800' : 'bg-slate-100 text-slate-500'
+                selectedType === tab.id ? 'bg-teal-100 text-teal-800' : 'bg-slate-100 text-slate-500'
               }`}>
                 {count}
               </span>
@@ -494,6 +550,86 @@ export const ExplorePage = () => {
               </div>
             </div>
           )}
+        </div>
+      )}
+
+      {/* Lightbox / High-Res Preview Modal */}
+      {activeMediaModal && (
+        <div
+          className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
+          onClick={() => setActiveMediaModal(null)}
+        >
+          <div
+            className="bg-white rounded-2xl max-w-3xl w-full overflow-hidden shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative max-h-[55vh] bg-slate-950 flex items-center justify-center overflow-hidden">
+              <img
+                src={activeMediaModal.url}
+                alt={activeMediaModal.title}
+                referrerPolicy="no-referrer"
+                className="max-h-[55vh] w-auto object-contain mx-auto"
+              />
+              <button
+                type="button"
+                onClick={() => setActiveMediaModal(null)}
+                className="absolute top-3 right-3 bg-black/60 hover:bg-black text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold cursor-pointer"
+              >
+                ✕
+              </button>
+              <div className="absolute bottom-3 left-3">
+                <Badge variant={activeMediaModal.region?.toLowerCase()}>{activeMediaModal.region}</Badge>
+              </div>
+            </div>
+
+            <div className="p-6 space-y-4">
+              <div>
+                <span className="text-[10px] font-bold text-teal-800 uppercase tracking-widest">
+                  {activeMediaModal.category || 'Photograph'} • {activeMediaModal.station || activeMediaModal.region}
+                </span>
+                <h2 className="text-lg font-bold text-slate-900 mt-1">
+                  {activeMediaModal.title}
+                </h2>
+                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                  {activeMediaModal.description}
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs bg-slate-50 border border-slate-100 rounded-lg p-3">
+                <div>
+                  <span className="text-slate-400 block text-[10px]">Photo Credit</span>
+                  <span className="font-semibold text-slate-700">{activeMediaModal.source}</span>
+                </div>
+                <div>
+                  <span className="text-slate-400 block text-[10px]">Region</span>
+                  <span className="font-semibold text-slate-700">{activeMediaModal.region}</span>
+                </div>
+                <div>
+                  <span className="text-slate-400 block text-[10px]">Catalog Identifier</span>
+                  <span className="font-mono text-slate-700">{activeMediaModal.id}</span>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between pt-2 border-t border-slate-100">
+                <a
+                  href={activeMediaModal.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs text-teal-700 hover:text-teal-900 font-semibold"
+                >
+                  <ExternalLink className="w-3.5 h-3.5" />
+                  <span>Open Full-Resolution Source</span>
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setActiveMediaModal(null)}
+                  className="px-4 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-semibold cursor-pointer"
+                >
+                  Close Preview
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </div>

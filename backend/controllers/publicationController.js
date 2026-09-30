@@ -9,8 +9,8 @@ const getPublications = async (req, res, next) => {
     const { region, domain, year } = req.query;
     const filter = {};
 
-    if (region && region !== 'All') filter.region = region;
-    if (domain && domain !== 'All') filter.scienceDomain = domain;
+    if (region && region !== 'All') filter.region = new RegExp(`^${region}$`, 'i');
+    if (domain && domain !== 'All') filter.scienceDomain = new RegExp(`^${domain}$`, 'i');
     if (year && year !== 'All') filter.year = Number(year);
 
     const publications = await Publication.find(filter).sort({ year: -1 }).lean();

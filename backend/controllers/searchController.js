@@ -1,3 +1,6 @@
+const fs = require('fs');
+const path = require('path');
+const mongoose = require('mongoose');
 const ResearchProject = require('../models/ResearchProject');
 const Dataset = require('../models/Dataset');
 const Report = require('../models/Report');
@@ -23,6 +26,170 @@ const TOPIC_CONCEPT_MAP = {
   ocean: ['oceanography', 'indarc', 'current', 'salinity', 'kongsfjorden', 'sea', 'water'],
   monsoon: ['teleconnection', 'indarc', 'rossby', 'precipitation', 'indian monsoon']
 };
+
+// Project ID to primary science domain mapping
+const PROJECT_DOMAIN_MAP = {
+  'POL-PRJ-2023-01': 'Cryosphere',
+  'POL-PRJ-2023-02': 'Atmosphere',
+  'POL-PRJ-2023-03': 'Oceanography',
+  'POL-PRJ-2023-04': 'Cryosphere',
+  'POL-PRJ-2022-05': 'Biology',
+  'POL-PRJ-2020-06': 'Oceanography'
+};
+
+// Domain keywords and semantic indicators for polar science
+const DOMAIN_KEYWORDS_MAP = {
+  atmosphere: [
+    'atmosphere', 'atmospheric', 'meteorolog', 'weather', 'aerosol',
+    'black carbon', 'air quality', 'ozone', 'wind', 'radiation budget',
+    'cloud', 'greenhouse gas', 'trace gas', 'boundary layer',
+    'troposphere', 'stratosphere', 'radiosonde', 'sun photometer', 'aethalometer',
+    'katabatic'
+  ],
+  cryosphere: [
+    'cryosphere', 'cryospheric', 'glacier', 'glacial', 'glaciolog',
+    'ice', 'snow', 'permafrost', 'ice-core', 'ice core', 'ablation',
+    'moraine', 'subglacial', 'crevasse', 'calving', 'meltwater',
+    'frost', 'blue-ice', 'ice sheet', 'firn'
+  ],
+  oceanography: [
+    'ocean', 'oceanograph', 'marine', 'hydrographic', 'sea', 'salinity',
+    'current', 'ctd', 'mooring', 'buoy', 'indarc', 'water mass',
+    'vessel', 'cruise', 'transect', 'bathymetry', 'coastal', 'fjord',
+    'kongsfjorden', 'sea-ice', 'sea ice', 'polar front'
+  ],
+  biology: [
+    'biology', 'biological', 'flora', 'fauna', 'microbiol', 'bacteria',
+    'psychrophil', 'microbial', 'wildlife', 'penguin', 'krill',
+    'zooplankton', 'phytoplankton', 'plankton', 'trophic', 'copepod',
+    'pteropod', 'biodiversity', 'lichen', 'moss', 'ecosystem',
+    'ecology', 'benthic', 'algae', 'living resources'
+  ],
+  geophysics: [
+    'geophysic', 'geolog', 'geomagnet', 'seismic', 'magnetism',
+    'tectonic', 'bedrock', 'gondwana', 'crustal', 'crust', 'paleoclimate',
+    'magnetometer', 'gravity', 'rock', 'geomorphology', 'strata', 'mineral'
+  ],
+  'climate science': [
+    'climate', 'warming', 'greenhouse', 'carbon sink', 'carbon flux',
+    'carbon sequestration', 'radiative forcing', 'albedo', 'carbon drawdown',
+    'arctic amplification', 'teleconnection'
+  ]
+};
+DOMAIN_KEYWORDS_MAP['climate'] = DOMAIN_KEYWORDS_MAP['climate science'];
+
+/**
+ * Determine if a document matches the requested scientific domain
+ */
+function itemMatchesDomain(doc, docType, targetDomain) {
+  if (!targetDomain || targetDomain === 'All') return true;
+  const target = targetDomain.toLowerCase().trim();
+
+  // 1. Direct scienceDomain field
+  if (doc.scienceDomain) {
+    const docDom = doc.scienceDomain.toLowerCase().trim();
+    if (docDom === target) return true;
+    if (target === 'climate science' && docDom === 'climate') return true;
+    if (target === 'climate' && docDom === 'climate science') return true;
+    if (docType === 'Dataset' || docType === 'Publication' || docType === 'Research Project') {
+      return false;
+    }
+  }
+
+  // 2. Check linked project ID (authoritative for records tied to a specific project)
+  if (doc.projectId && PROJECT_DOMAIN_MAP[doc.projectId]) {
+    const projDomain = PROJECT_DOMAIN_MAP[doc.projectId].toLowerCase();
+    if (target === 'climate science' && projDomain === 'climate') return true;
+    if (target === 'climate' && projDomain === 'climate science') return true;
+    return projDomain === target;
+  }
+
+  // 3. Station scienceFocus (authoritative discipline focus for research stations)
+  if (docType === 'Station') {
+    if (Array.isArray(doc.scienceFocus)) {
+      const focusBlob = doc.scienceFocus.join(' ').toLowerCase();
+      const keywords = DOMAIN_KEYWORDS_MAP[target] || [target];
+      return keywords.some(kw => focusBlob.includes(kw));
+    }
+    return false;
+  }
+
+  // 4. Expedition objectives & mandate (authoritative for expeditions)
+  if (docType === 'Expedition') {
+    const expBlob = [
+      Array.isArray(doc.objectives) ? doc.objectives.join(' ') : '',
+      doc.summary || '',
+      doc.name || ''
+    ].join(' ').toLowerCase();
+    const keywords = DOMAIN_KEYWORDS_MAP[target] || [target];
+    return keywords.some(kw => expBlob.includes(kw));
+  }
+
+  // 5. Fallback keyword check across searchable textual fields
+  const textBlob = [
+    doc.title,
+    doc.caption,
+    doc.description,
+    doc.summary,
+    doc.category,
+    doc.reportType,
+    doc.authoringBody,
+    Array.isArray(doc.tags) ? doc.tags.join(' ') : doc.tags,
+    Array.isArray(doc.parameters) ? doc.parameters.join(' ') : doc.parameters
+  ].filter(Boolean).join(' ').toLowerCase();
+
+  const keywords = DOMAIN_KEYWORDS_MAP[target] || [target];
+  return keywords.some(kw => textBlob.includes(kw));
+}
+
+/**
+ * Resolve the best primary science domain label for an item
+ */
+function resolvePrimaryDomain(doc, docType) {
+  if (doc.scienceDomain) return doc.scienceDomain;
+  if (doc.projectId && PROJECT_DOMAIN_MAP[doc.projectId]) {
+    return PROJECT_DOMAIN_MAP[doc.projectId];
+  }
+
+  const textBlob = [
+    doc.title,
+    doc.caption,
+    doc.description,
+    doc.summary,
+    doc.category,
+    doc.reportType,
+    doc.authoringBody,
+    Array.isArray(doc.scienceFocus) ? doc.scienceFocus.join(' ') : '',
+    Array.isArray(doc.objectives) ? doc.objectives.join(' ') : '',
+    Array.isArray(doc.tags) ? doc.tags.join(' ') : ''
+  ].filter(Boolean).join(' ').toLowerCase();
+
+  const domainCandidates = [
+    { name: 'Atmosphere', key: 'atmosphere' },
+    { name: 'Cryosphere', key: 'cryosphere' },
+    { name: 'Oceanography', key: 'oceanography' },
+    { name: 'Biology', key: 'biology' },
+    { name: 'Geophysics', key: 'geophysics' },
+    { name: 'Climate Science', key: 'climate science' }
+  ];
+
+  let bestDomain = null;
+  let maxMatches = 0;
+
+  for (const candidate of domainCandidates) {
+    const keywords = DOMAIN_KEYWORDS_MAP[candidate.key] || [];
+    let count = 0;
+    for (const kw of keywords) {
+      if (textBlob.includes(kw)) count++;
+    }
+    if (count > maxMatches) {
+      maxMatches = count;
+      bestDomain = candidate.name;
+    }
+  }
+
+  return bestDomain || 'General';
+}
 
 /**
  * Tokenize search query and extract key terms and concepts
@@ -84,19 +251,31 @@ const searchAll = async (req, res, next) => {
     const trimmedQuery = q.trim();
     const tokens = extractSearchTokens(trimmedQuery);
 
-    // Build base MongoDB filter for exact filters (region, domain, year, station)
+    const safeLoadSeed = (file) => {
+      try {
+        const raw = fs.readFileSync(path.join(__dirname, '../seed', file), 'utf-8');
+        return JSON.parse(raw);
+      } catch (err) {
+        return [];
+      }
+    };
+
+    // Build filter for exact filters (region, domain, year, station)
     const applyStandardFilters = (doc, docType) => {
       if (region && region !== 'All') {
         const docRegion = (doc.region || '').toLowerCase();
         if (docRegion !== region.toLowerCase()) return false;
       }
       if (domain && domain !== 'All') {
-        const docDomain = (doc.scienceDomain || '').toLowerCase();
-        if (docDomain !== domain.toLowerCase()) return false;
+        if (!itemMatchesDomain(doc, docType, domain)) return false;
       }
       if (year && year !== 'All') {
-        const docYear = String(doc.year || '');
-        if (!docYear.includes(String(year))) return false;
+        if (doc.year) {
+          const docYear = String(doc.year || '');
+          if (!docYear.includes(String(year))) return false;
+        } else if (docType !== 'Media' && docType !== 'Station') {
+          return false;
+        }
       }
       if (station && station !== 'All') {
         const stLower = station.toLowerCase();
@@ -127,7 +306,11 @@ const searchAll = async (req, res, next) => {
     };
 
     // 1. STATIONS
-    const stationsData = await Station.find().lean();
+    let stationsData = [];
+    if (mongoose.connection.readyState === 1) {
+      try { stationsData = await Station.find().lean(); } catch (e) {}
+    }
+    if (!stationsData || stationsData.length === 0) stationsData = safeLoadSeed('stations.json');
     stationsData.forEach(s => {
       const searchBlob = `${s.name} ${s.stationId} ${s.region} ${s.location} ${s.description} ${(s.scienceFocus || []).join(' ')}`;
       const { matched, score } = matchesQuery(s, searchBlob);
@@ -139,6 +322,7 @@ const searchAll = async (req, res, next) => {
           type: 'Station',
           region: s.region,
           year: s.establishedYear,
+          scienceDomain: s.scienceDomain || resolvePrimaryDomain(s, 'Station'),
           description: s.description,
           source: 'NCPOR Official Base',
           sourceUrl: s.sourceUrl,
@@ -150,7 +334,11 @@ const searchAll = async (req, res, next) => {
     });
 
     // 2. EXPEDITIONS
-    const expeditionsData = await Expedition.find().lean();
+    let expeditionsData = [];
+    if (mongoose.connection.readyState === 1) {
+      try { expeditionsData = await Expedition.find().lean(); } catch (e) {}
+    }
+    if (!expeditionsData || expeditionsData.length === 0) expeditionsData = safeLoadSeed('expeditions.json');
     expeditionsData.forEach(e => {
       const searchBlob = `${e.name} ${e.shortName} ${e.expeditionId} ${e.region} ${e.year} ${e.summary} ${(e.objectives || []).join(' ')} ${(e.stations || []).join(' ')} ${e.leader?.name}`;
       const { matched, score } = matchesQuery(e, searchBlob);
@@ -162,6 +350,7 @@ const searchAll = async (req, res, next) => {
           type: 'Expedition',
           region: e.region,
           year: e.year,
+          scienceDomain: e.scienceDomain || resolvePrimaryDomain(e, 'Expedition'),
           stations: e.stations,
           description: e.summary,
           source: e.organization,
@@ -174,7 +363,11 @@ const searchAll = async (req, res, next) => {
     });
 
     // 3. RESEARCH PROJECTS
-    const projectsData = await ResearchProject.find().lean();
+    let projectsData = [];
+    if (mongoose.connection.readyState === 1) {
+      try { projectsData = await ResearchProject.find().lean(); } catch (e) {}
+    }
+    if (!projectsData || projectsData.length === 0) projectsData = safeLoadSeed('researchProjects.json');
     projectsData.forEach(p => {
       const searchBlob = `${p.title} ${p.shortDescription} ${p.description} ${p.region} ${p.scienceDomain} ${p.stationName} ${p.expeditionName} ${(p.keywords || []).join(' ')} ${(p.keyFindings || []).join(' ')} ${p.leadResearcher?.name}`;
       const { matched, score } = matchesQuery(p, searchBlob);
@@ -185,7 +378,7 @@ const searchAll = async (req, res, next) => {
           title: p.title,
           type: 'Research Project',
           region: p.region,
-          scienceDomain: p.scienceDomain,
+          scienceDomain: p.scienceDomain || resolvePrimaryDomain(p, 'Research Project'),
           year: p.year,
           station: p.stationName,
           expedition: p.expeditionName,
@@ -201,7 +394,11 @@ const searchAll = async (req, res, next) => {
     });
 
     // 4. DATASETS
-    const datasetsData = await Dataset.find().lean();
+    let datasetsData = [];
+    if (mongoose.connection.readyState === 1) {
+      try { datasetsData = await Dataset.find().lean(); } catch (e) {}
+    }
+    if (!datasetsData || datasetsData.length === 0) datasetsData = safeLoadSeed('datasets.json');
     datasetsData.forEach(d => {
       const searchBlob = `${d.title} ${d.description} ${d.datasetId} ${d.scienceDomain} ${d.region} ${d.stationName} ${(d.parameters || []).join(' ')} ${d.format} ${d.accessType}`;
       const { matched, score } = matchesQuery(d, searchBlob);
@@ -212,7 +409,7 @@ const searchAll = async (req, res, next) => {
           title: d.title,
           type: 'Dataset',
           region: d.region,
-          scienceDomain: d.scienceDomain,
+          scienceDomain: d.scienceDomain || resolvePrimaryDomain(d, 'Dataset'),
           year: d.year,
           station: d.stationName,
           expedition: d.expeditionName,
@@ -229,7 +426,11 @@ const searchAll = async (req, res, next) => {
     });
 
     // 5. REPORTS
-    const reportsData = await Report.find().lean();
+    let reportsData = [];
+    if (mongoose.connection.readyState === 1) {
+      try { reportsData = await Report.find().lean(); } catch (e) {}
+    }
+    if (!reportsData || reportsData.length === 0) reportsData = safeLoadSeed('reports.json');
     reportsData.forEach(r => {
       const searchBlob = `${r.title} ${r.summary} ${r.reportType} ${r.region} ${r.stationName} ${r.expeditionName} ${r.authoringBody}`;
       const { matched, score } = matchesQuery(r, searchBlob);
@@ -242,6 +443,7 @@ const searchAll = async (req, res, next) => {
           reportType: r.reportType,
           region: r.region,
           year: r.year,
+          scienceDomain: r.scienceDomain || resolvePrimaryDomain(r, 'Report'),
           station: r.stationName,
           expedition: r.expeditionName,
           description: r.summary,
@@ -255,7 +457,11 @@ const searchAll = async (req, res, next) => {
     });
 
     // 6. PUBLICATIONS
-    const publicationsData = await Publication.find().lean();
+    let publicationsData = [];
+    if (mongoose.connection.readyState === 1) {
+      try { publicationsData = await Publication.find().lean(); } catch (e) {}
+    }
+    if (!publicationsData || publicationsData.length === 0) publicationsData = safeLoadSeed('publications.json');
     publicationsData.forEach(pub => {
       const searchBlob = `${pub.title} ${pub.abstract} ${pub.journal} ${pub.doi} ${pub.region} ${pub.scienceDomain} ${(pub.authors || []).join(' ')} ${pub.stationName}`;
       const { matched, score } = matchesQuery(pub, searchBlob);
@@ -266,7 +472,7 @@ const searchAll = async (req, res, next) => {
           title: pub.title,
           type: 'Publication',
           region: pub.region,
-          scienceDomain: pub.scienceDomain,
+          scienceDomain: pub.scienceDomain || resolvePrimaryDomain(pub, 'Publication'),
           year: pub.year,
           station: pub.stationName,
           description: pub.abstract,
@@ -282,7 +488,11 @@ const searchAll = async (req, res, next) => {
     });
 
     // 7. MEDIA (Photos & Videos)
-    const mediaData = await Media.find().lean();
+    let mediaData = [];
+    if (mongoose.connection.readyState === 1) {
+      try { mediaData = await Media.find().lean(); } catch (e) {}
+    }
+    if (!mediaData || mediaData.length === 0) mediaData = safeLoadSeed('media.json');
     mediaData.forEach(m => {
       const searchBlob = `${m.title} ${m.caption} ${m.category} ${m.region} ${m.stationName} ${m.credit}`;
       const { matched, score } = matchesQuery(m, searchBlob);
@@ -295,6 +505,7 @@ const searchAll = async (req, res, next) => {
           mediaType: m.type,
           category: m.category,
           region: m.region,
+          scienceDomain: m.scienceDomain || resolvePrimaryDomain(m, 'Media'),
           station: m.stationName,
           description: m.caption,
           url: m.url,
@@ -321,14 +532,13 @@ const searchAll = async (req, res, next) => {
       categorized[k] = sortList(categorized[k]);
     });
 
-    // Category Counts
+    // Category Counts - matching the 6 active repository categories
     const counts = {
       all: categorized.stations.length +
            categorized.expeditions.length +
-           categorized.research.length +
-           categorized.datasets.length +
            categorized.reports.length +
            categorized.publications.length +
+           categorized.datasets.length +
            categorized.media.length,
       stations: categorized.stations.length,
       expeditions: categorized.expeditions.length,
@@ -347,10 +557,9 @@ const searchAll = async (req, res, next) => {
       combinedResults = [
         ...categorized.stations,
         ...categorized.expeditions,
-        ...categorized.research,
-        ...categorized.datasets,
         ...categorized.reports,
         ...categorized.publications,
+        ...categorized.datasets,
         ...categorized.media
       ];
     } else if (normalizedType === 'stations' || normalizedType === 'station') {

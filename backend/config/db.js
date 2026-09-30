@@ -10,7 +10,7 @@ const connectDB = async () => {
       try {
         console.log(`[POLARIS-DB] Attempting to connect to configured MongoDB URI...`);
         const conn = await mongoose.connect(mongoUri, {
-          serverSelectionTimeoutMS: 3000
+          serverSelectionTimeoutMS: 10000
         });
         console.log(`[POLARIS-DB] Connected to MongoDB: ${conn.connection.host}`);
         return conn;
@@ -25,6 +25,9 @@ const connectDB = async () => {
     mongodInstance = await MongoMemoryServer.create({
       instance: {
         dbName: 'polaris'
+      },
+      spawn: {
+        timeout: 60000
       }
     });
     const memoryUri = mongodInstance.getUri();

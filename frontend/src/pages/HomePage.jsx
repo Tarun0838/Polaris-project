@@ -17,17 +17,75 @@ import Badge from '../components/ui/Badge';
 import Card, { CardBody } from '../components/ui/Card';
 import Button from '../components/ui/Button';
 
+// High-resolution photography of Himalayan peaks, hills, and Antarctic research regions
+const heroSlides = [
+  {
+    id: 'antarctica-bharati',
+    title: 'Bharati Permanent Research Station',
+    tag: 'East Antarctica (Larsemann Hills)',
+    station: 'Bharati Station (Larsemann Hills)',
+    description: 'Elevated aerodynamic research station on steel stilts overlooking Antarctic ice leads.',
+    image: '/stations/bharati.jpg',
+    regionQuery: 'Antarctica'
+  },
+  {
+    id: 'himalaya-himansh',
+    title: 'Chandra Basin & Lahaul Spiti Peaks',
+    tag: 'Western Himalaya (Third Pole)',
+    station: 'Himansh Station (4,080m)',
+    description: 'Rugged moraines and high-altitude alpine terrain surrounding India\'s Himansh glaciological research base.',
+    image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2000&q=85',
+    regionQuery: 'Himalaya'
+  },
+  {
+    id: 'himalaya-samudra',
+    title: 'Samudra Tapu Glacial Lake & Moraine Ridges',
+    tag: 'Himalayan Cryosphere',
+    station: 'Samudra Tapu Field Site',
+    description: 'Expanding moraine-dammed glacial lake monitored for GLOF cryospheric hazard evaluation.',
+    image: 'https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?auto=format&fit=crop&w=2000&q=85',
+    regionQuery: 'Himalaya'
+  },
+  {
+    id: 'antarctica-maitri',
+    title: 'Schirmacher Oasis & Blue-Ice Plateau',
+    tag: 'Continental Antarctica',
+    station: 'Maitri Station (Schirmacher)',
+    description: 'Ice-free rocky oasis situated between the inland ice sheet and the ice shelf in Queen Maud Land.',
+    image: '/stations/maitri.jpg',
+    regionQuery: 'Antarctica'
+  },
+  {
+    id: 'arctic-himadri',
+    title: 'Ny-Ålesund & Kongsfjorden Fjord',
+    tag: 'High Arctic (79°N)',
+    station: 'Himadri Station (Ny-Ålesund)',
+    description: 'India\'s permanent Arctic research station nestled among Spitsbergen peaks and glacial fjords.',
+    image: '/stations/himadri.jpg',
+    regionQuery: 'Arctic'
+  }
+];
+
 export const HomePage = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const [featuredProjects, setFeaturedProjects] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Auto-advance background slideshow every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const fetchHomeData = async () => {
       try {
         const response = await api.get('/projects');
-        setFeaturedProjects((response.data.data || []).slice(0, 4));
+        setFeaturedProjects((response.data.data || []).slice(0, 6));
       } catch (err) {
         console.error('Failed to load featured research:', err);
       } finally {
@@ -46,57 +104,115 @@ export const HomePage = () => {
     }
   };
 
+  const getDomainAccentColor = (domain, region) => {
+    const d = (domain || '').toLowerCase();
+    const r = (region || '').toLowerCase();
+    if (d.includes('cryosphere') || d.includes('glacier') || d.includes('ice') || r.includes('antarctica')) {
+      return 'bg-sky-400';
+    }
+    if (d.includes('atmosphere') || d.includes('climate') || d.includes('meteorolog')) {
+      return 'bg-amber-500';
+    }
+    if (d.includes('ocean') || d.includes('marine') || r.includes('southern ocean')) {
+      return 'bg-teal-600';
+    }
+    if (d.includes('bio') || d.includes('ecolog') || d.includes('flora')) {
+      return 'bg-emerald-500';
+    }
+    if (d.includes('geo') || d.includes('seismic') || r.includes('himalaya')) {
+      return 'bg-indigo-500';
+    }
+    return 'bg-teal-700';
+  };
+
   const polarRegions = [
     {
       name: 'Antarctica',
       description: 'Maitri & Bharati permanent stations, Schirmacher Oasis permafrost, Larsemann Hills',
-      stations: 'Maitri, Bharati',
-      badgeVariant: 'antarctica',
+      stations: 'Maitri & Bharati Stations',
+      accentColor: 'bg-sky-400',
+      tag: 'Polar South',
       query: 'Antarctica'
     },
     {
       name: 'Arctic',
       description: 'Himadri station in Ny-Ålesund, Svalbard and IndARC continuous fjord moored observatory',
-      stations: 'Himadri',
-      badgeVariant: 'arctic',
+      stations: 'Himadri Station (Svalbard)',
+      accentColor: 'bg-teal-500',
+      tag: 'Polar North',
       query: 'Arctic'
     },
     {
       name: 'Himalaya',
       description: 'Himansh station at 4,080m in Chandra Basin, Sutri Dhaka benchmark glacier monitoring',
-      stations: 'Himansh',
-      badgeVariant: 'himalaya',
+      stations: 'Himansh Station (4,080m)',
+      accentColor: 'bg-indigo-500',
+      tag: 'Third Pole',
       query: 'Himalaya'
     },
     {
       name: 'Southern Ocean',
       description: 'Deep-sea biogeochemical transects, carbon sequestration and polar front oceanography',
-      stations: 'Cruise Operations',
-      badgeVariant: 'southern ocean',
+      stations: 'Cruise & Research Vessels',
+      accentColor: 'bg-blue-600',
+      tag: 'Oceanographic',
       query: 'Southern Ocean'
     }
   ];
 
   return (
     <div className="space-y-12 pb-16">
-      {/* 1. HERO SECTION - CLEAN, GOVERNMENT SCIENTIFIC PORTAL */}
-      <section className="bg-slate-900 text-white border-b border-slate-800 py-14 sm:py-16">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <div className="inline-flex items-center gap-2 bg-slate-800 border border-slate-700 px-3 py-1 rounded-full text-xs text-cyan-300 font-medium">
-            <span className="w-2 h-2 rounded-full bg-cyan-400" />
-            <span>Ministry of Earth Sciences (MoES) • NCPOR • SIH Problem Statement 26063</span>
+      {/* 1. HERO SECTION - CLEAN, WHITE EDITORIAL WITH DYNAMIC POLAR SLIDESHOW */}
+      <section className="relative overflow-hidden border-b border-slate-200/90 py-16 sm:py-20 bg-slate-900">
+        {/* Dynamic Background Slides: Mountain, Hills, and Antarctica Regions */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+          {heroSlides.map((slide, idx) => (
+            <div
+              key={slide.id}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                idx === currentSlide ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <img
+                src={slide.image}
+                alt={slide.title}
+                className={`w-full h-full object-cover object-center transform transition-transform duration-[7000ms] ease-out ${
+                  idx === currentSlide ? 'scale-105' : 'scale-100'
+                }`}
+              />
+            </div>
+          ))}
+
+          {/* Frosted Light Overlay: Increased visibility for mountain/hills/Antarctica photography */}
+          <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/45 to-white/75 backdrop-blur-[0.5px]" />
+          
+          {/* Center focus vignette to keep search bar & typography ultra-clear */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.3)_20%,rgba(255,255,255,0.75)_100%)]" />
+        </div>
+
+        {/* Small location indicator pill showing current station / landscape */}
+        <div className="absolute bottom-3 right-4 z-10 hidden sm:flex items-center gap-1.5 text-[11px] font-mono text-slate-800 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full border border-slate-200/90 shadow-xs pointer-events-none">
+          <span className="w-1.5 h-1.5 rounded-full bg-teal-600" />
+          <span>📍 {heroSlides[currentSlide].station}</span>
+        </div>
+
+        {/* Foreground Content */}
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          <div className="inline-flex items-center gap-2 bg-white/95 border border-slate-200/90 px-3.5 py-1.5 rounded-full text-xs text-slate-800 font-semibold shadow-xs backdrop-blur-md">
+            <span className="w-2 h-2 rounded-full bg-teal-600 animate-pulse" />
+            <span>Ministry of Earth Sciences (MoES) • NCPOR • National Polar Repository</span>
           </div>
 
-          <div className="space-y-2">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white font-heading">
+          <div className="space-y-3">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-950 font-heading drop-shadow-xs">
               POLARIS
             </h1>
-            <p className="text-lg sm:text-xl font-medium text-cyan-200 font-heading">
+            <p className="text-xl sm:text-2xl font-bold text-teal-900 font-heading">
               Unified Polar Knowledge Repository
             </p>
           </div>
 
-          <p className="text-slate-300 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-900 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-semibold">
             A single integrated national portal connecting India's polar research stations, expeditions, 
             technical reports, peer-reviewed publications, in-situ datasets, and outreach media.
           </p>
@@ -104,43 +220,43 @@ export const HomePage = () => {
           {/* MAIN SEARCH BOX — PRIMARY CTA */}
           <form
             onSubmit={handleSearchSubmit}
-            className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-2 flex items-center gap-2 border border-slate-200"
+            className="max-w-2xl mx-auto bg-white rounded-xl shadow-md hover:shadow-lg p-2 flex items-center gap-2 border-2 border-slate-200 focus-within:border-teal-700 transition-all"
           >
-            <Search className="w-5 h-5 text-slate-400 ml-2 shrink-0" />
+            <Search className="w-5 h-5 text-slate-400 ml-3 shrink-0" />
             <input
               type="text"
               placeholder="Search polar research, stations, datasets, expeditions, permafrost..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full text-xs sm:text-sm text-slate-900 placeholder-slate-400 bg-transparent px-2 py-2 focus:outline-hidden font-medium"
+              className="w-full text-sm text-slate-900 placeholder-slate-400 bg-transparent px-2 py-2.5 focus:outline-none font-medium"
             />
             <button
               type="submit"
-              className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors shrink-0"
+              className="bg-teal-700 hover:bg-teal-800 text-white text-sm font-semibold px-6 py-2.5 rounded-lg transition-colors shrink-0 shadow-xs cursor-pointer"
             >
               Search
             </button>
           </form>
 
-          {/* Prompt sample search suggestions */}
-          <div className="flex flex-wrap items-center justify-center gap-2 text-xs text-slate-400 pt-1">
-            <span>Try searching:</span>
+          {/* Sample search suggestions */}
+          <div className="flex flex-wrap items-center justify-center gap-2 text-xs text-slate-600 pt-1">
+            <span className="font-semibold text-slate-500">Popular searches:</span>
             {['Maitri', 'Antarctica', 'temperature', 'Himadri', 'Himansh', 'permafrost', 'Southern Ocean'].map((kw) => (
               <button
                 key={kw}
                 type="button"
                 onClick={() => navigate(`/explore?q=${encodeURIComponent(kw)}`)}
-                className="bg-slate-800 hover:bg-slate-700 text-cyan-300 px-2 py-0.5 rounded text-[11px] font-mono border border-slate-700 transition-colors"
+                className="bg-white/90 hover:bg-white text-slate-700 px-3 py-1 rounded-md text-xs font-medium border border-slate-200/90 shadow-2xs hover:shadow-xs transition-all cursor-pointer backdrop-blur-xs"
               >
                 {kw}
               </button>
             ))}
           </div>
 
-          {/* Verification notice */}
-          <div className="flex items-center justify-center gap-2 text-xs text-slate-400 pt-2">
-            <ShieldCheck className="w-4 h-4 text-emerald-400" />
-            <span>Prototype Repository Record • Structured with authentic NCPOR/NPDC polar metadata</span>
+          {/* Institutional verification notice */}
+          <div className="flex items-center justify-center gap-2 text-xs text-slate-600 pt-1">
+            <ShieldCheck className="w-4 h-4 text-teal-700" />
+            <span>Official MoES Repository Architecture • Standardized with NCPOR & NPDC Polar Metadata</span>
           </div>
         </div>
       </section>
@@ -148,7 +264,7 @@ export const HomePage = () => {
       {/* 2. FOUR POLAR REGIONS SECTION */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
         <div>
-          <div className="text-xs font-bold text-blue-700 uppercase tracking-widest mb-1">
+          <div className="text-xs font-bold text-teal-800 uppercase tracking-widest mb-1">
             Geographic Coverage
           </div>
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 font-heading">
@@ -159,27 +275,27 @@ export const HomePage = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {polarRegions.map((reg) => (
             <Link
               key={reg.name}
               to={`/explore?region=${encodeURIComponent(reg.query)}`}
               className="group block"
             >
-              <Card hover className="p-4 h-full flex flex-col justify-between border-slate-200 group-hover:border-blue-300">
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <Badge variant={reg.badgeVariant}>{reg.name}</Badge>
-                    <span className="text-[11px] font-mono text-slate-400">{reg.stations}</span>
+              <Card hover accentColor={reg.accentColor} className="p-6 h-full flex flex-col justify-between border-slate-200/90 group-hover:border-slate-300">
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-semibold uppercase tracking-wider text-slate-500 text-[11px]">{reg.tag}</span>
+                    <span className="text-[11px] font-medium text-slate-400">{reg.stations}</span>
                   </div>
-                  <h3 className="text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-teal-700 transition-colors">
                     {reg.name} Repository
                   </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-3">
                     {reg.description}
                   </p>
                 </div>
-                <div className="pt-3 border-t border-slate-100 flex items-center text-xs font-semibold text-blue-600 gap-1 group-hover:translate-x-1 transition-transform">
+                <div className="pt-4 border-t border-slate-100 flex items-center text-xs font-semibold text-teal-700 group-hover:text-teal-800 gap-1.5 group-hover:translate-x-1 transition-transform">
                   <span>Explore Region</span>
                   <ChevronRight className="w-3.5 h-3.5" />
                 </div>
@@ -189,11 +305,11 @@ export const HomePage = () => {
         </div>
       </section>
 
-      {/* 3. FEATURED / RECENT POLAR RESEARCH */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+      {/* 3. FEATURED / RECENT POLAR RESEARCH (RETHINK PRIORITIES EDITORIAL CARD REFERENCE) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
         <div className="flex items-center justify-between">
           <div>
-            <div className="text-xs font-bold text-blue-700 uppercase tracking-widest mb-1">
+            <div className="text-xs font-bold text-teal-800 uppercase tracking-widest mb-1">
               Connected Knowledge
             </div>
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900 font-heading">
@@ -202,7 +318,7 @@ export const HomePage = () => {
           </div>
           <Link
             to="/explore"
-            className="text-xs font-semibold text-blue-600 hover:text-blue-800 flex items-center gap-1"
+            className="text-xs font-semibold text-teal-700 hover:text-teal-900 flex items-center gap-1"
           >
             <span>View All Records in Explore</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -212,43 +328,53 @@ export const HomePage = () => {
         {loading ? (
           <div className="p-8 text-center text-xs text-slate-400">Loading research records...</div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {featuredProjects.map((p) => (
-              <Card key={p.projectId} hover className="p-4 flex flex-col justify-between">
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <Badge variant={p.region.toLowerCase()}>{p.region}</Badge>
-                    <Badge variant="project">{p.scienceDomain}</Badge>
-                    <span className="text-xs font-mono text-slate-400">• {p.year}</span>
-                    <Badge variant="verified">Verified</Badge>
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {featuredProjects.map((p) => {
+              const accentColor = getDomainAccentColor(p.scienceDomain, p.region);
+              return (
+                <Link key={p.projectId} to={`/research/${p.projectId}`} className="group block h-full">
+                  <Card hover accentColor={accentColor} className="p-6 h-full flex flex-col justify-between border-slate-200/90 group-hover:border-slate-300">
+                    <div className="space-y-3">
+                      {/* Top category label matching reference photo */}
+                      <div className="flex items-center justify-between text-xs">
+                        <span className="font-semibold uppercase tracking-wider text-slate-500 text-[11px]">
+                          {p.scienceDomain || 'Polar Science'}
+                        </span>
+                        <span className="text-[11px] font-medium text-slate-400">
+                          {p.region}
+                        </span>
+                      </div>
 
-                  <Link to={`/research/${p.projectId}`}>
-                    <h3 className="text-sm font-bold text-slate-900 hover:text-blue-600 transition-colors leading-snug">
-                      {p.title}
-                    </h3>
-                  </Link>
+                      {/* Prominent Editorial Title */}
+                      <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-teal-700 transition-colors leading-snug line-clamp-2">
+                        {p.title}
+                      </h3>
 
-                  <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
-                    {p.shortDescription || p.description}
-                  </p>
+                      {/* Clean Date and Authors / PI */}
+                      <div className="text-xs text-slate-500 font-medium space-y-0.5">
+                        <div>{p.year ? `${p.year}` : '2023'}</div>
+                        <div className="text-slate-700 truncate">
+                          {p.leadResearcher?.name ? `${p.leadResearcher.name}${p.leadResearcher.institute ? `, ${p.leadResearcher.institute}` : ''}` : p.stationName}
+                        </div>
+                      </div>
 
-                  <div className="flex items-center gap-4 text-xs text-slate-500 pt-1">
-                    <span>📍 <strong>{p.stationName}</strong></span>
-                    {p.leadResearcher?.name && <span>Lead: {p.leadResearcher.name}</span>}
-                  </div>
-                </div>
+                      {/* Clean description snippet */}
+                      <p className="text-xs sm:text-sm text-slate-600 line-clamp-3 leading-relaxed">
+                        {p.shortDescription || p.description}
+                      </p>
+                    </div>
 
-                <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between">
-                  <span className="text-[11px] font-mono text-slate-400">ID: {p.projectId}</span>
-                  <Link to={`/research/${p.projectId}`}>
-                    <Button variant="secondary" size="sm" className="text-xs">
-                      View Connected Record →
-                    </Button>
-                  </Link>
-                </div>
-              </Card>
-            ))}
+                    {/* Clean footer info */}
+                    <div className="mt-5 pt-3.5 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                      <span className="font-medium text-slate-600">📍 {p.stationName}</span>
+                      <span className="text-teal-700 font-semibold group-hover:translate-x-1 transition-transform flex items-center gap-1">
+                        Read Research <ChevronRight className="w-3.5 h-3.5" />
+                      </span>
+                    </div>
+                  </Card>
+                </Link>
+              );
+            })}
           </div>
         )}
       </section>

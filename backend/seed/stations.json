@@ -31,9 +31,9 @@
       "winter": 25,
       "summer": 65
     },
-    "heroImage": "https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=1200&q=80",
+    "heroImage": "/stations/maitri.jpg",
     "sourceType": "official_npdc",
-    "sourceUrl": "https://npdc.ncpor.res.in/npdc/antarctica.action",
+    "sourceUrl": "https://ncpor.res.in/antarcticas/display/376-maitri-",
     "verificationStatus": "official-source-verified"
   },
   {
@@ -68,9 +68,9 @@
       "winter": 25,
       "summer": 47
     },
-    "heroImage": "https://images.unsplash.com/photo-1483181957632-8bda974cbc91?auto=format&fit=crop&w=1200&q=80",
+    "heroImage": "/stations/bharati.jpg",
     "sourceType": "official_npdc",
-    "sourceUrl": "https://npdc.ncpor.res.in/npdc/antarctica.action",
+    "sourceUrl": "https://ncpor.res.in/antarcticas/display/377-bharati",
     "verificationStatus": "official-source-verified"
   },
   {
@@ -104,9 +104,9 @@
       "winter": 8,
       "summer": 12
     },
-    "heroImage": "https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=1200&q=80",
+    "heroImage": "/stations/himadri.jpg",
     "sourceType": "official_npdc",
-    "sourceUrl": "https://npdc.ncpor.res.in/npdc/arctic.action",
+    "sourceUrl": "https://ncpor.res.in/arctics/display/394-himadri",
     "verificationStatus": "official-source-verified"
   },
   {
@@ -142,7 +142,38 @@
     },
     "heroImage": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
     "sourceType": "official_npdc",
-    "sourceUrl": "https://npdc.ncpor.res.in/npdc/himalaya.action",
+    "sourceUrl": "https://ncpor.res.in/pages/display/268-himalaya",
+    "verificationStatus": "official-source-verified"
+  },
+  {
+    "stationId": "dakshin-gangotri",
+    "name": "Dakshin Gangotri",
+    "region": "Antarctica",
+    "location": "Princess Astrid Coast, Queen Maud Land, Antarctica",
+    "coordinates": {
+      "lat": -70.083,
+      "lng": 12
+    },
+    "establishedYear": 1983,
+    "operationalStatus": "Decommissioned",
+    "description": "Dakshin Gangotri was India's first permanent scientific base station established in Antarctica in 1983 during the Third Indian Antarctic Expedition. Submerged under ice in 1990, it is preserved as an Antarctic historic site and now serves as a field resupply point.",
+    "scienceFocus": [
+      "Meteorological Base Profiling",
+      "Ice Shelf Mechanics & Accumulation Rates",
+      "Pioneering Geomagnetic Baseline Surveys"
+    ],
+    "facilities": [
+      "Original Double-Story Wooden Habitat Module",
+      "Heritage Marker & Historic Site No. 44"
+    ],
+    "altitude": "40 m above sea level",
+    "capacity": {
+      "winter": 0,
+      "summer": 0
+    },
+    "heroImage": "/stations/dakshin-gangotri.jpg",
+    "sourceType": "official_npdc",
+    "sourceUrl": "https://ncpor.res.in/antarcticas/display/166-india-in-antarctica",
     "verificationStatus": "official-source-verified"
   }
 ]

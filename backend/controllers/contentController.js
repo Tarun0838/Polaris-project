@@ -3,6 +3,8 @@ const ResearchProject = require('../models/ResearchProject');
 const Dataset = require('../models/Dataset');
 const Report = require('../models/Report');
 const Publication = require('../models/Publication');
+const Media = require('../models/Media');
+const Station = require('../models/Station');
 const Activity = require('../models/Activity');
 const { generateOutreachContent } = require('../services/aiService');
 
@@ -11,7 +13,7 @@ const { generateOutreachContent } = require('../services/aiService');
 // @access  Public or Protected
 const generateDraft = async (req, res, next) => {
   try {
-    const { projectId, audience, contentType } = req.body;
+    const { projectId, audience, contentType, imageUrl, imageCaption, imageCredit } = req.body;
 
     if (!projectId || !audience || !contentType) {
       return res.status(400).json({
@@ -74,7 +76,60 @@ const generateDraft = async (req, res, next) => {
       ...relatedPublications.map(p => p.publicationId)
     ];
 
-    // 4. Grounded AI Generation
+    // 4. Resolve authentic photo for this outreach draft
+    let photoUrl = imageUrl || '';
+    let photoCaption = imageCaption || '';
+    let photoCredit = imageCredit || '';
+
+    if (!photoUrl) {
+      // 4a. Check direct project media
+      let matchedMedia = await Media.findOne({ projectId: project.projectId, type: 'image' }).lean();
+      
+      // 4b. Check station media
+      if (!matchedMedia && project.stationId) {
+        matchedMedia = await Media.findOne({ stationId: project.stationId, type: 'image' }).lean();
+      }
+      if (!matchedMedia && project.stationName) {
+        matchedMedia = await Media.findOne({
+          stationName: new RegExp(project.stationName, 'i'),
+          type: 'image'
+        }).lean();
+      }
+
+      // 4c. Check station hero image
+      if (!matchedMedia && project.stationId) {
+        const stationDoc = await Station.findOne({ stationId: project.stationId }).lean();
+        if (stationDoc && stationDoc.heroImage) {
+          photoUrl = stationDoc.heroImage;
+          photoCaption = `${stationDoc.name} Research Station, ${stationDoc.location}`;
+          photoCredit = 'MoES / NCPOR Archive';
+        }
+      }
+
+      if (!photoUrl && matchedMedia) {
+        photoUrl = matchedMedia.url;
+        photoCaption = matchedMedia.caption || matchedMedia.title;
+        photoCredit = matchedMedia.credit || 'NCPOR Photographic Cell';
+      }
+
+      // 4d. Fallback to region media
+      if (!photoUrl && project.region) {
+        const regionMedia = await Media.findOne({ region: project.region, type: 'image' }).lean();
+        if (regionMedia) {
+          photoUrl = regionMedia.url;
+          photoCaption = regionMedia.caption || regionMedia.title;
+          photoCredit = regionMedia.credit || 'MoES / NCPOR Archive';
+        }
+      }
+    }
+
+    if (!photoUrl) {
+      photoUrl = '/stations/bharati.jpg';
+      photoCaption = `${project.stationName || 'Polar'} Research Operations`;
+      photoCredit = 'MoES / NCPOR Photographic Documentation Wing';
+    }
+
+    // 5. Grounded AI Generation
     const aiResult = await generateOutreachContent({
       project,
       relatedDatasets,
@@ -84,7 +139,7 @@ const generateDraft = async (req, res, next) => {
       contentType
     });
 
-    // 5. Store generated draft with status = 'draft'
+    // 6. Store generated draft with status = 'draft' including photo metadata
     const generatedDraft = await GeneratedContent.create({
       title: aiResult.title,
       content: aiResult.content,
@@ -93,6 +148,9 @@ const generateDraft = async (req, res, next) => {
       audience,
       projectId: project.projectId,
       projectTitle: project.title,
+      imageUrl: photoUrl,
+      imageCaption: photoCaption,
+      imageCredit: photoCredit,
       sourceIds,
       sourceReferences,
       generatedBy: req.user ? req.user._id : null,
@@ -114,7 +172,7 @@ const generateDraft = async (req, res, next) => {
 
     res.status(201).json({
       success: true,
-      message: 'Draft successfully generated from verified sources.',
+      message: 'Draft successfully generated from verified sources with attached authentic media.',
       isAiLive: aiResult.isAiLive,
       data: generatedDraft
     });
@@ -172,6 +230,9 @@ const updateContent = async (req, res, next) => {
     if (title) item.title = title;
     if (content) item.content = content;
     if (keyFacts) item.keyFacts = keyFacts;
+    if (req.body.imageUrl !== undefined) item.imageUrl = req.body.imageUrl;
+    if (req.body.imageCaption !== undefined) item.imageCaption = req.body.imageCaption;
+    if (req.body.imageCredit !== undefined) item.imageCredit = req.body.imageCredit;
     if (status && ['draft', 'in_review'].includes(status)) item.status = status;
 
     await item.save();

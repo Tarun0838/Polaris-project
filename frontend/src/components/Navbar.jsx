@@ -97,14 +97,14 @@ export const Navbar = () => {
           <span className="hidden md:inline">NCPOR & National Polar Data Centre</span>
         </div>
         <div className="flex items-center gap-4">
-          <span className="hidden sm:inline text-cyan-400 font-medium">Smart Education | SIH26063</span>
+          <span className="hidden sm:inline text-slate-300 font-medium">Smart Education | SIH26063</span>
           {/* Quick Demo Switcher */}
           <div className="relative">
             <button
               onClick={() => setDemoMenuOpen(!demoMenuOpen)}
-              className="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-cyan-300 px-2 py-0.5 rounded text-[11px] font-medium border border-slate-700 transition-colors"
+              className="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 px-2 py-0.5 rounded text-[11px] font-medium border border-slate-700 transition-colors cursor-pointer"
             >
-              <ShieldCheck className="w-3 h-3 text-cyan-400" />
+              <ShieldCheck className="w-3 h-3 text-teal-400" />
               <span>Role: <strong className="text-white capitalize">{user?.role || 'Guest'}</strong></span>
               <ChevronDown className="w-2.5 h-2.5" />
             </button>

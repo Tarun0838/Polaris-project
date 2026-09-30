@@ -22,6 +22,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 // Static uploads folder
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/stations', express.static(path.join(__dirname, 'uploads/stations')));
+app.use('/stations', express.static(path.join(__dirname, '../frontend/public/stations')));
 
 // Mount API Routes
 app.use('/api/auth', require('./routes/authRoutes'));
@@ -36,6 +38,7 @@ app.use('/api/media', require('./routes/mediaRoutes'));
 app.use('/api/education', require('./routes/educationRoutes'));
 app.use('/api/content', require('./routes/contentRoutes'));
 app.use('/api/admin', require('./routes/adminRoutes'));
+app.use('/api/assets', require('./routes/polarAssetRoutes'));
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {

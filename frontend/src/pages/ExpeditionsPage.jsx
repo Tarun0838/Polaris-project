@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Ship, Calendar, MapPin, Users, ChevronRight, ArrowRight } from 'lucide-react';
+import { Ship, Calendar, MapPin, Users, ChevronRight, ArrowRight, FileText, ExternalLink } from 'lucide-react';
 import api from '../services/api';
 import Badge from '../components/ui/Badge';
 import Card, { CardBody } from '../components/ui/Card';
 import Button from '../components/ui/Button';
 import { SkeletonCard } from '../components/ui/Skeleton';
+import ExpeditionSynthesisModal from '../components/ExpeditionSynthesisModal';
 
 export const ExpeditionsPage = () => {
   const [expeditions, setExpeditions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedRegion, setSelectedRegion] = useState('All');
+  const [synthesisExpeditionId, setSynthesisExpeditionId] = useState(null);
 
   useEffect(() => {
     const fetchExpeditions = async () => {
@@ -100,13 +102,33 @@ export const ExpeditionsPage = () => {
                 </div>
               </div>
 
-              <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between">
-                <span className="text-[11px] text-slate-400 font-mono">
-                  Code: {exp.expeditionId}
-                </span>
+              <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between flex-wrap gap-2">
+                <div className="flex items-center gap-2">
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    onClick={() => setSynthesisExpeditionId(exp.expeditionId)}
+                    className="text-xs flex items-center gap-1.5 text-slate-800 bg-white hover:bg-slate-50 border border-slate-300 font-medium"
+                  >
+                    <FileText className="w-3.5 h-3.5 text-slate-500" />
+                    <span>Summary Report</span>
+                  </Button>
+                  {exp.sourceUrl && (
+                    <a
+                      href={exp.sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-slate-400 hover:text-slate-700 p-1.5 rounded hover:bg-slate-100 transition-colors"
+                      title="Original NPDC Source Link"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  )}
+                </div>
+
                 <Link to={`/expeditions/${exp.expeditionId}`}>
                   <Button variant="secondary" size="sm" className="text-xs flex items-center gap-1">
-                    <span>View Timeline & Science</span>
+                    <span>View Mission</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Button>
                 </Link>
@@ -115,8 +137,17 @@ export const ExpeditionsPage = () => {
           ))}
         </div>
       )}
+
+      {/* Expedition Synthesis Modal */}
+      <ExpeditionSynthesisModal
+        isOpen={!!synthesisExpeditionId}
+        onClose={() => setSynthesisExpeditionId(null)}
+        expeditionId={synthesisExpeditionId}
+      />
     </div>
   );
 };
 
 export default ExpeditionsPage;
+
+

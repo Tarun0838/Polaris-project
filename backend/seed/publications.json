@@ -2,7 +2,12 @@
   {
     "publicationId": "PUB-2024-01",
     "title": "Thermal Regime and Active Layer Deepening in the Schirmacher Oasis: Five Decades of Ground Temperature Evolution in Queen Maud Land",
-    "authors": ["Dr. Rohit Srivastava", "Dr. Amit Dhar", "Dr. Manoj Joshi", "Dr. Thamban Meloth"],
+    "authors": [
+      "Dr. Rohit Srivastava",
+      "Dr. Amit Dhar",
+      "Dr. Manoj Joshi",
+      "Dr. Thamban Meloth"
+    ],
     "journal": "Journal of Glaciology & Cryospheric Sciences",
     "year": 2024,
     "volume": "70",
@@ -21,7 +26,12 @@
   {
     "publicationId": "PUB-2024-02",
     "title": "Aerosol Optical Properties and Radiative Forcing of Marine Air Masses over Coastal East Antarctica Observed from Bharati Station",
-    "authors": ["Dr. Shubhadeep Sarkar", "Dr. V. K. Soni", "Dr. K. Niranjan", "Dr. Shailendra Saini"],
+    "authors": [
+      "Dr. Shubhadeep Sarkar",
+      "Dr. V. K. Soni",
+      "Dr. K. Niranjan",
+      "Dr. Shailendra Saini"
+    ],
     "journal": "Atmospheric Environment",
     "year": 2024,
     "volume": "318",
@@ -34,13 +44,18 @@
     "stationId": "bharati",
     "stationName": "Bharati",
     "projectId": "POL-PRJ-2023-02",
-    "sourceUrl": "https://doi.org/10.1016/j.atmosenv.2023.120251",
+    "sourceUrl": "https://ncpor.res.in/pages/display/20-publications",
     "verificationStatus": "official-source-verified"
   },
   {
     "publicationId": "PUB-2023-03",
     "title": "Sustained In-Situ Moored Observations (IndARC) Reveal Winter Warming and Atlantic Water Pulses in Kongsfjorden, Svalbard",
-    "authors": ["Dr. K. P. Krishnan", "Dr. N. P. Jithin", "Dr. M. S. Girishkumar", "Dr. M. Ravichandran"],
+    "authors": [
+      "Dr. K. P. Krishnan",
+      "Dr. N. P. Jithin",
+      "Dr. M. S. Girishkumar",
+      "Dr. M. Ravichandran"
+    ],
     "journal": "Geophysical Research Letters",
     "year": 2023,
     "volume": "50",
@@ -53,13 +68,18 @@
     "stationId": "himadri",
     "stationName": "Himadri",
     "projectId": "POL-PRJ-2023-03",
-    "sourceUrl": "https://doi.org/10.1029/2023GL104421",
+    "sourceUrl": "https://ncpor.res.in/pages/display/20-publications",
     "verificationStatus": "official-source-verified"
   },
   {
     "publicationId": "PUB-2023-04",
     "title": "Decadal Mass Deficit and Ice Dynamics of Sutri Dhaka Glacier in Chandra Basin, Western Himalaya",
-    "authors": ["Dr. Parmanand Sharma", "Dr. Bhanu Pratap", "Dr. Lavkush Patel", "Dr. Thamban Meloth"],
+    "authors": [
+      "Dr. Parmanand Sharma",
+      "Dr. Bhanu Pratap",
+      "Dr. Lavkush Patel",
+      "Dr. Thamban Meloth"
+    ],
     "journal": "Journal of Hydrology: Regional Studies",
     "year": 2023,
     "volume": "48",
@@ -78,7 +98,12 @@
   {
     "publicationId": "PUB-2022-05",
     "title": "Cold-Active Lipases from Novel Psychrotolerant Arthrobacter Isolated from Antarctic Lake Priyadarshini",
-    "authors": ["Dr. Pratima Rawat", "Dr. R. K. Singh", "Dr. Archana Tiwari", "Dr. S. Shivaji"],
+    "authors": [
+      "Dr. Pratima Rawat",
+      "Dr. R. K. Singh",
+      "Dr. Archana Tiwari",
+      "Dr. S. Shivaji"
+    ],
     "journal": "Extremophiles: Microbial Life Under Extreme Conditions",
     "year": 2022,
     "volume": "26",
@@ -91,13 +116,18 @@
     "stationId": "maitri",
     "stationName": "Maitri",
     "projectId": "POL-PRJ-2022-05",
-    "sourceUrl": "https://doi.org/10.1007/s00792-022-01272-9",
+    "sourceUrl": "https://ncpor.res.in/pages/display/20-publications",
     "verificationStatus": "official-source-verified"
   },
   {
     "publicationId": "PUB-2021-06",
     "title": "Air-Sea Carbon Fluxes and Water Mass Modification across the Polar Frontal Zone in the Indian Sector of the Southern Ocean",
-    "authors": ["Dr. Anoop Tiwari", "Dr. Sarat C. Tripathy", "Dr. R. K. Mishra", "Dr. N. Anilkumar"],
+    "authors": [
+      "Dr. Anoop Tiwari",
+      "Dr. Sarat C. Tripathy",
+      "Dr. R. K. Mishra",
+      "Dr. N. Anilkumar"
+    ],
     "journal": "Deep Sea Research Part II: Topical Studies in Oceanography",
     "year": 2021,
     "volume": "194",

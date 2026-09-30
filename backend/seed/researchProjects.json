@@ -30,7 +30,14 @@
       "Permafrost thermal inertia prevents runaway deep thaw, but supra-permafrost melt channels are expanding toward Lake Priyadarshini.",
       "Identified micro-structural cryoturbation affecting local cyanobacterial mats in rocky polygons."
     ],
-    "keywords": ["permafrost", "glacier", "schirmacher oasis", "maitri", "cryosphere", "thaw depth"],
+    "keywords": [
+      "permafrost",
+      "glacier",
+      "schirmacher oasis",
+      "maitri",
+      "cryosphere",
+      "thaw depth"
+    ],
     "studentExplanation": {
       "summary": "Scientists at Maitri station are measuring how deep the frozen ground thaws each summer in Antarctica.",
       "whyItMatters": "Even in freezing Antarctica, the top layer of frozen dirt (permafrost) is warming up. Measuring this helps us understand how Antarctica reacts to global climate change and keeps freshwater lakes clean.",
@@ -42,7 +49,7 @@
       "funFact": "Schirmacher Oasis is one of the very few places in Antarctica where you can walk on bare rock instead of pure ice!"
     },
     "sourceType": "official_npdc",
-    "sourceUrl": "https://npdc.ncpor.res.in/npdc/projectDetails.action?projectId=POL-PRJ-2023-01",
+    "sourceUrl": "https://ncpor.res.in/antarcticas/display/371-cryosphere-sciences",
     "verificationStatus": "official-source-verified"
   },
   {
@@ -76,7 +83,14 @@
       "Biogenic volatile organic compounds from marine phytoplankton blooms trigger significant new particle formation episodes in coastal air masses.",
       "Polar cloud reflectivity is acutely sensitive to minor variations in sea-salt CCN concentrations."
     ],
-    "keywords": ["aerosols", "black carbon", "bharati station", "atmosphere", "climate change", "antarctica"],
+    "keywords": [
+      "aerosols",
+      "black carbon",
+      "bharati station",
+      "atmosphere",
+      "climate change",
+      "antarctica"
+    ],
     "studentExplanation": {
       "summary": "Researchers at Bharati station are sniffing the Antarctic air to see how clean it is and how clouds form in the Southern Ocean.",
       "whyItMatters": "Antarctica has the cleanest air on Earth. By measuring tiny specks of dust and sea salt here, scientists can learn how human pollution from other continents travels around the globe.",
@@ -88,7 +102,7 @@
       "funFact": "The air at Bharati Station is so clean that a single car passing by 5 miles away would set off sensitive laboratory alarms!"
     },
     "sourceType": "official_npdc",
-    "sourceUrl": "https://npdc.ncpor.res.in/npdc/projectDetails.action?projectId=POL-PRJ-2023-02",
+    "sourceUrl": "https://ncpor.res.in/antarcticas/display/377-bharati",
     "verificationStatus": "official-source-verified"
   },
   {
@@ -122,7 +136,15 @@
       "Demonstrated statistically significant 14-day teleconnection phase lag between Arctic upper-tropospheric Rossby wave breaking and Indian monsoon precipitation anomalies.",
       "Documented shifting phytoplankton bloom phenology due to diminished seasonal sea-ice cover."
     ],
-    "keywords": ["indarc", "arctic", "himadri", "oceanography", "kongsfjorden", "indian monsoon", "svalbard"],
+    "keywords": [
+      "indarc",
+      "arctic",
+      "himadri",
+      "oceanography",
+      "kongsfjorden",
+      "indian monsoon",
+      "svalbard"
+    ],
     "studentExplanation": {
       "summary": "India placed a high-tech underwater robot observatory deep under Arctic waters to record water temperature, salt, and ocean currents 365 days a year.",
       "whyItMatters": "Changes in the freezing Arctic Ocean don't stay in the Arctic! When Arctic sea-ice melts rapidly, it disrupts the jet stream winds, which changes the timing and strength of the monsoon rains across India.",
@@ -134,7 +156,7 @@
       "funFact": "IndARC sits 192 meters under ice-cold Arctic waters and can hear the clicks and whistles of Beluga whales and Narwhals swimming overhead!"
     },
     "sourceType": "official_npdc",
-    "sourceUrl": "https://npdc.ncpor.res.in/npdc/projectDetails.action?projectId=POL-PRJ-2023-03",
+    "sourceUrl": "https://ncpor.res.in/arctics/display/398-indarc",
     "verificationStatus": "official-source-verified"
   },
   {
@@ -168,7 +190,15 @@
       "Maximum ice thickness measured reached 185 ± 12 meters in the central accumulation basin.",
       "Peak summer runoff timing has shifted forward by 11 days over the past 15 years, increasing early-season glacial lake outburst flood (GLOF) vulnerabilities."
     ],
-    "keywords": ["glacier", "himalaya", "himansh", "sutri dhaka", "mass balance", "chandra basin", "third pole"],
+    "keywords": [
+      "glacier",
+      "himalaya",
+      "himansh",
+      "sutri dhaka",
+      "mass balance",
+      "chandra basin",
+      "third pole"
+    ],
     "studentExplanation": {
       "summary": "Indian glaciologists hike up to 5,000 meters in the snowy Himalayas to measure how much ice our glaciers lose each summer.",
       "whyItMatters": "The Himalayas are called the 'Third Pole' because they hold more snow and ice than anywhere outside Antarctica and the Arctic. Melting Himalayan glaciers feed the Indus and Ganga rivers that provide water to hundreds of millions of people.",
@@ -180,7 +210,7 @@
       "funFact": "Scientists at Himansh station sleep in specially designed insulated capsules because nighttime temperatures drop to -30°C!"
     },
     "sourceType": "official_npdc",
-    "sourceUrl": "https://npdc.ncpor.res.in/npdc/projectDetails.action?projectId=POL-PRJ-2023-04",
+    "sourceUrl": "https://ncpor.res.in/pages/display/268-himalaya",
     "verificationStatus": "official-source-verified"
   },
   {
@@ -213,7 +243,14 @@
       "Discovered two antimicrobial peptide clusters with potent inhibitory activity against multi-drug resistant hospital pathogens.",
       "Identified cold-shock protein chaperone gene duplications providing resistance to cellular freezing stress."
     ],
-    "keywords": ["extremophiles", "antarctica", "maitri", "biology", "microbiology", "lake priyadarshini"],
+    "keywords": [
+      "extremophiles",
+      "antarctica",
+      "maitri",
+      "biology",
+      "microbiology",
+      "lake priyadarshini"
+    ],
     "studentExplanation": {
       "summary": "Scientists collect microscopic bacteria from frozen Antarctic lakes to see how tiny creatures survive temperatures that would freeze ordinary cells.",
       "whyItMatters": "The special chemicals that polar bacteria use to stay alive in freezing ice can be used to make new antibiotics for human diseases and energy-saving detergents that clean clothes in cold water.",
@@ -225,7 +262,7 @@
       "funFact": "Some bacteria collected from Lake Priyadarshini have survived inside ancient Antarctic ice for thousands of years!"
     },
     "sourceType": "official_npdc",
-    "sourceUrl": "https://npdc.ncpor.res.in/npdc/projectDetails.action?projectId=POL-PRJ-2022-05",
+    "sourceUrl": "https://ncpor.res.in/antarcticas/display/372-biological-sciences",
     "verificationStatus": "official-source-verified"
   },
   {
@@ -258,7 +295,13 @@
       "The Southern Ocean biological carbon pump in the Indian sector sequesters approximately 0.18 gigatons of carbon annually.",
       "Ocean acidification signals detected in aragonite undersaturation in intermediate subpolar waters."
     ],
-    "keywords": ["southern ocean", "carbon flux", "oceanography", "polar front", "biogeochemistry"],
+    "keywords": [
+      "southern ocean",
+      "carbon flux",
+      "oceanography",
+      "polar front",
+      "biogeochemistry"
+    ],
     "studentExplanation": {
       "summary": "Indian oceanographers sailed across the giant waves of the Southern Ocean to find out how much carbon dioxide the icy sea absorbs from our atmosphere.",
       "whyItMatters": "The Southern Ocean acts like the planet's biggest sponge for heat and greenhouse gases. Without it, Earth would be significantly hotter today.",
@@ -270,7 +313,7 @@
       "funFact": "The waves in the Southern Ocean can be as tall as a 5-story building, making scientific measurements an adventurous challenge!"
     },
     "sourceType": "official_npdc",
-    "sourceUrl": "https://npdc.ncpor.res.in/npdc/projectDetails.action?projectId=POL-PRJ-2020-06",
+    "sourceUrl": "https://ncpor.res.in/pages/display/270-southern-ocean",
     "verificationStatus": "official-source-verified"
   }
 ]

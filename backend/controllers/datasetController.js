@@ -12,8 +12,8 @@ const getDatasets = async (req, res, next) => {
     const { region, domain, station, accessType, year } = req.query;
     const filter = {};
 
-    if (region && region !== 'All') filter.region = region;
-    if (domain && domain !== 'All') filter.scienceDomain = domain;
+    if (region && region !== 'All') filter.region = new RegExp(`^${region}$`, 'i');
+    if (domain && domain !== 'All') filter.scienceDomain = new RegExp(`^${domain}$`, 'i');
     if (station && station !== 'All') filter.stationId = station.toLowerCase();
     if (accessType && accessType !== 'All') filter.accessType = accessType;
     if (year && year !== 'All') filter.year = Number(year);

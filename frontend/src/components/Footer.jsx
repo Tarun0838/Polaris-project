@@ -9,20 +9,20 @@ export const Footer = () => {
       <div className="bg-slate-950/80 border-b border-slate-800/80 py-4 px-4 sm:px-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <span className="text-cyan-400 font-semibold tracking-wider uppercase text-[11px]">Core Polaris Pipeline:</span>
+            <span className="text-teal-400 font-semibold tracking-wider uppercase text-[11px]">Core Polaris Pipeline:</span>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-2 text-slate-300 text-[11px] font-medium">
-            <span className="bg-slate-800/90 text-cyan-300 px-2 py-0.5 rounded border border-slate-700">DISCOVER</span>
+            <span className="bg-slate-800/90 text-slate-200 px-2 py-0.5 rounded border border-slate-700">DISCOVER</span>
             <span className="text-slate-600">→</span>
-            <span className="bg-slate-800/90 text-blue-300 px-2 py-0.5 rounded border border-slate-700">CONNECT</span>
+            <span className="bg-slate-800/90 text-slate-200 px-2 py-0.5 rounded border border-slate-700">CONNECT</span>
             <span className="text-slate-600">→</span>
-            <span className="bg-slate-800/90 text-sky-300 px-2 py-0.5 rounded border border-slate-700">UNDERSTAND</span>
+            <span className="bg-slate-800/90 text-slate-200 px-2 py-0.5 rounded border border-slate-700">UNDERSTAND</span>
             <span className="text-slate-600">→</span>
-            <span className="bg-slate-800/90 text-purple-300 px-2 py-0.5 rounded border border-slate-700">CREATE</span>
+            <span className="bg-slate-800/90 text-slate-200 px-2 py-0.5 rounded border border-slate-700">CREATE</span>
             <span className="text-slate-600">→</span>
-            <span className="bg-slate-800/90 text-emerald-300 px-2 py-0.5 rounded border border-slate-700">VERIFY</span>
+            <span className="bg-slate-800/90 text-slate-200 px-2 py-0.5 rounded border border-slate-700">VERIFY</span>
             <span className="text-slate-600">→</span>
-            <span className="bg-slate-800/90 text-amber-300 px-2 py-0.5 rounded border border-slate-700">DISSEMINATE</span>
+            <span className="bg-slate-800/90 text-slate-200 px-2 py-0.5 rounded border border-slate-700">DISSEMINATE</span>
           </div>
           <div className="text-[11px] text-slate-400 italic">
             "From Polar Research to Public Understanding."
