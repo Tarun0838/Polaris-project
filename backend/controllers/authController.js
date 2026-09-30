@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
 const generateToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET || 'polaris_secret_key_sih2026_earth_sciences', {
+  return jwt.sign({ id }, process.env.JWT_SECRET || 'vyom_secret_key_sih2026_earth_sciences', {
     expiresIn: '30d'
   });
 };
@@ -63,7 +63,15 @@ const loginUser = async (req, res, next) => {
       return res.status(400).json({ success: false, message: 'Please provide email and password.' });
     }
 
-    const user = await User.findOne({ email });
+    let user = await User.findOne({ email });
+    if (!user) {
+      if (email.endsWith('@vyom.demo')) {
+        user = await User.findOne({ email: email.replace('@vyom.demo', '@polaris.demo') });
+      } else if (email.endsWith('@polaris.demo')) {
+        user = await User.findOne({ email: email.replace('@polaris.demo', '@vyom.demo') });
+      }
+    }
+
     if (!user) {
       return res.status(401).json({ success: false, message: 'Invalid credentials. User not found.' });
     }

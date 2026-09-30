@@ -48,7 +48,7 @@ export const Navbar = () => {
     let mockUser = {
       id: 'demo-user',
       name: 'Dr. M. Ravichandran',
-      email: 'admin@polaris.demo',
+      email: 'admin@vyom.demo',
       role: 'admin',
       institution: 'Ministry of Earth Sciences (MoES)'
     };
@@ -57,7 +57,7 @@ export const Navbar = () => {
       mockUser = {
         id: 'demo-researcher',
         name: 'Dr. Rohit Srivastava',
-        email: 'researcher@polaris.demo',
+        email: 'researcher@vyom.demo',
         role: 'researcher',
         institution: 'National Centre for Polar and Ocean Research (NCPOR)'
       };
@@ -65,7 +65,7 @@ export const Navbar = () => {
       mockUser = {
         id: 'demo-student',
         name: 'Aarav Sharma',
-        email: 'student@polaris.demo',
+        email: 'student@vyom.demo',
         role: 'student',
         institution: 'Indian Institute of Technology (IIT) Delhi'
       };
@@ -152,10 +152,10 @@ export const Navbar = () => {
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-bold text-lg text-slate-900 tracking-tight font-heading">POLARIS</span>
+                <span className="font-bold text-lg text-slate-900 tracking-tight font-heading">VYOM</span>
                 <span className="bg-blue-100/80 text-blue-800 text-[10px] px-1.5 py-0.2 rounded font-semibold uppercase">MoES</span>
               </div>
-              <p className="text-[10px] text-slate-500 leading-tight hidden sm:block">Polar Knowledge & Outreach Intelligence System</p>
+              <p className="text-[10px] text-slate-500 leading-tight hidden sm:block font-medium">Beyond Boundaries. Beyond Limits.</p>
             </div>
           </Link>
 
@@ -325,7 +325,7 @@ export const Navbar = () => {
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full text-center py-2 text-xs font-medium bg-slate-900 text-white rounded-md"
               >
-                Sign In to POLARIS
+                Sign In to VYOM
               </Link>
             )}
           </div>

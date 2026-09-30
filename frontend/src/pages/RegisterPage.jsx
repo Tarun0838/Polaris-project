@@ -38,8 +38,11 @@ export const RegisterPage = () => {
             <Compass className="w-7 h-7 text-cyan-400" />
           </div>
           <h1 className="text-2xl font-extrabold text-slate-900 font-heading">
-            Create POLARIS Account
+            Create VYOM Account
           </h1>
+          <p className="text-xs font-semibold text-cyan-700 tracking-wide">
+            Beyond Boundaries. Beyond Limits.
+          </p>
           <p className="text-xs text-slate-500">
             Join India's Polar Knowledge & Outreach Network
           </p>

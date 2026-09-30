@@ -149,7 +149,7 @@ export const ResearchProjectDetailPage = () => {
             </h2>
           </div>
           <span className="text-xs text-cyan-300 font-mono bg-cyan-950 px-2 py-0.5 rounded border border-cyan-800">
-            POLARIS Relational Graph Layer
+            VYOM Relational Graph Layer
           </span>
         </div>
 

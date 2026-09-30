@@ -1,17 +1,17 @@
-# POLARIS: Polar Knowledge & Outreach Intelligence System
+# VYOM: Polar Knowledge & Outreach Intelligence System
 ### Smart India Hackathon (SIH 2026) — Problem Statement SIH26063
 **Ministry:** Ministry of Earth Sciences (MoES)  
 **Theme:** Smart Education  
-**Tagline:** *"From Polar Research to Public Understanding."*  
+**Tagline:** *"Beyond Boundaries. Beyond Limits."*  
 **Alternative Supporting Line:** *"Discover. Understand. Create. Verify. Share."*
 
 ---
 
 ## 1. Executive Summary & Core Principle
 
-**POLARIS is NOT merely a document repository and NOT just an AI chatbot.**
+**VYOM is NOT merely a document repository and NOT just an AI chatbot.**
 
-It is an integrated polar science outreach, knowledge repository, and media dissemination ecosystem that:
+It is an integrated polar science outreach, knowledge repository, and media dissemination ecosystem (inspired by the Sanskrit word for sky/space) that:
 1. **Organizes verified polar research metadata** from India's polar research ecosystem.
 2. **Connects** stations, expeditions, research projects, in-situ datasets, technical reports, peer-reviewed publications, and media archives into a traversable relational knowledge graph.
 3. **Provides powerful search & filtering** across all interconnected polar collections with real-time debounced queries.
@@ -21,7 +21,7 @@ It is an integrated polar science outreach, knowledge repository, and media diss
 7. **Maintains a Human-in-the-Loop verification gate** where science curators review, edit, approve, or reject AI drafts before public release.
 
 > **Strong Project Statement:**  
-> *"POLARIS does not merely store polar research; it makes polar research discoverable, connected, understandable and reusable for different audiences."*
+> *"VYOM does not merely store polar research; it makes polar research discoverable, connected, understandable and reusable for different audiences — Beyond Boundaries. Beyond Limits."*
 
 ---
 
@@ -145,9 +145,9 @@ The database comes pre-seeded with three demo personas for instant jury evaluati
 
 | Role | Email | Password | Permissions |
 | :--- | :--- | :--- | :--- |
-| **Admin / Curator** | `admin@polaris.demo` | `polaris123` | Full access: Curation Review Queue, Approve/Reject/Publish, Add Resources, Analytics |
-| **Researcher** | `researcher@polaris.demo` | `polaris123` | Create projects, submit datasets, generate AI drafts, submit for review |
-| **Student** | `student@polaris.demo` | `polaris123` | Access Student Learning Hub, take quizzes, view simplified student explanations |
+| **Admin / Curator** | `admin@vyom.demo` *(or admin@polaris.demo)* | `polaris123` | Full access: Curation Review Queue, Approve/Reject/Publish, Add Resources, Analytics |
+| **Researcher** | `researcher@vyom.demo` *(or researcher@polaris.demo)* | `polaris123` | Create projects, submit datasets, generate AI drafts, submit for review |
+| **Student** | `student@vyom.demo` *(or student@polaris.demo)* | `polaris123` | Access Student Learning Hub, take quizzes, view simplified student explanations |
 
 > **Pro-Tip for Evaluators:** The Navbar and Login page feature **1-click Role Switchers** that pre-fill credentials or switch personas in one click!
 
@@ -182,7 +182,7 @@ In terminal 1 (Backend):
 ```bash
 cd backend
 npm run dev
-# Running on http://localhost:5000/api
+# Running on http://localhost:5055/api
 ```
 
 In terminal 2 (Frontend):
@@ -235,7 +235,7 @@ Follow this exact walkthrough during the hackathon evaluation:
    - Click **[Submit for Curator Review]** (sets status to `in_review`).
 
 8. **Admin Operations & Curation Queue (`/admin`):**
-   - Switch persona or login as `admin@polaris.demo`.
+   - Switch persona or login as `admin@vyom.demo`.
    - Open the **AI Outreach Curation Queue**.
    - Audit the submitted draft against source citations.
    - Click **[Approve & Publish to Outreach]**.
@@ -245,7 +245,7 @@ Follow this exact walkthrough during the hackathon evaluation:
 
 ## 8. Data Source & Provenance Policy
 
-POLARIS enforces strict scientific provenance:
+VYOM enforces strict scientific provenance:
 - **No Web Scraping Violations:** Uses structured metadata and direct official links to NPDC (`https://npdc.ncpor.res.in`) and NCPOR (`https://ncpor.res.in`).
 - **No Copyright Infringements:** Academic papers are referenced via official persistent DOIs; restricted datasets clearly display *"Access via official NPDC source"*.
 - **No Uncontrolled Hallucination:** System prompts enforce deterministic citations; if data is unavailable, the system explicitly reports it.

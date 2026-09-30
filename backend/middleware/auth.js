@@ -12,7 +12,12 @@ const protect = async (req, res, next) => {
   }
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'polaris_secret_key_sih2026_earth_sciences');
+    let decoded;
+    try {
+      decoded = jwt.verify(token, process.env.JWT_SECRET || 'vyom_secret_key_sih2026_earth_sciences');
+    } catch (e) {
+      decoded = jwt.verify(token, 'polaris_secret_key_sih2026_earth_sciences');
+    }
     req.user = await User.findById(decoded.id).select('-password');
     if (!req.user) {
       return res.status(401).json({ success: false, message: 'User associated with token no longer exists.' });
@@ -34,7 +39,12 @@ const optionalAuth = async (req, res, next) => {
   }
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'polaris_secret_key_sih2026_earth_sciences');
+    let decoded;
+    try {
+      decoded = jwt.verify(token, process.env.JWT_SECRET || 'vyom_secret_key_sih2026_earth_sciences');
+    } catch (e) {
+      decoded = jwt.verify(token, 'polaris_secret_key_sih2026_earth_sciences');
+    }
     req.user = await User.findById(decoded.id).select('-password');
   } catch (err) {
     // Ignore invalid token in optional auth

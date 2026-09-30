@@ -71,7 +71,7 @@ const generatedContentSchema = new mongoose.Schema({
   },
   authorName: {
     type: String,
-    default: 'POLARIS Intelligence Engine'
+    default: 'VYOM Intelligence Engine'
   },
   status: {
     type: String,

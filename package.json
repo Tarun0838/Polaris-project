@@ -1,7 +1,7 @@
 {
-  "name": "polaris-sih26063",
+  "name": "vyom-sih26063",
   "version": "1.0.0",
-  "description": "POLARIS: Polar Knowledge & Outreach Intelligence System - SIH 2026 (Ministry of Earth Sciences)",
+  "description": "VYOM: Polar Knowledge & Outreach Intelligence System - SIH 2026 (Ministry of Earth Sciences). Beyond Boundaries. Beyond Limits.",
   "scripts": {
     "dev:backend": "cd backend && npm run dev",
     "dev:frontend": "cd frontend && npm run dev",
@@ -9,7 +9,7 @@
     "build": "cd frontend && npm run build"
   },
   "keywords": [
-    "polaris",
+    "vyom",
     "polar-science",
     "moes",
     "ncpor",
@@ -17,6 +17,6 @@
     "sih2026",
     "smart-education"
   ],
-  "author": "POLARIS Team",
+  "author": "VYOM Team",
   "license": "ISC"
 }

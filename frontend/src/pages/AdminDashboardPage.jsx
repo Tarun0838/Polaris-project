@@ -119,7 +119,7 @@ export const AdminDashboardPage = () => {
         resourceType,
         data: formData
       });
-      toast.success(`New ${resourceType} added and verified in POLARIS!`);
+      toast.success(`New ${resourceType} added and verified in VYOM!`);
       setAddResourceModalOpen(false);
       fetchDashboardData();
     } catch (err) {
@@ -154,7 +154,7 @@ export const AdminDashboardPage = () => {
             <span>Administrative & Curation Desk</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
-            POLARIS Operations Dashboard
+            VYOM Operations Dashboard
           </h1>
           <p className="text-slate-500 text-xs sm:text-sm mt-1">
             Ministry of Earth Sciences curation portal for resource metadata oversight, analytics, and human review loop for AI outreach.

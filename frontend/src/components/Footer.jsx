@@ -9,7 +9,7 @@ export const Footer = () => {
       <div className="bg-slate-950/80 border-b border-slate-800/80 py-4 px-4 sm:px-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <span className="text-teal-400 font-semibold tracking-wider uppercase text-[11px]">Core Polaris Pipeline:</span>
+            <span className="text-teal-400 font-semibold tracking-wider uppercase text-[11px]">Core VYOM Pipeline:</span>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-2 text-slate-300 text-[11px] font-medium">
             <span className="bg-slate-800/90 text-slate-200 px-2 py-0.5 rounded border border-slate-700">DISCOVER</span>
@@ -25,7 +25,7 @@ export const Footer = () => {
             <span className="bg-slate-800/90 text-slate-200 px-2 py-0.5 rounded border border-slate-700">DISSEMINATE</span>
           </div>
           <div className="text-[11px] text-slate-400 italic">
-            "From Polar Research to Public Understanding."
+            "Beyond Boundaries. Beyond Limits."
           </div>
         </div>
       </div>
@@ -38,9 +38,10 @@ export const Footer = () => {
               <div className="w-6 h-6 rounded bg-blue-600 flex items-center justify-center text-white text-xs">
                 ★
               </div>
-              <span>POLARIS</span>
+              <span>VYOM</span>
             </div>
             <p className="text-slate-400 text-xs leading-relaxed">
+              <strong className="text-cyan-300 block mb-1">Beyond Boundaries. Beyond Limits.</strong>
               Polar Knowledge & Outreach Intelligence System built for India's polar science ecosystem, connecting stations, expeditions, datasets, and human-verified outreach.
             </p>
             <div className="pt-2 text-[11px] text-slate-500">
@@ -130,7 +131,7 @@ export const Footer = () => {
 
         {/* Bottom copyright and disclaimer */}
         <div className="mt-10 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 gap-4">
-          <p>© {new Date().getFullYear()} POLARIS • Ministry of Earth Sciences, Govt. of India. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} VYOM • Ministry of Earth Sciences, Govt. of India. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />

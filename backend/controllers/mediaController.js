@@ -8,7 +8,7 @@ const loadSeedMedia = () => {
     const raw = fs.readFileSync(path.join(__dirname, '../seed/media.json'), 'utf-8');
     return JSON.parse(raw);
   } catch (err) {
-    console.error('[POLARIS-MEDIA] Failed reading seed/media.json fallback:', err.message);
+    console.error('[VYOM-MEDIA] Failed reading seed/media.json fallback:', err.message);
     return [];
   }
 };
@@ -29,7 +29,7 @@ const getMedia = async (req, res, next) => {
       try {
         media = await Media.find(filter).sort({ createdAt: -1 }).lean();
       } catch (dbErr) {
-        console.warn('[POLARIS-MEDIA] DB query failed, falling back to seed media.json:', dbErr.message);
+        console.warn('[VYOM-MEDIA] DB query failed, falling back to seed media.json:', dbErr.message);
       }
     }
 
@@ -66,7 +66,7 @@ const getMediaById = async (req, res, next) => {
           $or: [{ mediaId: id }, { _id: id.match(/^[0-9a-fA-F]{24}$/) ? id : null }]
         }).lean();
       } catch (dbErr) {
-        console.warn('[POLARIS-MEDIA] DB findOne failed, falling back to seed:', dbErr.message);
+        console.warn('[VYOM-MEDIA] DB findOne failed, falling back to seed:', dbErr.message);
       }
     }
 

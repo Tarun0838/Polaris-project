@@ -144,7 +144,7 @@ const addResource = async (req, res, next) => {
       targetType: resourceType,
       targetId: createdRecord._id.toString(),
       targetTitle: createdRecord.title || createdRecord.name,
-      details: `Added new ${resourceType} to official POLARIS repository`
+      details: `Added new ${resourceType} to official VYOM repository`
     });
 
     res.status(201).json({ success: true, data: createdRecord });

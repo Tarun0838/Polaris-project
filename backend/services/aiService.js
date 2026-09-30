@@ -3,7 +3,7 @@ const axios = require('axios');
 /**
  * System prompt strictly enforcing ground-truth source references and forbidding hallucination.
  */
-const SYSTEM_PROMPT = `You are the POLARIS Polar Intelligence Outreach Engine for India's Ministry of Earth Sciences (MoES) and National Centre for Polar and Ocean Research (NCPOR).
+const SYSTEM_PROMPT = `You are the VYOM Polar Intelligence Outreach Engine for India's Ministry of Earth Sciences (MoES) and National Centre for Polar and Ocean Research (NCPOR).
 Your role is to translate verified scientific research into educational and outreach material.
 STRICT RULES:
 1. Use ONLY the supplied verified context below.
@@ -44,7 +44,7 @@ const generateOutreachContent = async ({
 
   if (apiKey && apiKey.trim().length > 10 && apiKey !== 'your_gemini_or_ai_api_key_here') {
     try {
-      console.log('[POLARIS-AI] Contacting configured AI API with grounded context...');
+      console.log('[VYOM-AI] Contacting configured AI API with grounded context...');
       const prompt = `
 Verified Polar Research Context:
 ${JSON.stringify(contextSummary, null, 2)}
@@ -86,7 +86,7 @@ Return JSON format:
         };
       }
     } catch (err) {
-      console.warn(`[POLARIS-AI] Live AI API request failed or timed out (${err.message}). Falling back to deterministic grounded generator.`);
+      console.warn(`[VYOM-AI] Live AI API request failed or timed out (${err.message}). Falling back to deterministic grounded generator.`);
     }
   }
 
@@ -117,7 +117,7 @@ function generateDeterministicDraft(project, datasets, reports, publications, au
       `🔍 **Core Finding:**\n` +
       findingsList.map(f => `• ${f}`).join('\n') + `\n\n` +
       `📊 Official records: ${datasets.length} NPDC datasets & ${publications.length} peer-reviewed publications linked.\n\n` +
-      `#PolarisScience #MoES #NCPOR #Antarctica #Arctic #PolarResearch #IndiaInPolarScience`;
+      `#VYOMScience #MoES #NCPOR #Antarctica #Arctic #PolarResearch #IndiaInPolarScience`;
   } else if (contentType === 'Simple Explanation') {
     title = `Understanding Polar Science: What We Discovered at ${station}`;
     content = `### What Is This Research About?\n` +
@@ -136,8 +136,8 @@ function generateDeterministicDraft(project, datasets, reports, publications, au
       `**NARRATOR:** "Led by ${scientist} during ${project.expeditionName}, a dedicated team tracked ${domain.toLowerCase()} indicators over ${project.duration}."\n\n` +
       `**[SCENE 3: Key scientific facts appearing as on-screen text]**\n` +
       `**NARRATOR:** "Their findings? ${findingsList[0] || 'Unprecedented seasonal shifts recorded by in-situ sensors.'}"\n\n` +
-      `**[SCENE 4: POLARIS logo & National Centre for Polar and Ocean Research emblem]**\n` +
-      `**NARRATOR:** "Verified data available on the POLARIS portal. From Polar Research to Public Understanding."`;
+      `**[SCENE 4: VYOM logo & National Centre for Polar and Ocean Research emblem]**\n` +
+      `**NARRATOR:** "Verified data available on the VYOM portal. Beyond Boundaries. Beyond Limits."`;
   } else if (contentType === 'Image Caption') {
     title = `Official Photo Caption: Field Operations at ${station}`;
     content = `**Caption:** Scientific observation team during ${project.expeditionName} at ${station} station (${region}), measuring ${domain.toLowerCase()} parameters. ` +
@@ -259,7 +259,7 @@ const generateExpeditionSynthesis = async ({
   // Attempt live AI if key is available
   if (apiKey && apiKey.trim().length > 10 && apiKey !== 'your_gemini_or_ai_api_key_here') {
     try {
-      console.log(`[POLARIS-AI] Requesting Gemini synthesis for expedition: ${expedition.expeditionId}...`);
+      console.log(`[VYOM-AI] Requesting Gemini synthesis for expedition: ${expedition.expeditionId}...`);
       const prompt = `
 You are the Chief Science Intelligence Officer for India's Ministry of Earth Sciences (MoES) and National Centre for Polar and Ocean Research (NCPOR).
 A researcher or official has requested a comprehensive synthesis of an entire scientific expedition based on its connected field data, technical reports, datasets, and publications.
@@ -359,7 +359,7 @@ Produce a rigorous, fully grounded mission report JSON with these exact keys:
         };
       }
     } catch (err) {
-      console.warn(`[POLARIS-AI] Live AI synthesis failed (${err.message}). Activating deterministic grounded synthesis.`);
+      console.warn(`[VYOM-AI] Live AI synthesis failed (${err.message}). Activating deterministic grounded synthesis.`);
     }
   }
 
@@ -764,10 +764,10 @@ function buildMarkdownReport({
   const dateStr = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
   const stations = expedition.stations?.join(', ') || 'Oceanographic Cruise Corridor';
 
-  let md = `# POLARIS Mission Intelligence Dossier\n`;
+  let md = `# VYOM Mission Intelligence Dossier\n`;
   md += `## ${expedition.name} (${expedition.year})\n\n`;
   md += `> **Authority:** National Centre for Polar and Ocean Research (NCPOR), Ministry of Earth Sciences (MoES), Govt. of India\n`;
-  md += `> **Synthesis Engine:** POLARIS Verified Ground-Truth Intelligence Pipeline\n`;
+  md += `> **Synthesis Engine:** VYOM Verified Ground-Truth Intelligence Pipeline\n`;
   md += `> **Generated On:** ${dateStr} | **Verification Status:** Official Source Grounded\n\n`;
   md += `---\n\n`;
 
@@ -850,7 +850,7 @@ function buildMarkdownReport({
   }
 
   md += `---\n`;
-  md += `*This mission dossier is synthesized directly from verified metadata in the POLARIS portal. All original datasets and technical publications remain property of the Ministry of Earth Sciences (MoES) and NCPOR.*`;
+  md += `*This mission dossier is synthesized directly from verified metadata in the VYOM portal. All original datasets and technical publications remain property of the Ministry of Earth Sciences (MoES) and NCPOR.*`;
 
   return md;
 }
