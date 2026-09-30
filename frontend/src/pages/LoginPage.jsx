@@ -21,6 +21,8 @@ export const LoginPage = () => {
       toast.success(`Welcome back, ${result.payload.user.name}!`);
       if (result.payload.user.role === 'admin') {
         navigate('/admin');
+      } else if (result.payload.user.role === 'researcher') {
+        navigate('/media-studio');
       } else {
         navigate('/');
       }

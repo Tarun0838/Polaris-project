@@ -77,6 +77,18 @@ const startServer = async () => {
       console.log(`===========================================================`);
     });
 
+    process.on('SIGTERM', async () => {
+      const { disconnectDB } = require('./config/db');
+      await disconnectDB();
+      server.close(() => process.exit(0));
+    });
+
+    process.on('SIGINT', async () => {
+      const { disconnectDB } = require('./config/db');
+      await disconnectDB();
+      server.close(() => process.exit(0));
+    });
+
     return server;
   } catch (error) {
     console.error(`[VYOM-SERVER] Failed to start server: ${error.message}`);
