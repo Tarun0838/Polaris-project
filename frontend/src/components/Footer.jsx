@@ -76,10 +76,21 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Col 4: Institutional Links */}
+          {/* Col 4: Data References */}
           <div className="space-y-2">
-            <h4 className="text-slate-200 font-semibold uppercase text-[11px] tracking-wider">Official Portals</h4>
+            <h4 className="text-slate-200 font-semibold uppercase text-[11px] tracking-wider">Data References</h4>
             <ul className="space-y-2 text-xs">
+              <li>
+                <a
+                  href="https://moes.gov.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 hover:text-cyan-400 transition-colors"
+                >
+                  <span>Ministry of Earth Sciences (MoES)</span>
+                  <ExternalLink className="w-3 h-3 text-slate-500" />
+                </a>
+              </li>
               <li>
                 <a
                   href="https://ncpor.res.in"
@@ -87,7 +98,7 @@ export const Footer = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 hover:text-cyan-400 transition-colors"
                 >
-                  <span>NCPOR Official Portal</span>
+                  <span>National Centre for Polar and Ocean Research (NCPOR)</span>
                   <ExternalLink className="w-3 h-3 text-slate-500" />
                 </a>
               </li>
@@ -99,17 +110,6 @@ export const Footer = () => {
                   className="flex items-center gap-1.5 hover:text-cyan-400 transition-colors"
                 >
                   <span>National Polar Data Centre (NPDC)</span>
-                  <ExternalLink className="w-3 h-3 text-slate-500" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://moes.gov.in"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 hover:text-cyan-400 transition-colors"
-                >
-                  <span>Ministry of Earth Sciences (MoES)</span>
                   <ExternalLink className="w-3 h-3 text-slate-500" />
                 </a>
               </li>
