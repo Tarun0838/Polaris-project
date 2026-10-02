@@ -145,9 +145,9 @@ The database comes pre-seeded with three demo personas for instant jury evaluati
 
 | Role | Email | Password | Permissions |
 | :--- | :--- | :--- | :--- |
-| **Admin / Curator** | `admin@vyom.demo` *(or admin@polaris.demo)* | `polaris123` | Full access: Curation Review Queue, Approve/Reject/Publish, Add Resources, Analytics |
-| **Researcher** | `researcher@vyom.demo` *(or researcher@polaris.demo)* | `polaris123` | Create projects, submit datasets, generate AI drafts, submit for review |
-| **Student** | `student@vyom.demo` *(or student@polaris.demo)* | `polaris123` | Access Student Learning Hub, take quizzes, view simplified student explanations |
+| **Admin / Curator** | `admin@vyom.demo`  | `polaris123` | Full access: Curation Review Queue, Approve/Reject/Publish, Add Resources, Analytics |
+| **Researcher** | `researcher@vyom.demo`  | `polaris123` | Create projects, submit datasets, generate AI drafts, submit for review |
+| **Student** | `student@vyom.demo`  | `polaris123` | Access Student Learning Hub, take quizzes, view simplified student explanations |
 
 > **Pro-Tip for Evaluators:** The Navbar and Login page feature **1-click Role Switchers** that pre-fill credentials or switch personas in one click!
 
