@@ -11,7 +11,7 @@ const api = axios.create({
 // Request interceptor to add bearer token
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('polaris_token');
+    const token = localStorage.getItem('vyom_token') || localStorage.getItem('polaris_token');
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }

@@ -208,7 +208,10 @@ export const HomePage = () => {
               VYOM
             </h1>
             <p className="text-xl sm:text-2xl font-bold text-teal-900 font-heading">
-              Beyond Boundary, Beyond Limits
+              Beyond Boundaries. Beyond Limits.
+            </p>
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-teal-700">
+              Unified Polar Knowledge Repository
             </p>
           </div>
 

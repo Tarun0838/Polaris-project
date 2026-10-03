@@ -9,7 +9,7 @@ export const Footer = () => {
       <div className="bg-slate-950/80 border-b border-slate-800/80 py-4 px-4 sm:px-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <span className="text-teal-400 font-semibold tracking-wider uppercase text-[11px]">Core Polaris Pipeline:</span>
+            <span className="text-teal-400 font-semibold tracking-wider uppercase text-[11px]">Core VYOM Pipeline:</span>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-2 text-slate-300 text-[11px] font-medium">
             <span className="bg-slate-800/90 text-slate-200 px-2 py-0.5 rounded border border-slate-700">DISCOVER</span>
@@ -25,7 +25,7 @@ export const Footer = () => {
             <span className="bg-slate-800/90 text-slate-200 px-2 py-0.5 rounded border border-slate-700">DISSEMINATE</span>
           </div>
           <div className="text-[11px] text-slate-400 italic">
-            "From Polar Research to Public Understanding."
+            "Beyond Boundaries. Beyond Limits."
           </div>
         </div>
       </div>
@@ -41,7 +41,8 @@ export const Footer = () => {
               <span>VYOM</span>
             </div>
             <p className="text-slate-400 text-xs leading-relaxed">
-              Beyond Boundary, Beyond Limits. Built for India's polar science ecosystem, connecting stations, expeditions, datasets, and human-verified outreach.
+              <strong className="text-cyan-300 block mb-1">Beyond Boundaries. Beyond Limits.</strong>
+              Polar Knowledge & Outreach Intelligence System built for India's polar science ecosystem, connecting stations, expeditions, datasets, and human-verified outreach.
             </p>
             <div className="pt-2 text-[11px] text-slate-500">
               <div>Smart India Hackathon (SIH 2026)</div>
@@ -75,10 +76,21 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Col 4: Institutional Links */}
+          {/* Col 4: Data References */}
           <div className="space-y-2">
-            <h4 className="text-slate-200 font-semibold uppercase text-[11px] tracking-wider">Official Portals</h4>
+            <h4 className="text-slate-200 font-semibold uppercase text-[11px] tracking-wider">Data References</h4>
             <ul className="space-y-2 text-xs">
+              <li>
+                <a
+                  href="https://moes.gov.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 hover:text-cyan-400 transition-colors"
+                >
+                  <span>Ministry of Earth Sciences (MoES)</span>
+                  <ExternalLink className="w-3 h-3 text-slate-500" />
+                </a>
+              </li>
               <li>
                 <a
                   href="https://ncpor.res.in"
@@ -86,7 +98,7 @@ export const Footer = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 hover:text-cyan-400 transition-colors"
                 >
-                  <span>NCPOR Official Portal</span>
+                  <span>National Centre for Polar and Ocean Research (NCPOR)</span>
                   <ExternalLink className="w-3 h-3 text-slate-500" />
                 </a>
               </li>
@@ -98,17 +110,6 @@ export const Footer = () => {
                   className="flex items-center gap-1.5 hover:text-cyan-400 transition-colors"
                 >
                   <span>National Polar Data Centre (NPDC)</span>
-                  <ExternalLink className="w-3 h-3 text-slate-500" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://moes.gov.in"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 hover:text-cyan-400 transition-colors"
-                >
-                  <span>Ministry of Earth Sciences (MoES)</span>
                   <ExternalLink className="w-3 h-3 text-slate-500" />
                 </a>
               </li>

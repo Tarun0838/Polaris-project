@@ -1,7 +1,7 @@
 {
-  "name": "vyom",
+  "name": "vyom-sih26063",
   "version": "1.0.0",
-  "description": "VYOM: Beyond Boundary, Beyond Limits (Ministry of Earth Sciences)",
+  "description": "VYOM: Polar Knowledge & Outreach Intelligence System - SIH 2026 (Ministry of Earth Sciences). Beyond Boundaries. Beyond Limits.",
   "scripts": {
     "dev:backend": "cd backend && npm run dev",
     "dev:frontend": "cd frontend && npm run dev",

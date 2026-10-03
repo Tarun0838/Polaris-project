@@ -40,6 +40,9 @@ export const RegisterPage = () => {
           <h1 className="text-2xl font-extrabold text-slate-900 font-heading">
             Create VYOM Account
           </h1>
+          <p className="text-xs font-semibold text-cyan-700 tracking-wide">
+            Beyond Boundaries. Beyond Limits.
+          </p>
           <p className="text-xs text-slate-500">
             Join India's Polar Knowledge & Outreach Network • Beyond Boundary, Beyond Limits
           </p>

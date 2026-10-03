@@ -30,7 +30,7 @@ const generateDraft = async (req, res, next) => {
     if (!project) {
       return res.status(404).json({
         success: false,
-        message: `Verified Research Project '${projectId}' not found in POLARIS repository.`
+        message: `Verified Research Project '${projectId}' not found in VYOM repository.`
       });
     }
 
@@ -154,7 +154,7 @@ const generateDraft = async (req, res, next) => {
       sourceIds,
       sourceReferences,
       generatedBy: req.user ? req.user._id : null,
-      authorName: req.user ? req.user.name : 'POLARIS Intelligence Engine',
+      authorName: req.user ? req.user.name : 'VYOM Intelligence Engine',
       status: 'draft',
       isCuratorVerified: false
     });
@@ -342,7 +342,7 @@ const publishContent = async (req, res, next) => {
       targetType: 'Content',
       targetId: item._id.toString(),
       targetTitle: item.title,
-      details: 'Live on POLARIS Public Outreach Dissemination Portal'
+      details: 'Live on VYOM Public Outreach Dissemination Portal'
     });
 
     res.json({

@@ -6,44 +6,66 @@ const connectDB = async () => {
   try {
     const mongoUri = process.env.MONGO_URI;
 
-    if (mongoUri) {
+    if (mongoUri && mongoUri.trim().length > 0) {
       try {
-        console.log(`[POLARIS-DB] Attempting to connect to configured MongoDB URI...`);
+        console.log(`[VYOM-DB] Attempting to connect to configured MongoDB URI...`);
         const conn = await mongoose.connect(mongoUri, {
-          serverSelectionTimeoutMS: 10000
+          serverSelectionTimeoutMS: 5000
         });
-        console.log(`[POLARIS-DB] Connected to MongoDB: ${conn.connection.host}`);
+        console.log(`[VYOM-DB] Connected to MongoDB: ${conn.connection.host}`);
         return conn;
       } catch (err) {
-        console.warn(`[POLARIS-DB] Configured MONGO_URI failed: ${err.message}. Initializing embedded in-memory MongoDB fallback...`);
+        console.warn(`[VYOM-DB] Configured MONGO_URI failed: ${err.message}. Initializing embedded in-memory MongoDB fallback...`);
       }
     }
 
+    if (mongoose.connection.readyState === 1) {
+      return mongoose.connection;
+    }
+
     // Fallback: Start MongoDB Memory Server
-    console.log(`[POLARIS-DB] Starting embedded MongoDB instance for seamless standalone execution...`);
-    const { MongoMemoryServer } = require('mongodb-memory-server');
-    mongodInstance = await MongoMemoryServer.create({
-      instance: {
-        dbName: 'polaris'
-      },
-      spawn: {
-        timeout: 60000
-      }
-    });
+    if (!mongodInstance || mongodInstance.state !== 'running') {
+      console.log(`[VYOM-DB] Starting embedded MongoDB instance for seamless standalone execution...`);
+      const { MongoMemoryServer } = require('mongodb-memory-server');
+      mongodInstance = await MongoMemoryServer.create({
+        instance: {
+          dbName: 'vyom'
+        },
+        spawn: {
+          timeout: 60000
+        }
+      });
+    }
+
     const memoryUri = mongodInstance.getUri();
-    const conn = await mongoose.connect(memoryUri);
-    console.log(`[POLARIS-DB] Embedded MongoDB running at: ${memoryUri}`);
+    const conn = await mongoose.connect(memoryUri, {
+      serverSelectionTimeoutMS: 5000,
+      connectTimeoutMS: 10000
+    });
+    console.log(`[VYOM-DB] Embedded MongoDB running at: ${memoryUri}`);
+
+    mongoose.connection.on('disconnected', () => {
+      console.warn('[VYOM-DB] MongoDB connection disconnected.');
+    });
+
     return conn;
   } catch (error) {
-    console.error(`[POLARIS-DB] Critical database connection error: ${error.message}`);
+    console.error(`[VYOM-DB] Critical database connection error: ${error.message}`);
     process.exit(1);
   }
 };
 
 const disconnectDB = async () => {
-  await mongoose.disconnect();
-  if (mongodInstance) {
-    await mongodInstance.stop();
+  try {
+    if (mongoose.connection.readyState !== 0) {
+      await mongoose.disconnect();
+    }
+    if (mongodInstance) {
+      await mongodInstance.stop();
+      mongodInstance = null;
+    }
+  } catch (err) {
+    console.warn('[VYOM-DB] Error during disconnect:', err.message);
   }
 };
 

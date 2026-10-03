@@ -43,7 +43,7 @@ const getAssets = async (req, res, next) => {
       try {
         assets = await PolarAsset.find(query).sort({ year: -1, createdAt: -1 });
       } catch (e) {
-        console.warn('[POLARIS-ASSETS] MongoDB query failed:', e.message);
+        console.warn('[VYOM-ASSETS] MongoDB query failed:', e.message);
       }
     }
 

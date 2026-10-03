@@ -177,7 +177,7 @@ export const PolarMapPage = () => {
   // API Key Guide Modal state
   const [isApiKeyModalOpen, setIsApiKeyModalOpen] = useState(false);
   const [customKey, setCustomKey] = useState(
-    () => localStorage.getItem('polaris_google_maps_key') || ''
+    () => localStorage.getItem('vyom_google_maps_key') || localStorage.getItem('polaris_google_maps_key') || ''
   );
   const [copiedLink, setCopiedLink] = useState(false);
   const [savedSuccess, setSavedSuccess] = useState(false);
@@ -215,7 +215,7 @@ export const PolarMapPage = () => {
   };
 
   const handleSaveCustomKey = () => {
-    localStorage.setItem('polaris_google_maps_key', customKey.trim());
+    localStorage.setItem('vyom_google_maps_key', customKey.trim());
     setSavedSuccess(true);
     setTimeout(() => setSavedSuccess(false), 2500);
   };
@@ -732,7 +732,7 @@ export const PolarMapPage = () => {
                   </a>
                 </li>
                 <li>
-                  Click <strong>Create Project</strong> (e.g. <code className="bg-slate-200 px-1 py-0.5 rounded text-[11px]">Vyom-MoES</code>).
+                  Click <strong>Create Project</strong> (e.g. <code className="bg-slate-200 px-1 py-0.5 rounded text-[11px]">VYOM-MoES</code>).
                 </li>
                 <li>
                   In <strong>APIs & Services &gt; Library</strong>, search for <strong>Maps JavaScript API</strong> and click <strong>Enable</strong>.

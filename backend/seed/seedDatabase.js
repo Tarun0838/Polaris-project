@@ -22,7 +22,7 @@ const PolarAsset = require('../models/PolarAsset');
 
 const seedData = async (shouldExit = true) => {
   try {
-    console.log('[POLARIS-SEED] Starting database initialization...');
+    console.log('[VYOM-SEED] Starting database initialization...');
 
     // Load JSON seed files
     const stations = JSON.parse(fs.readFileSync(path.join(__dirname, 'stations.json'), 'utf-8'));
@@ -36,7 +36,7 @@ const seedData = async (shouldExit = true) => {
     const polarAssets = JSON.parse(fs.readFileSync(path.join(__dirname, 'polarAssets.json'), 'utf-8'));
 
     // Clear existing collections
-    console.log('[POLARIS-SEED] Purging previous records...');
+    console.log('[VYOM-SEED] Purging previous records...');
     await Promise.all([
       User.deleteMany({}),
       Station.deleteMany({}),
@@ -53,10 +53,10 @@ const seedData = async (shouldExit = true) => {
     ]);
 
     // 1. Seed Users (Admin, Researcher, Student)
-    console.log('[POLARIS-SEED] Creating verified demo accounts...');
+    console.log('[VYOM-SEED] Creating verified demo accounts...');
     const adminUser = await User.create({
       name: 'Dr. M. Ravichandran',
-      email: 'admin@polaris.demo',
+      email: 'admin@vyom.demo',
       password: 'polaris123',
       role: 'admin',
       institution: 'Ministry of Earth Sciences (MoES), New Delhi'
@@ -64,7 +64,7 @@ const seedData = async (shouldExit = true) => {
 
     const researcherUser = await User.create({
       name: 'Dr. Rohit Srivastava',
-      email: 'researcher@polaris.demo',
+      email: 'researcher@vyom.demo',
       password: 'polaris123',
       role: 'researcher',
       institution: 'National Centre for Polar and Ocean Research (NCPOR), Goa'
@@ -72,14 +72,39 @@ const seedData = async (shouldExit = true) => {
 
     const studentUser = await User.create({
       name: 'Aarav Sharma',
-      email: 'student@polaris.demo',
+      email: 'student@vyom.demo',
       password: 'polaris123',
       role: 'student',
       institution: 'Indian Institute of Technology (IIT) Delhi'
     });
 
+    // Compatibility aliases for polaris.demo credentials
+    await User.create([
+      {
+        name: 'Dr. M. Ravichandran',
+        email: 'admin@polaris.demo',
+        password: 'polaris123',
+        role: 'admin',
+        institution: 'Ministry of Earth Sciences (MoES), New Delhi'
+      },
+      {
+        name: 'Dr. Rohit Srivastava',
+        email: 'researcher@polaris.demo',
+        password: 'polaris123',
+        role: 'researcher',
+        institution: 'National Centre for Polar and Ocean Research (NCPOR), Goa'
+      },
+      {
+        name: 'Aarav Sharma',
+        email: 'student@polaris.demo',
+        password: 'polaris123',
+        role: 'student',
+        institution: 'Indian Institute of Technology (IIT) Delhi'
+      }
+    ]);
+
     // 2. Seed Core Polar Collections
-    console.log('[POLARIS-SEED] Seeding Stations, Expeditions & Projects...');
+    console.log('[VYOM-SEED] Seeding Stations, Expeditions & Projects...');
     await Station.insertMany(stations);
     await Expedition.insertMany(expeditions);
     await ResearchProject.insertMany(researchProjects);
@@ -91,7 +116,7 @@ const seedData = async (shouldExit = true) => {
     await PolarAsset.insertMany(polarAssets);
 
     // 3. Seed AI Content Engine samples across the workflow
-    console.log('[POLARIS-SEED] Seeding AI Outreach drafts & human curation records...');
+    console.log('[VYOM-SEED] Seeding AI Outreach drafts & human curation records...');
     await GeneratedContent.create([
       {
         title: 'Deep Freeze Sentinels: How Maitri Station Decodes Antarctica’s Permafrost',
@@ -191,7 +216,7 @@ const seedData = async (shouldExit = true) => {
     ]);
 
     // 4. Seed Audit Activities
-    console.log('[POLARIS-SEED] Logging initial audit trail...');
+    console.log('[VYOM-SEED] Logging initial audit trail...');
     await Activity.create([
       {
         action: 'Curator Verified & Published Content',
@@ -211,7 +236,7 @@ const seedData = async (shouldExit = true) => {
       },
       {
         action: 'System Seed Initialized',
-        actorName: 'POLARIS Core System',
+        actorName: 'VYOM Core System',
         actorRole: 'system',
         targetType: 'System',
         targetTitle: 'NCPOR / NPDC Knowledge Seed Imported',
@@ -220,12 +245,13 @@ const seedData = async (shouldExit = true) => {
     ]);
 
     console.log('================================================================');
-    console.log('✅ POLARIS Database successfully seeded with official metadata!');
+    console.log('✅ VYOM Database successfully seeded with official metadata!');
     console.log('----------------------------------------------------------------');
     console.log('Demo Credentials:');
-    console.log('  Admin:      admin@polaris.demo      / polaris123');
-    console.log('  Researcher: researcher@polaris.demo / polaris123');
-    console.log('  Student:    student@polaris.demo    / polaris123');
+    console.log('  Admin:      admin@vyom.demo      / polaris123');
+    console.log('  Researcher: researcher@vyom.demo / polaris123');
+    console.log('  Student:    student@vyom.demo    / polaris123');
+    console.log('  (Legacy polaris.demo credentials also supported)');
     console.log('================================================================');
 
     if (shouldExit) {
@@ -233,7 +259,7 @@ const seedData = async (shouldExit = true) => {
       process.exit(0);
     }
   } catch (error) {
-    console.error('[POLARIS-SEED] Seeding failed:', error);
+    console.error('[VYOM-SEED] Seeding failed:', error);
     if (shouldExit) process.exit(1);
   }
 };

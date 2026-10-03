@@ -45,7 +45,7 @@ app.use('/api/assets', require('./routes/polarAssetRoutes'));
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'online',
-    system: 'VYOM — Beyond Boundary, Beyond Limits',
+    system: 'VYOM — Beyond Boundaries. Beyond Limits.',
     ministry: 'Ministry of Earth Sciences (MoES)',
     theme: 'Smart Education',
     timestamp: new Date().toISOString()
@@ -66,21 +66,33 @@ const startServer = async () => {
     const Station = require('./models/Station');
     const stationCount = await Station.countDocuments();
     if (stationCount === 0) {
-      console.log('[POLARIS-SERVER] No records detected. Performing automated initial seed...');
+      console.log('[VYOM-SERVER] No records detected. Performing automated initial seed...');
       const seedData = require('./seed/seedDatabase');
       await seedData(false);
     }
 
     const server = app.listen(PORT, () => {
       console.log(`===========================================================`);
-      console.log(`🚀 POLARIS Backend Server running on port ${PORT}`);
+      console.log(`🚀 VYOM Backend Server running on port ${PORT}`);
       console.log(`🌐 API Endpoint: http://localhost:${PORT}/api`);
       console.log(`===========================================================`);
     });
 
+    process.on('SIGTERM', async () => {
+      const { disconnectDB } = require('./config/db');
+      await disconnectDB();
+      server.close(() => process.exit(0));
+    });
+
+    process.on('SIGINT', async () => {
+      const { disconnectDB } = require('./config/db');
+      await disconnectDB();
+      server.close(() => process.exit(0));
+    });
+
     return server;
   } catch (error) {
-    console.error(`[POLARIS-SERVER] Failed to start server: ${error.message}`);
+    console.error(`[VYOM-SERVER] Failed to start server: ${error.message}`);
     process.exit(1);
   }
 };

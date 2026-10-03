@@ -21,6 +21,8 @@ export const LoginPage = () => {
       toast.success(`Welcome back, ${result.payload.user.name}!`);
       if (result.payload.user.role === 'admin') {
         navigate('/admin');
+      } else if (result.payload.user.role === 'researcher') {
+        navigate('/media-studio');
       } else {
         navigate('/');
       }
@@ -31,13 +33,13 @@ export const LoginPage = () => {
 
   const handleQuickDemo = (role) => {
     if (role === 'admin') {
-      setEmail('admin@polaris.demo');
+      setEmail('admin@vyom.demo');
       setPassword('polaris123');
     } else if (role === 'researcher') {
-      setEmail('researcher@polaris.demo');
+      setEmail('researcher@vyom.demo');
       setPassword('polaris123');
     } else if (role === 'student') {
-      setEmail('student@polaris.demo');
+      setEmail('student@vyom.demo');
       setPassword('polaris123');
     }
   };
@@ -53,6 +55,9 @@ export const LoginPage = () => {
           <h1 className="text-2xl font-extrabold text-slate-900 font-heading">
             Sign In to VYOM
           </h1>
+          <p className="text-xs font-semibold text-cyan-700 tracking-wide">
+            Beyond Boundaries. Beyond Limits.
+          </p>
           <p className="text-xs text-slate-500">
             Ministry of Earth Sciences • Beyond Boundary, Beyond Limits
           </p>
@@ -100,7 +105,7 @@ export const LoginPage = () => {
                 <input
                   type="email"
                   required
-                  placeholder="admin@polaris.demo"
+                  placeholder="admin@vyom.demo"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full pl-9 pr-3 py-2 text-xs bg-slate-50 border border-slate-300 rounded-lg focus:outline-hidden focus:border-blue-600 font-medium"

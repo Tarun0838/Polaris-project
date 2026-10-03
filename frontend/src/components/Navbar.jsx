@@ -45,34 +45,47 @@ export const Navbar = () => {
     }
   };
 
-  const handleDemoSwitch = (role) => {
-    let mockUser = {
-      id: 'demo-user',
-      name: 'Dr. M. Ravichandran',
-      email: 'admin@polaris.demo',
-      role: 'admin',
-      institution: 'Ministry of Earth Sciences (MoES)'
-    };
-
-    if (role === 'researcher') {
-      mockUser = {
-        id: 'demo-researcher',
+  const handleDemoSwitch = async (role) => {
+    const demoConfigs = {
+      admin: {
+        id: '674843000000000000000001',
+        name: 'Dr. M. Ravichandran',
+        email: 'admin@vyom.demo',
+        role: 'admin',
+        institution: 'Ministry of Earth Sciences (MoES)'
+      },
+      researcher: {
+        id: '674843000000000000000002',
         name: 'Dr. Rohit Srivastava',
-        email: 'researcher@polaris.demo',
+        email: 'researcher@vyom.demo',
         role: 'researcher',
         institution: 'National Centre for Polar and Ocean Research (NCPOR)'
-      };
-    } else if (role === 'student') {
-      mockUser = {
-        id: 'demo-student',
+      },
+      student: {
+        id: '674843000000000000000003',
         name: 'Aarav Sharma',
-        email: 'student@polaris.demo',
+        email: 'student@vyom.demo',
         role: 'student',
         institution: 'Indian Institute of Technology (IIT) Delhi'
-      };
+      }
+    };
+
+    const target = demoConfigs[role] || demoConfigs.researcher;
+
+    try {
+      const res = await api.post('/auth/login', { email: target.email, password: 'polaris123' });
+      if (res.data && res.data.token) {
+        dispatch(setDemoUser({ user: res.data.user, token: res.data.token }));
+        toast.success(`Switched to ${res.data.user.name}`);
+        setDemoMenuOpen(false);
+        return;
+      }
+    } catch (err) {
+      // Fallback if offline
     }
 
-    dispatch(setDemoUser({ user: mockUser, token: 'demo-jwt-token-active' }));
+    dispatch(setDemoUser({ user: target, token: 'demo-jwt-token-active' }));
+    toast.success(`Switched to ${target.name}`);
     setDemoMenuOpen(false);
   };
 
@@ -156,7 +169,7 @@ export const Navbar = () => {
                 <span className="font-bold text-lg text-slate-900 tracking-tight font-heading">VYOM</span>
                 <span className="bg-blue-100/80 text-blue-800 text-[10px] px-1.5 py-0.2 rounded font-semibold uppercase">MoES</span>
               </div>
-              <p className="text-[10px] text-slate-500 leading-tight hidden sm:block">Beyond Boundary, Beyond Limits</p>
+              <p className="text-[10px] text-slate-500 leading-tight hidden sm:block font-medium">Beyond Boundaries. Beyond Limits.</p>
             </div>
           </Link>
 

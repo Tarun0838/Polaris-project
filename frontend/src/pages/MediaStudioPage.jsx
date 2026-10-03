@@ -247,7 +247,7 @@ export const MediaStudioPage = () => {
 
   const handleDownloadMarkdown = () => {
     if (!generatedDraft) return;
-    const mdContent = `# ${draftTitle}\n\n**Target Audience:** ${generatedDraft.audience}  \n**Format:** ${generatedDraft.contentType}  \n**Status:** ${generatedDraft.status}  \n\n![${draftImageCaption}](${draftImageUrl})\n*${draftImageCaption} (Credit: ${draftImageCredit})*\n\n## Key Scientific Findings\n${draftKeyFacts.map(f => `- ${f}`).join('\n')}\n\n## Content Body\n${draftContent}\n\n## Verified Data Citations\n${(generatedDraft.sourceReferences || []).map(s => `- [${s.title}](${s.url}) (${s.type})`).join('\n')}\n\n---\n*VYOM: Beyond Boundary, Beyond Limits — Ministry of Earth Sciences (MoES)*\n`;
+    const mdContent = `# ${draftTitle}\n\n**Target Audience:** ${generatedDraft.audience}  \n**Format:** ${generatedDraft.contentType}  \n**Status:** ${generatedDraft.status}  \n\n![${draftImageCaption}](${draftImageUrl})\n*${draftImageCaption} (Credit: ${draftImageCredit})*\n\n## Key Scientific Findings\n${draftKeyFacts.map(f => `- ${f}`).join('\n')}\n\n## Content Body\n${draftContent}\n\n## Verified Data Citations\n${(generatedDraft.sourceReferences || []).map(s => `- [${s.title}](${s.url}) (${s.type})`).join('\n')}\n\n---\n*VYOM — Beyond Boundaries. Beyond Limits. — Ministry of Earth Sciences (MoES)*\n`;
 
     const blob = new Blob([mdContent], { type: 'text/markdown;charset=utf-8;' });
     const url = URL.createObjectURL(blob);

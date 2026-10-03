@@ -99,7 +99,7 @@ export const LearningHubPage = () => {
         <div className="max-w-3xl space-y-3">
           <div className="inline-flex items-center gap-2 bg-blue-800/80 border border-cyan-400/30 px-3 py-1 rounded-full text-xs text-cyan-300 font-medium">
             <GraduationCap className="w-3.5 h-3.5" />
-            Polaris Smart Education Initiative • MoES
+            VYOM Smart Education Initiative • MoES
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold font-heading tracking-tight">
             Student Polar Learning Hub

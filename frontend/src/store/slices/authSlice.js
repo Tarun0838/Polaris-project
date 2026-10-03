@@ -2,8 +2,8 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import api from '../../services/api';
 
 // Retrieve initial auth state from localStorage
-const storedToken = localStorage.getItem('polaris_token');
-const storedUser = localStorage.getItem('polaris_user');
+const storedToken = localStorage.getItem('vyom_token') || localStorage.getItem('polaris_token');
+const storedUser = localStorage.getItem('vyom_user') || localStorage.getItem('polaris_user');
 
 const initialState = {
   user: storedUser ? JSON.parse(storedUser) : null,
@@ -58,6 +58,8 @@ const authSlice = createSlice({
       state.token = null;
       state.isAuthenticated = false;
       state.error = null;
+      localStorage.removeItem('vyom_token');
+      localStorage.removeItem('vyom_user');
       localStorage.removeItem('polaris_token');
       localStorage.removeItem('polaris_user');
     },
@@ -71,8 +73,8 @@ const authSlice = createSlice({
       state.token = token;
       state.isAuthenticated = true;
       state.error = null;
-      localStorage.setItem('polaris_token', token);
-      localStorage.setItem('polaris_user', JSON.stringify(user));
+      localStorage.setItem('vyom_token', token);
+      localStorage.setItem('vyom_user', JSON.stringify(user));
     }
   },
   extraReducers: (builder) => {
@@ -87,8 +89,8 @@ const authSlice = createSlice({
         state.isAuthenticated = true;
         state.token = action.payload.token;
         state.user = action.payload.user;
-        localStorage.setItem('polaris_token', action.payload.token);
-        localStorage.setItem('polaris_user', JSON.stringify(action.payload.user));
+        localStorage.setItem('vyom_token', action.payload.token);
+        localStorage.setItem('vyom_user', JSON.stringify(action.payload.user));
       })
       .addCase(login.rejected, (state, action) => {
         state.loading = false;
@@ -104,8 +106,8 @@ const authSlice = createSlice({
         state.isAuthenticated = true;
         state.token = action.payload.token;
         state.user = action.payload.user;
-        localStorage.setItem('polaris_token', action.payload.token);
-        localStorage.setItem('polaris_user', JSON.stringify(action.payload.user));
+        localStorage.setItem('vyom_token', action.payload.token);
+        localStorage.setItem('vyom_user', JSON.stringify(action.payload.user));
       })
       .addCase(register.rejected, (state, action) => {
         state.loading = false;
@@ -114,12 +116,14 @@ const authSlice = createSlice({
       // LoadMe
       .addCase(loadMe.fulfilled, (state, action) => {
         state.user = action.payload.user;
-        localStorage.setItem('polaris_user', JSON.stringify(action.payload.user));
+        localStorage.setItem('vyom_user', JSON.stringify(action.payload.user));
       })
       .addCase(loadMe.rejected, (state) => {
         state.user = null;
         state.token = null;
         state.isAuthenticated = false;
+        localStorage.removeItem('vyom_token');
+        localStorage.removeItem('vyom_user');
         localStorage.removeItem('polaris_token');
         localStorage.removeItem('polaris_user');
       });
