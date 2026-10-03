@@ -38,14 +38,13 @@ export const Footer = () => {
               <div className="w-6 h-6 rounded bg-blue-600 flex items-center justify-center text-white text-xs">
                 ★
               </div>
-              <span>POLARIS</span>
+              <span>VYOM</span>
             </div>
             <p className="text-slate-400 text-xs leading-relaxed">
-              Polar Knowledge & Outreach Intelligence System built for India's polar science ecosystem, connecting stations, expeditions, datasets, and human-verified outreach.
+              Beyond Boundary, Beyond Limits. Built for India's polar science ecosystem, connecting stations, expeditions, datasets, and human-verified outreach.
             </p>
             <div className="pt-2 text-[11px] text-slate-500">
               <div>Smart India Hackathon (SIH 2026)</div>
-              <div>Problem Statement: SIH26063</div>
               <div>Theme: Smart Education</div>
             </div>
           </div>
@@ -54,7 +53,7 @@ export const Footer = () => {
           <div className="space-y-2">
             <h4 className="text-slate-200 font-semibold uppercase text-[11px] tracking-wider">Scientific Exploration</h4>
             <ul className="space-y-1.5 text-xs">
-              <li><Link to="/explore" className="hover:text-cyan-400 transition-colors">Unified Knowledge Repository</Link></li>
+              <li><Link to="/explore" className="hover:text-cyan-400 transition-colors">Beyond Boundary, Beyond Limits</Link></li>
               <li><Link to="/map" className="hover:text-cyan-400 transition-colors">Polar Explorer Map</Link></li>
               <li><Link to="/stations/maitri" className="hover:text-cyan-400 transition-colors">Maitri Station (Antarctica)</Link></li>
               <li><Link to="/stations/bharati" className="hover:text-cyan-400 transition-colors">Bharati Station (Antarctica)</Link></li>
@@ -130,7 +129,7 @@ export const Footer = () => {
 
         {/* Bottom copyright and disclaimer */}
         <div className="mt-10 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 gap-4">
-          <p>© {new Date().getFullYear()} POLARIS • Ministry of Earth Sciences, Govt. of India. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} VYOM • Ministry of Earth Sciences, Govt. of India. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />

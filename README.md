@@ -1,15 +1,15 @@
-# POLARIS: Polar Knowledge & Outreach Intelligence System
-### Smart India Hackathon (SIH 2026) — Problem Statement SIH26063
+# VYOM: Beyond Boundary, Beyond Limits
+### Smart India Hackathon (SIH 2026)
 **Ministry:** Ministry of Earth Sciences (MoES)  
 **Theme:** Smart Education  
-**Tagline:** *"From Polar Research to Public Understanding."*  
+**Tagline:** *"Beyond Boundary, Beyond Limits."*  
 **Alternative Supporting Line:** *"Discover. Understand. Create. Verify. Share."*
 
 ---
 
 ## 1. Executive Summary & Core Principle
 
-**POLARIS is NOT merely a document repository and NOT just an AI chatbot.**
+**VYOM is NOT merely a document repository and NOT just an AI chatbot.**
 
 It is an integrated polar science outreach, knowledge repository, and media dissemination ecosystem that:
 1. **Organizes verified polar research metadata** from India's polar research ecosystem.
@@ -21,7 +21,7 @@ It is an integrated polar science outreach, knowledge repository, and media diss
 7. **Maintains a Human-in-the-Loop verification gate** where science curators review, edit, approve, or reject AI drafts before public release.
 
 > **Strong Project Statement:**  
-> *"POLARIS does not merely store polar research; it makes polar research discoverable, connected, understandable and reusable for different audiences."*
+> *"VYOM does not merely store polar research; it makes polar research discoverable, connected, understandable and reusable for different audiences."*
 
 ---
 
@@ -68,7 +68,7 @@ $$\text{DISCOVER} \longrightarrow \text{CONNECT} \longrightarrow \text{UNDERSTAN
 ## 4. Project Directory Structure
 
 ```
-26063/
+VYOM/
 ├── backend/
 │   ├── config/
 │   │   └── db.js                 # Smart Mongo connection with embedded fallback
@@ -245,7 +245,7 @@ Follow this exact walkthrough during the hackathon evaluation:
 
 ## 8. Data Source & Provenance Policy
 
-POLARIS enforces strict scientific provenance:
+VYOM enforces strict scientific provenance:
 - **No Web Scraping Violations:** Uses structured metadata and direct official links to NPDC (`https://npdc.ncpor.res.in`) and NCPOR (`https://ncpor.res.in`).
 - **No Copyright Infringements:** Academic papers are referenced via official persistent DOIs; restricted datasets clearly display *"Access via official NPDC source"*.
 - **No Uncontrolled Hallucination:** System prompts enforce deterministic citations; if data is unavailable, the system explicitly reports it.
@@ -264,5 +264,5 @@ POLARIS enforces strict scientific provenance:
 
 ## 10. License & Acknowledgements
 
-Developed for **Smart India Hackathon (SIH 2026)** under Problem Statement **SIH26063**.  
+Developed for **Smart India Hackathon (SIH 2026)**.  
 Data schema and institutional workflows designed with reference to the **Ministry of Earth Sciences (MoES)**, Government of India, and the **National Centre for Polar and Ocean Research (NCPOR)**, Goa.

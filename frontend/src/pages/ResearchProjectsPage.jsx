@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Compass, Search, Filter, ArrowRight, MapPin, Ship, Layers } from 'lucide-react';
+import { Compass, Search, Filter, ArrowRight, MapPin, Ship, Layers, Upload } from 'lucide-react';
 import api from '../services/api';
 import Badge from '../components/ui/Badge';
 import Card from '../components/ui/Card';
@@ -46,16 +46,26 @@ export const ResearchProjectsPage = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
       {/* Page Header */}
-      <div>
-        <div className="text-xs font-bold text-teal-800 uppercase tracking-widest mb-1">
-          Scientific Knowledge Core
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <div className="text-xs font-bold text-teal-800 uppercase tracking-widest mb-1">
+            Scientific Knowledge Core
+          </div>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
+            Polar Research Projects
+          </h1>
+          <p className="text-slate-600 text-xs sm:text-sm mt-1">
+            Multi-disciplinary polar science programs conducted across India's stations and expeditions. Every project maps directly to verified NPDC datasets and publications.
+          </p>
         </div>
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
-          Polar Research Projects
-        </h1>
-        <p className="text-slate-600 text-xs sm:text-sm mt-1">
-          Multi-disciplinary polar science programs conducted across India's stations and expeditions. Every project maps directly to verified NPDC datasets and publications.
-        </p>
+
+        <Link
+          to="/upload-research"
+          className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs px-4 py-2.5 rounded-lg shadow-sm transition-all shrink-0 cursor-pointer"
+        >
+          <Upload className="w-4 h-4" />
+          <span>Submit Research Project</span>
+        </Link>
       </div>
 
       {/* Filter Bar */}

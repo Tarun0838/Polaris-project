@@ -51,7 +51,21 @@ const getPublicationById = async (req, res, next) => {
   }
 };
 
+// @desc    Create new publication (researcher or admin)
+// @route   POST /api/publications
+// @access  Researcher, Admin
+const createPublication = async (req, res, next) => {
+  try {
+    const { uploadPublication } = require('./researchUploadController');
+    return uploadPublication(req, res, next);
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   getPublications,
-  getPublicationById
+  getPublicationById,
+  createPublication
 };
+

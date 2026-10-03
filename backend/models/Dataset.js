@@ -95,6 +95,22 @@ const datasetSchema = new mongoose.Schema({
     type: String,
     default: 'official-source-verified'
   },
+  fileUrl: {
+    type: String,
+    default: ''
+  },
+  fileName: {
+    type: String,
+    default: ''
+  },
+  uploadedBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  },
+  uploadedByName: {
+    type: String,
+    default: ''
+  },
   citation: {
     type: String
   }

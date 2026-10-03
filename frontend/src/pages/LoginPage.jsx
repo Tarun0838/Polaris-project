@@ -51,10 +51,10 @@ export const LoginPage = () => {
             <Compass className="w-7 h-7 text-cyan-400" />
           </div>
           <h1 className="text-2xl font-extrabold text-slate-900 font-heading">
-            Sign In to POLARIS
+            Sign In to VYOM
           </h1>
           <p className="text-xs text-slate-500">
-            Ministry of Earth Sciences • National Polar Science Portal
+            Ministry of Earth Sciences • Beyond Boundary, Beyond Limits
           </p>
         </div>
 

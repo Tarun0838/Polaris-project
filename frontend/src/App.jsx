@@ -20,6 +20,7 @@ import AdminDashboardPage from './pages/AdminDashboardPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import PublicOutreachFeedPage from './pages/PublicOutreachFeedPage';
+import UploadResearchPage from './pages/UploadResearchPage';
 
 import ProtectedRoute from './components/ProtectedRoute';
 import MediaPage from './pages/MediaPage';
@@ -49,6 +50,14 @@ export function App() {
           element={
             <ProtectedRoute allowedRoles={['researcher', 'admin']}>
               <MediaStudioPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="upload-research"
+          element={
+            <ProtectedRoute allowedRoles={['researcher', 'admin']}>
+              <UploadResearchPage />
             </ProtectedRoute>
           }
         />

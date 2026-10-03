@@ -53,7 +53,7 @@ export const ExplorePage = () => {
   const [totalCount, setTotalCount] = useState(0);
   const [loading, setLoading] = useState(true);
 
-  // Exact 7 tabs required by Section 9 of SIH26063 PSID:
+  // Exact 7 tabs required:
   // [All] [Stations] [Expeditions] [Reports] [Publications] [Datasets] [Media]
   const typeTabs = [
     { id: 'All', label: 'All' },
@@ -307,7 +307,7 @@ export const ExplorePage = () => {
           Ministry of Earth Sciences (MoES) • NCPOR
         </div>
         <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
-          Unified Polar Knowledge Repository
+          Beyond Boundary, Beyond Limits
         </h1>
         <p className="text-slate-600 text-xs sm:text-sm mt-1">
           Search across polar stations, expeditions, technical reports, publications, datasets, and outreach media.

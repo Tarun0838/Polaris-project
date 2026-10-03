@@ -34,6 +34,7 @@ app.use('/api/projects', require('./routes/projectRoutes'));
 app.use('/api/datasets', require('./routes/datasetRoutes'));
 app.use('/api/reports', require('./routes/reportRoutes'));
 app.use('/api/publications', require('./routes/publicationRoutes'));
+app.use('/api/research', require('./routes/researchRoutes'));
 app.use('/api/media', require('./routes/mediaRoutes'));
 app.use('/api/education', require('./routes/educationRoutes'));
 app.use('/api/content', require('./routes/contentRoutes'));
@@ -44,9 +45,9 @@ app.use('/api/assets', require('./routes/polarAssetRoutes'));
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'online',
-    system: 'POLARIS — Polar Knowledge & Outreach Intelligence System',
+    system: 'VYOM — Beyond Boundary, Beyond Limits',
     ministry: 'Ministry of Earth Sciences (MoES)',
-    theme: 'Smart Education (SIH26063)',
+    theme: 'Smart Education',
     timestamp: new Date().toISOString()
   });
 });

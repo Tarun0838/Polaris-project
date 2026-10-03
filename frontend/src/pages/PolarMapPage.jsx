@@ -388,7 +388,7 @@ export const PolarMapPage = () => {
             type="button"
             onClick={() => setIsApiKeyModalOpen(true)}
             className="px-2.5 py-1.5 rounded-md font-semibold text-xs transition-colors border border-amber-300 bg-amber-50 text-amber-900 hover:bg-amber-100 flex items-center gap-1.5 cursor-pointer shrink-0"
-            title="Learn how Polaris connects Google Earth without an API key, or grab your own free key"
+            title="Learn how VYOM connects Google Earth without an API key, or grab your own free key"
           >
             <Key className="w-3.5 h-3.5 text-amber-700" />
             <span>API Key Info</span>
@@ -700,7 +700,7 @@ export const PolarMapPage = () => {
                 No API Key Required — Active & Working Out-of-the-Box!
               </h4>
               <p className="text-xs text-emerald-800 mt-1 leading-relaxed">
-                Polaris is currently pulling high-resolution <strong>Google Earth Satellite (Hybrid)</strong>, 
+                VYOM is currently pulling high-resolution <strong>Google Earth Satellite (Hybrid)</strong>, 
                 <strong>Google Streets</strong>, and <strong>Google Terrain</strong> tiles directly from Google's 
                 open tile network. You do <strong>not</strong> need to pay or configure an API key for live map exploration.
               </p>
@@ -732,7 +732,7 @@ export const PolarMapPage = () => {
                   </a>
                 </li>
                 <li>
-                  Click <strong>Create Project</strong> (e.g. <code className="bg-slate-200 px-1 py-0.5 rounded text-[11px]">Polaris-MoES</code>).
+                  Click <strong>Create Project</strong> (e.g. <code className="bg-slate-200 px-1 py-0.5 rounded text-[11px]">Vyom-MoES</code>).
                 </li>
                 <li>
                   In <strong>APIs & Services &gt; Library</strong>, search for <strong>Maps JavaScript API</strong> and click <strong>Enable</strong>.

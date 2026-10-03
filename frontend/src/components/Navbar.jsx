@@ -16,7 +16,8 @@ import {
   X,
   User,
   LogOut,
-  ChevronDown
+  ChevronDown,
+  Upload
 } from 'lucide-react';
 import { logout, setDemoUser } from '../store/slices/authSlice';
 
@@ -97,7 +98,7 @@ export const Navbar = () => {
           <span className="hidden md:inline">NCPOR & National Polar Data Centre</span>
         </div>
         <div className="flex items-center gap-4">
-          <span className="hidden sm:inline text-slate-300 font-medium">Smart Education | SIH26063</span>
+          <span className="hidden sm:inline text-slate-300 font-medium">Smart Education</span>
           {/* Quick Demo Switcher */}
           <div className="relative">
             <button
@@ -152,10 +153,10 @@ export const Navbar = () => {
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-bold text-lg text-slate-900 tracking-tight font-heading">POLARIS</span>
+                <span className="font-bold text-lg text-slate-900 tracking-tight font-heading">VYOM</span>
                 <span className="bg-blue-100/80 text-blue-800 text-[10px] px-1.5 py-0.2 rounded font-semibold uppercase">MoES</span>
               </div>
-              <p className="text-[10px] text-slate-500 leading-tight hidden sm:block">Polar Knowledge & Outreach Intelligence System</p>
+              <p className="text-[10px] text-slate-500 leading-tight hidden sm:block">Beyond Boundary, Beyond Limits</p>
             </div>
           </Link>
 
@@ -176,17 +177,31 @@ export const Navbar = () => {
             ))}
 
             {(user?.role === 'researcher' || user?.role === 'admin') && (
-              <Link
-                to="/media-studio"
-                className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-colors flex items-center gap-1 ${
-                  isActive('/media-studio')
-                    ? 'text-cyan-800 bg-cyan-100/90'
-                    : 'text-cyan-700 bg-cyan-50 hover:bg-cyan-100 border border-cyan-200'
-                }`}
-              >
-                <Sparkles className="w-3.5 h-3.5 text-cyan-600" />
-                Media Studio
-              </Link>
+              <>
+                <Link
+                  to="/upload-research"
+                  className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-colors flex items-center gap-1.5 ${
+                    isActive('/upload-research')
+                      ? 'text-teal-800 bg-teal-100/90'
+                      : 'text-teal-700 bg-teal-50 hover:bg-teal-100 border border-teal-200'
+                  }`}
+                >
+                  <Upload className="w-3.5 h-3.5 text-teal-600" />
+                  <span>Upload Research</span>
+                </Link>
+
+                <Link
+                  to="/media-studio"
+                  className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-colors flex items-center gap-1 ${
+                    isActive('/media-studio')
+                      ? 'text-cyan-800 bg-cyan-100/90'
+                      : 'text-cyan-700 bg-cyan-50 hover:bg-cyan-100 border border-cyan-200'
+                  }`}
+                >
+                  <Sparkles className="w-3.5 h-3.5 text-cyan-600" />
+                  Media Studio
+                </Link>
+              </>
             )}
 
             {user?.role === 'admin' && (
@@ -285,13 +300,25 @@ export const Navbar = () => {
             ))}
 
             {(user?.role === 'researcher' || user?.role === 'admin') && (
-              <Link
-                to="/media-studio"
-                onClick={() => setMobileMenuOpen(false)}
-                className="col-span-2 px-3 py-2 text-xs font-semibold rounded-md text-cyan-800 bg-cyan-50 border border-cyan-200"
-              >
-                Media Studio
-              </Link>
+              <>
+                <Link
+                  to="/upload-research"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="col-span-2 px-3 py-2 text-xs font-semibold rounded-md text-teal-800 bg-teal-50 border border-teal-200 flex items-center gap-1.5"
+                >
+                  <Upload className="w-3.5 h-3.5 text-teal-600" />
+                  <span>Upload Research</span>
+                </Link>
+
+                <Link
+                  to="/media-studio"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="col-span-2 px-3 py-2 text-xs font-semibold rounded-md text-cyan-800 bg-cyan-50 border border-cyan-200 flex items-center gap-1.5"
+                >
+                  <Sparkles className="w-3.5 h-3.5 text-cyan-600" />
+                  <span>Media Studio</span>
+                </Link>
+              </>
             )}
 
             {user?.role === 'admin' && (
@@ -325,7 +352,7 @@ export const Navbar = () => {
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full text-center py-2 text-xs font-medium bg-slate-900 text-white rounded-md"
               >
-                Sign In to POLARIS
+                Sign In to VYOM
               </Link>
             )}
           </div>

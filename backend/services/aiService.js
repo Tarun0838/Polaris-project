@@ -3,7 +3,7 @@ const axios = require('axios');
 /**
  * System prompt strictly enforcing ground-truth source references and forbidding hallucination.
  */
-const SYSTEM_PROMPT = `You are the POLARIS Polar Intelligence Outreach Engine for India's Ministry of Earth Sciences (MoES) and National Centre for Polar and Ocean Research (NCPOR).
+const SYSTEM_PROMPT = `You are the VYOM Polar Intelligence Outreach Engine for India's Ministry of Earth Sciences (MoES) and National Centre for Polar and Ocean Research (NCPOR).
 Your role is to translate verified scientific research into educational and outreach material.
 STRICT RULES:
 1. Use ONLY the supplied verified context below.
@@ -136,8 +136,8 @@ function generateDeterministicDraft(project, datasets, reports, publications, au
       `**NARRATOR:** "Led by ${scientist} during ${project.expeditionName}, a dedicated team tracked ${domain.toLowerCase()} indicators over ${project.duration}."\n\n` +
       `**[SCENE 3: Key scientific facts appearing as on-screen text]**\n` +
       `**NARRATOR:** "Their findings? ${findingsList[0] || 'Unprecedented seasonal shifts recorded by in-situ sensors.'}"\n\n` +
-      `**[SCENE 4: POLARIS logo & National Centre for Polar and Ocean Research emblem]**\n` +
-      `**NARRATOR:** "Verified data available on the POLARIS portal. From Polar Research to Public Understanding."`;
+      `**[SCENE 4: VYOM logo & National Centre for Polar and Ocean Research emblem]**\n` +
+      `**NARRATOR:** "Verified data available on the VYOM portal: Beyond Boundary, Beyond Limits."`;
   } else if (contentType === 'Image Caption') {
     title = `Official Photo Caption: Field Operations at ${station}`;
     content = `**Caption:** Scientific observation team during ${project.expeditionName} at ${station} station (${region}), measuring ${domain.toLowerCase()} parameters. ` +
@@ -764,10 +764,10 @@ function buildMarkdownReport({
   const dateStr = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
   const stations = expedition.stations?.join(', ') || 'Oceanographic Cruise Corridor';
 
-  let md = `# POLARIS Mission Intelligence Dossier\n`;
+  let md = `# VYOM Mission Intelligence Dossier\n`;
   md += `## ${expedition.name} (${expedition.year})\n\n`;
   md += `> **Authority:** National Centre for Polar and Ocean Research (NCPOR), Ministry of Earth Sciences (MoES), Govt. of India\n`;
-  md += `> **Synthesis Engine:** POLARIS Verified Ground-Truth Intelligence Pipeline\n`;
+  md += `> **Synthesis Engine:** VYOM Verified Ground-Truth Intelligence Pipeline\n`;
   md += `> **Generated On:** ${dateStr} | **Verification Status:** Official Source Grounded\n\n`;
   md += `---\n\n`;
 
@@ -850,7 +850,7 @@ function buildMarkdownReport({
   }
 
   md += `---\n`;
-  md += `*This mission dossier is synthesized directly from verified metadata in the POLARIS portal. All original datasets and technical publications remain property of the Ministry of Earth Sciences (MoES) and NCPOR.*`;
+  md += `*This mission dossier is synthesized directly from verified metadata in the VYOM portal. All original datasets and technical publications remain property of the Ministry of Earth Sciences (MoES) and NCPOR.*`;
 
   return md;
 }

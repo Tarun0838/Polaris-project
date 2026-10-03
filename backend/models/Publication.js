@@ -35,7 +35,7 @@ const publicationSchema = new mongoose.Schema({
   },
   doi: {
     type: String,
-    required: true
+    default: ''
   },
   abstract: {
     type: String,
@@ -62,11 +62,31 @@ const publicationSchema = new mongoose.Schema({
   },
   sourceUrl: {
     type: String,
-    required: true
+    default: 'https://npdc.ncpor.res.in'
+  },
+  fileUrl: {
+    type: String,
+    default: ''
+  },
+  fileName: {
+    type: String,
+    default: ''
+  },
+  fileSize: {
+    type: String,
+    default: ''
+  },
+  uploadedBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  },
+  uploadedByName: {
+    type: String,
+    default: ''
   },
   verificationStatus: {
     type: String,
-    default: 'official-source-verified'
+    default: 'researcher-verified'
   }
 }, {
   timestamps: true
